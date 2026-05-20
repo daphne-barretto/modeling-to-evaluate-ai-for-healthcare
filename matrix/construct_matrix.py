@@ -1,7 +1,8 @@
 import json, csv
 
 OUTPUT_FILES = {
-    "GPT-4o": "outputs/daphne_outputs.json",
+    "GPT-5.4": "outputs/daphne_gpt5_outputs.json",
+    "GPT-4o": "outputs/daphne_gpt4o_outputs.json",
     "Qwen-large": "outputs/izhan_outputs.json",
     "LLaVA-Med": "outputs/shannon_outputs.json",
 }

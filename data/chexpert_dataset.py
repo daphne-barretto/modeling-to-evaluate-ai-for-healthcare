@@ -9,6 +9,23 @@ PATHOLOGIES = [
     "Pleural Other", "Pneumonia", "Pneumothorax", "Support Devices"
 ]
 
+# The danjacobellis/chexpert HF dataset stores each pathology as a ClassLabel:
+#   ['unlabeled', 'uncertain', 'absent', 'present']
+# We decode to canonical CheXpert numeric labels so downstream scorers work:
+#   1.0 = present, 0.0 = absent, -1.0 = uncertain, None = unlabeled (no mention).
+_HF_LABEL_DECODE = {0: None, 1: -1.0, 2: 0.0, 3: 1.0}
+
+
+def _decode_hf_label(raw):
+    """Decode a HuggingFace ClassLabel int -> canonical CheXpert label."""
+    if raw is None:
+        return None
+    if isinstance(raw, bool):
+        return float(int(raw))
+    if isinstance(raw, int):
+        return _HF_LABEL_DECODE.get(raw, None)
+    return raw
+
 
 def load_sample_ids(path: str = "data/sample_ids.json") -> set:
     """Load the fixed set of item IDs everyone uses."""
@@ -35,7 +52,7 @@ def iter_chexpert(
         if sample_ids is not None and item_id not in sample_ids:
             continue
 
-        labels = {p: example.get(p, -1) for p in PATHOLOGIES}
+        labels = {p: _decode_hf_label(example.get(p)) for p in PATHOLOGIES}
 
         yield {
             "item_id": item_id,
@@ -59,3 +76,4 @@ def iter_batched(batch_size: int = 8, **kwargs):
             batch = []
     if batch:
         yield batch
+
