@@ -1,0 +1,5 @@
+subject,n_observations,n_correct,accuracy
+GPT-5.4,2800,2304,0.822857
+Qwen2.5-VL-3B,139888,89819,0.642078
+Qwen2.5-VL-7B,140000,94900,0.677857
+gpt-4o,2016,1570,0.778770

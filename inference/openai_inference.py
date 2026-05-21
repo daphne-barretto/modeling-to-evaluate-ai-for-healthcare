@@ -185,13 +185,29 @@ def _load_existing(output_path: str) -> dict:
         return {}
 
 
+def _flagged_only(cfr) -> dict | None:
+    """Extract only flagged/detected categories from a content_filter dict."""
+    if not cfr or not isinstance(cfr, dict):
+        return None
+    flagged = {
+        k: v for k, v in cfr.items()
+        if isinstance(v, dict) and (v.get("filtered") or v.get("detected"))
+    }
+    return flagged or None
+
+
 def call_chat_completions(
     client,
     deployment: str,
     image,
     extra_kwargs: dict | None = None,
-) -> str:
-    """Azure Chat Completions API (used by GPT-4o)."""
+) -> dict:
+    """Azure Chat Completions API (used by GPT-4o).
+
+    Returns {'text': str, 'diagnostics': dict}. Diagnostics capture
+    finish_reason, model refusal, content-filter flags, and token usage so we
+    can distinguish refusals/filtering from genuine model predictions.
+    """
     data_url = image_to_data_url(image)
     kwargs = {
         "model": deployment,
@@ -209,7 +225,24 @@ def call_chat_completions(
     if extra_kwargs:
         kwargs.update(extra_kwargs)
     resp = client.chat.completions.create(**kwargs)
-    return resp.choices[0].message.content or ""
+
+    choice = resp.choices[0]
+    text = choice.message.content or ""
+    full = resp.model_dump()
+    diagnostics = {
+        "finish_reason": choice.finish_reason,
+        "refusal": getattr(choice.message, "refusal", None),
+        "completion_content_filter": _flagged_only(
+            full["choices"][0].get("content_filter_results")
+        ),
+        "prompt_content_filter": [
+            _flagged_only(p.get("content_filter_results"))
+            for p in (full.get("prompt_filter_results") or [])
+        ],
+        "usage": full.get("usage"),
+        "model": full.get("model"),
+    }
+    return {"text": text, "diagnostics": diagnostics}
 
 
 def call_responses(
@@ -217,8 +250,12 @@ def call_responses(
     deployment: str,
     image,
     extra_kwargs: dict | None = None,
-) -> str:
-    """Azure Responses API (used by GPT-5.4)."""
+) -> dict:
+    """Azure Responses API (used by GPT-5.4).
+
+    Returns {'text': str, 'diagnostics': dict}. Diagnostics capture status,
+    incomplete reason, refusal, reasoning summary, and reasoning-token usage.
+    """
     data_url = image_to_data_url(image)
     kwargs = {
         "model": deployment,
@@ -236,18 +273,51 @@ def call_responses(
     if extra_kwargs:
         kwargs.update(extra_kwargs)
     resp = client.responses.create(**kwargs)
-    # SDK convenience: output_text concatenates all output text items.
-    text = getattr(resp, "output_text", None)
-    if text:
-        return text
-    # Fallback: walk the structured output for text parts.
-    parts: list[str] = []
-    for item in getattr(resp, "output", []) or []:
-        for content in getattr(item, "content", []) or []:
-            t = getattr(content, "text", None)
-            if t:
-                parts.append(t)
-    return "".join(parts)
+
+    text = getattr(resp, "output_text", None) or ""
+    full = resp.model_dump()
+
+    refusal: str | None = None
+    reasoning_summary_parts: list[str] = []
+    if not text:
+        parts: list[str] = []
+        for item in full.get("output") or []:
+            if item.get("type") == "reasoning":
+                for s in item.get("summary") or []:
+                    t = s.get("text")
+                    if t:
+                        reasoning_summary_parts.append(t)
+            for content in item.get("content") or []:
+                ctype = content.get("type")
+                if ctype in ("output_text", "text") and content.get("text"):
+                    parts.append(content["text"])
+                elif ctype == "refusal" and content.get("refusal"):
+                    refusal = content["refusal"]
+        if parts:
+            text = "".join(parts)
+    else:
+        for item in full.get("output") or []:
+            if item.get("type") == "reasoning":
+                for s in item.get("summary") or []:
+                    t = s.get("text")
+                    if t:
+                        reasoning_summary_parts.append(t)
+
+    usage = full.get("usage") or {}
+    reasoning_tokens = (
+        (usage.get("output_tokens_details") or {}).get("reasoning_tokens")
+    )
+
+    diagnostics = {
+        "status": full.get("status"),
+        "incomplete_details": full.get("incomplete_details"),
+        "refusal": refusal,
+        "reasoning_summary": "\n".join(reasoning_summary_parts) or None,
+        "reasoning_tokens": reasoning_tokens,
+        "usage": usage or None,
+        "model": full.get("model"),
+    }
+    return {"text": text, "diagnostics": diagnostics}
 
 
 _CALLERS = {
@@ -301,23 +371,58 @@ def run_inference(
                 return
 
             try:
-                raw = caller(client, deployment, item["image"], extra_kwargs)
-                preds = parse_response(raw)
-                scored = score(preds, item["labels"])
-                results[item_id] = {
-                    "deployment": deployment,
-                    "api_type": api_type,
-                    "predictions": preds,
-                    "labels": item["labels"],
-                    "raw": raw,
-                    **scored,
-                }
+                out = caller(client, deployment, item["image"], extra_kwargs)
+                text = out["text"]
+                diagnostics = out["diagnostics"]
+                preds = parse_response(text)
+
+                # Distinguish refusals / empty / incomplete from genuine predictions.
+                # Missing items get correct=None so the response matrix can treat
+                # them as MISSING (not WRONG) under IRT.
+                missing_reason: str | None = None
+                if diagnostics.get("refusal"):
+                    missing_reason = "model_refusal"
+                elif diagnostics.get("incomplete_details"):
+                    missing_reason = "incomplete"
+                elif diagnostics.get("finish_reason") == "content_filter":
+                    missing_reason = "azure_content_filter"
+                elif not text:
+                    missing_reason = "empty_response"
+                elif not preds:
+                    missing_reason = "unparseable"
+
+                if missing_reason:
+                    results[item_id] = {
+                        "deployment": deployment,
+                        "api_type": api_type,
+                        "predictions": None,
+                        "labels": item["labels"],
+                        "raw": text,
+                        "diagnostics": diagnostics,
+                        "missing_reason": missing_reason,
+                        "correct": None,
+                        "per_label_correct": None,
+                        "binarized_labels": None,
+                    }
+                else:
+                    scored = score(preds, item["labels"])
+                    results[item_id] = {
+                        "deployment": deployment,
+                        "api_type": api_type,
+                        "predictions": preds,
+                        "labels": item["labels"],
+                        "raw": text,
+                        "diagnostics": diagnostics,
+                        "missing_reason": None,
+                        **scored,
+                    }
             except Exception as e:  # noqa: BLE001
                 results[item_id] = {
                     "deployment": deployment,
                     "api_type": api_type,
                     "error": f"{type(e).__name__}: {e}",
-                    "correct": 0,
+                    "missing_reason": "exception",
+                    "correct": None,
                 }
 
             with open(output_path, "w") as f:

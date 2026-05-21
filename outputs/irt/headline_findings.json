@@ -1,0 +1,107 @@
+{
+  "best_holdout_model": "bifactor",
+  "best_holdout_nll_per_obs": 0.955844,
+  "model_fit_table": [
+    {
+      "model": "rasch",
+      "test_nll_per_obs": "1.122344",
+      "BIC": "1838760.0768",
+      "n_params": "142804"
+    },
+    {
+      "model": "twopl",
+      "test_nll_per_obs": "2.011553",
+      "BIC": "3589729.9242",
+      "n_params": "285604"
+    },
+    {
+      "model": "threepl",
+      "test_nll_per_obs": "1.646329",
+      "BIC": "5360900.5137",
+      "n_params": "428404"
+    },
+    {
+      "model": "fm1",
+      "test_nll_per_obs": "1.972028",
+      "BIC": "3557685.2370",
+      "n_params": "285604"
+    },
+    {
+      "model": "fm2",
+      "test_nll_per_obs": "1.151614",
+      "BIC": "5335431.7277",
+      "n_params": "428408"
+    },
+    {
+      "model": "fm3",
+      "test_nll_per_obs": "1.462026",
+      "BIC": "7113883.9377",
+      "n_params": "571212"
+    },
+    {
+      "model": "bifactor",
+      "test_nll_per_obs": "0.955844",
+      "BIC": "5335603.9227",
+      "n_params": "428420"
+    }
+  ],
+  "spearman_best_irt_vs_aggregate": 1.0,
+  "discrimination_spread_within_tier": {
+    "high": {
+      "p10_to_p90_range": "50.5795"
+    },
+    "low": {
+      "p10_to_p90_range": "3.9092"
+    },
+    "mid": {
+      "p10_to_p90_range": "85.1529"
+    },
+    "na": {
+      "p10_to_p90_range": "86.4617"
+    }
+  },
+  "top_dif_by_sex": [
+    [
+      "Edema",
+      0.043479525412928766
+    ],
+    [
+      "Pleural Effusion",
+      0.0342648546483828
+    ],
+    [
+      "Consolidation",
+      0.03320200766362691
+    ],
+    [
+      "No Finding",
+      0.02307354808842743
+    ],
+    [
+      "Atelectasis",
+      0.021539758291844735
+    ]
+  ],
+  "top_dif_by_age": [
+    [
+      "Edema",
+      0.23595211989919146
+    ],
+    [
+      "Pleural Effusion",
+      0.16937021658950002
+    ],
+    [
+      "Atelectasis",
+      0.15211892603174504
+    ],
+    [
+      "Pneumothorax",
+      0.13515752217886334
+    ],
+    [
+      "Consolidation",
+      0.10426838071029931
+    ]
+  ]
+}

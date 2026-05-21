@@ -1,0 +1,57 @@
+subject,pathology,n,n_correct,accuracy
+GPT-5.4,No Finding,200,158,0.790000
+GPT-5.4,Enlarged Cardiomediastinum,200,141,0.705000
+GPT-5.4,Cardiomegaly,200,152,0.760000
+GPT-5.4,Lung Opacity,200,153,0.765000
+GPT-5.4,Lung Lesion,200,197,0.985000
+GPT-5.4,Edema,200,167,0.835000
+GPT-5.4,Consolidation,200,166,0.830000
+GPT-5.4,Pneumonia,200,170,0.850000
+GPT-5.4,Atelectasis,200,137,0.685000
+GPT-5.4,Pneumothorax,200,187,0.935000
+GPT-5.4,Pleural Effusion,200,151,0.755000
+GPT-5.4,Pleural Other,200,195,0.975000
+GPT-5.4,Fracture,200,198,0.990000
+GPT-5.4,Support Devices,200,132,0.660000
+Qwen2.5-VL-3B,No Finding,9992,6572,0.657726
+Qwen2.5-VL-3B,Enlarged Cardiomediastinum,9992,4859,0.486289
+Qwen2.5-VL-3B,Cardiomegaly,9992,5560,0.556445
+Qwen2.5-VL-3B,Lung Opacity,9992,4606,0.460969
+Qwen2.5-VL-3B,Lung Lesion,9992,8515,0.852182
+Qwen2.5-VL-3B,Edema,9992,5705,0.570957
+Qwen2.5-VL-3B,Consolidation,9992,5350,0.535428
+Qwen2.5-VL-3B,Pneumonia,9992,7479,0.748499
+Qwen2.5-VL-3B,Atelectasis,9992,4518,0.452162
+Qwen2.5-VL-3B,Pneumothorax,9992,8652,0.865893
+Qwen2.5-VL-3B,Pleural Effusion,9992,5357,0.536129
+Qwen2.5-VL-3B,Pleural Other,9992,8697,0.870396
+Qwen2.5-VL-3B,Fracture,9992,7188,0.719376
+Qwen2.5-VL-3B,Support Devices,9992,6761,0.676641
+Qwen2.5-VL-7B,No Finding,10000,8326,0.832600
+Qwen2.5-VL-7B,Enlarged Cardiomediastinum,10000,6547,0.654700
+Qwen2.5-VL-7B,Cardiomegaly,10000,6034,0.603400
+Qwen2.5-VL-7B,Lung Opacity,10000,5198,0.519800
+Qwen2.5-VL-7B,Lung Lesion,10000,8590,0.859000
+Qwen2.5-VL-7B,Edema,10000,5662,0.566200
+Qwen2.5-VL-7B,Consolidation,10000,5175,0.517500
+Qwen2.5-VL-7B,Pneumonia,10000,7381,0.738100
+Qwen2.5-VL-7B,Atelectasis,10000,4469,0.446900
+Qwen2.5-VL-7B,Pneumothorax,10000,8769,0.876900
+Qwen2.5-VL-7B,Pleural Effusion,10000,5320,0.532000
+Qwen2.5-VL-7B,Pleural Other,10000,8847,0.884700
+Qwen2.5-VL-7B,Fracture,10000,7201,0.720100
+Qwen2.5-VL-7B,Support Devices,10000,7381,0.738100
+gpt-4o,No Finding,144,122,0.847222
+gpt-4o,Enlarged Cardiomediastinum,144,86,0.597222
+gpt-4o,Cardiomegaly,144,97,0.673611
+gpt-4o,Lung Opacity,144,85,0.590278
+gpt-4o,Lung Lesion,144,143,0.993056
+gpt-4o,Edema,144,105,0.729167
+gpt-4o,Consolidation,144,113,0.784722
+gpt-4o,Pneumonia,144,123,0.854167
+gpt-4o,Atelectasis,144,86,0.597222
+gpt-4o,Pneumothorax,144,141,0.979167
+gpt-4o,Pleural Effusion,144,96,0.666667
+gpt-4o,Pleural Other,144,143,0.993056
+gpt-4o,Fracture,144,142,0.986111
+gpt-4o,Support Devices,144,88,0.611111

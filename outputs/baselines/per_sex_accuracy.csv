@@ -1,0 +1,5 @@
+subject,sex,n,n_correct,accuracy
+Qwen2.5-VL-3B,Female,56196,35824,0.637483
+Qwen2.5-VL-3B,Male,83692,53995,0.645163
+Qwen2.5-VL-7B,Female,56280,37821,0.672015
+Qwen2.5-VL-7B,Male,83720,57079,0.681785

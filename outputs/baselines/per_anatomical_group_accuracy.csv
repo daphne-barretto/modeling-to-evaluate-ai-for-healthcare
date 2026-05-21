@@ -1,0 +1,17 @@
+subject,anatomical_group,n,n_correct,accuracy
+GPT-5.4,cardiac,400,293,0.732500
+GPT-5.4,other,600,488,0.813333
+GPT-5.4,pleural,600,533,0.888333
+GPT-5.4,pulmonary,1200,990,0.825000
+Qwen2.5-VL-3B,cardiac,19984,10419,0.521367
+Qwen2.5-VL-3B,other,29976,20521,0.684581
+Qwen2.5-VL-3B,pleural,29976,22706,0.757473
+Qwen2.5-VL-3B,pulmonary,59952,36173,0.603366
+Qwen2.5-VL-7B,cardiac,20000,12581,0.629050
+Qwen2.5-VL-7B,other,30000,22908,0.763600
+Qwen2.5-VL-7B,pleural,30000,22936,0.764533
+Qwen2.5-VL-7B,pulmonary,60000,36475,0.607917
+gpt-4o,cardiac,288,183,0.635417
+gpt-4o,other,432,352,0.814815
+gpt-4o,pleural,432,380,0.879630
+gpt-4o,pulmonary,864,655,0.758102
