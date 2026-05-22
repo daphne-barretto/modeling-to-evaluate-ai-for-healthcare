@@ -164,3 +164,166 @@ def summarize(records: list[dict]) -> dict:
             "accuracy": (sum(vals) / len(vals)) if vals else None,
         }
     return summary
+
+
+# ─────────────────────────────────────────────────────────────────────────────
+# Free-text findings prompt + synonym parser
+#
+# Used by models trained on free-text radiology reports (LLaVA-Med, CheXagent)
+# that do not reliably follow structured "Cardiomegaly: yes/no" prompts.
+# ─────────────────────────────────────────────────────────────────────────────
+
+FINDINGS_PROMPT = (
+    "Generate the findings section for this chest X-ray. "
+    "Be specific about which conditions are present or absent."
+)
+
+PATHOLOGY_SYNONYMS = {
+    "Enlarged Cardiomediastinum": [
+        "enlarged cardiomediastinum",
+        "widened mediastinum",
+        "mediastinal widening",
+    ],
+    "Cardiomegaly": [
+        "cardiomegaly",
+        "heart enlargement",
+        "cardiac enlargement",
+        "enlarged heart",
+        "enlarged cardiac silhouette",
+    ],
+    "Lung Opacity": [
+        "lung opacity",
+        "pulmonary opacity",
+        "opacities",
+        "opacification",
+    ],
+    "Lung Lesion": ["lung lesion", "pulmonary lesion", "nodule", "mass"],
+    "Edema": ["edema", "oedema", "pulmonary congestion"],
+    "Consolidation": ["consolidation"],
+    "Pneumonia": ["pneumonia", "infection", "infectious process"],
+    "Atelectasis": ["atelectasis", "collapse"],
+    "Pneumothorax": ["pneumothorax"],
+    "Pleural Effusion": ["pleural effusion", "effusion"],
+    "Pleural Other": [
+        "pleural thickening",
+        "pleural scarring",
+        "calcified pleura",
+    ],
+    "Fracture": ["fracture"],
+    "Support Devices": [
+        "support device",
+        "tube",
+        "line",
+        "catheter",
+        "pacemaker",
+        "wire",
+        "icd",
+        "hardware",
+    ],
+    "No Finding": [
+        "no finding",
+        "no findings",
+        "no acute",
+        "normal",
+        "unremarkable",
+        "no abnormalit",
+    ],
+}
+
+NEG_PATTERNS = [
+    "no ",
+    "without ",
+    "absent",
+    "negative for ",
+    "no evidence of ",
+    "no significant ",
+]
+
+
+def _is_mentioned(p: str, resp_lower: str) -> bool | None:
+    """True if pathology positively mentioned, False if negated, None if absent."""
+    terms = PATHOLOGY_SYNONYMS.get(p, [p.lower()])
+    for term in terms:
+        idx = resp_lower.find(term)
+        if idx == -1:
+            continue
+        left = resp_lower[max(0, idx - 25):idx]
+        if any(neg in left for neg in NEG_PATTERNS):
+            return False
+        return True
+    return None
+
+
+def build_findings_record(
+    *,
+    subject: str,
+    item_id: int,
+    rel_path: str,
+    response: str,
+    row: dict,
+) -> dict:
+    """Build a record from a free-text findings response using synonym + negation.
+
+    Models like LLaVA-Med and CheXagent are trained on free-text radiology
+    reports rather than structured yes/no prompts and routinely echo the
+    template back unchanged when forced into a list format. This parser
+    extracts a per-pathology call from the resulting narrative.
+    """
+    record: dict = {
+        "image_path": rel_path,
+        "subject": subject,
+        "item_id": str(item_id),
+        "raw_response": response.strip(),
+    }
+    resp_lower = response.lower()
+    responded = bool(resp_lower.strip())
+    n_valid = 0
+    n_correct = 0
+
+    for p in PATHOLOGIES:
+        gt_raw = row.get(p, "")
+        try:
+            gt_val = (
+                float(gt_raw)
+                if str(gt_raw).strip() not in ("", "nan")
+                else None
+            )
+        except (TypeError, ValueError):
+            gt_val = None
+        if gt_val is None or gt_val == -1.0:
+            record[f"{p}__gt"] = None
+            record[f"{p}__answer"] = None
+            record[f"{p}__correct"] = None
+            continue
+        if not responded:
+            record[f"{p}__gt"] = gt_val
+            record[f"{p}__answer"] = "unclear"
+            record[f"{p}__correct"] = None
+            continue
+
+        mention = _is_mentioned(p, resp_lower)
+        if p == "No Finding":
+            positive_findings = any(
+                _is_mentioned(q, resp_lower) is True
+                for q in PATHOLOGIES
+                if q != "No Finding"
+            )
+            pred = (mention is True) or (
+                mention is None and not positive_findings
+            )
+        else:
+            pred = mention is True
+
+        gt_pos = gt_val == 1.0
+        correct = int(pred == gt_pos)
+        record[f"{p}__gt"] = gt_val
+        record[f"{p}__answer"] = "yes" if pred else "no"
+        record[f"{p}__correct"] = correct
+        n_valid += 1
+        n_correct += correct
+    record["n_valid"] = n_valid
+    record["n_correct"] = n_correct
+    record["all_correct"] = (
+        int(n_correct == n_valid) if n_valid > 0 else None
+    )
+    return record

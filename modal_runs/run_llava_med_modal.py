@@ -62,9 +62,9 @@ def run_llava_med(n_images: int = 10_000, save_every: int = 100):
 
     from _helpers import OUTPUTS_DIR, select_frontal_train_rows
     from _open_vlm_helpers import (
-        PROMPT,
+        FINDINGS_PROMPT,
         atomic_write_json,
-        build_record,
+        build_findings_record,
         load_existing,
         summarize,
     )
@@ -126,8 +126,9 @@ def run_llava_med(n_images: int = 10_000, save_every: int = 100):
             n_errors += 1
             continue
 
-        # Build LLaVA-Med prompt
-        qs = PROMPT
+        # Build LLaVA-Med prompt (free-text findings; structured yes/no
+        # prompts cause the model to echo the template back unchanged).
+        qs = FINDINGS_PROMPT
         if model.config.mm_use_im_start_end:
             qs = (
                 DEFAULT_IM_START_TOKEN
@@ -182,11 +183,11 @@ def run_llava_med(n_images: int = 10_000, save_every: int = 100):
             n_errors += 1
             continue
 
-        record = build_record(
+        record = build_findings_record(
             subject=SUBJECT_NAME,
             item_id=i,
             rel_path=rel_path,
-            raw_response=response,
+            response=response,
             row=row,
         )
         records.append(record)
