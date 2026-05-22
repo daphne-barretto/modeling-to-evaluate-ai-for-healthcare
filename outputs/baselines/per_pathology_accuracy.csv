@@ -1,18 +1,18 @@
 subject,pathology,n,n_correct,accuracy
-GPT-5.4,No Finding,200,158,0.790000
-GPT-5.4,Enlarged Cardiomediastinum,200,141,0.705000
-GPT-5.4,Cardiomegaly,200,152,0.760000
-GPT-5.4,Lung Opacity,200,153,0.765000
-GPT-5.4,Lung Lesion,200,197,0.985000
-GPT-5.4,Edema,200,167,0.835000
-GPT-5.4,Consolidation,200,166,0.830000
-GPT-5.4,Pneumonia,200,170,0.850000
-GPT-5.4,Atelectasis,200,137,0.685000
-GPT-5.4,Pneumothorax,200,187,0.935000
-GPT-5.4,Pleural Effusion,200,151,0.755000
-GPT-5.4,Pleural Other,200,195,0.975000
-GPT-5.4,Fracture,200,198,0.990000
-GPT-5.4,Support Devices,200,132,0.660000
+GPT-5.4,No Finding,25192,22041,0.874921
+GPT-5.4,Enlarged Cardiomediastinum,25192,15804,0.627342
+GPT-5.4,Cardiomegaly,25192,18061,0.716934
+GPT-5.4,Lung Opacity,25192,20380,0.808987
+GPT-5.4,Lung Lesion,25192,21813,0.865870
+GPT-5.4,Edema,25192,16982,0.674103
+GPT-5.4,Consolidation,25192,19140,0.759765
+GPT-5.4,Pneumonia,25192,19727,0.783066
+GPT-5.4,Atelectasis,25192,18403,0.730510
+GPT-5.4,Pneumothorax,25192,22279,0.884368
+GPT-5.4,Pleural Effusion,25192,20505,0.813949
+GPT-5.4,Pleural Other,25192,21552,0.855510
+GPT-5.4,Fracture,25192,17854,0.708717
+GPT-5.4,Support Devices,25192,20659,0.820062
 Qwen2.5-VL-3B,No Finding,9992,6572,0.657726
 Qwen2.5-VL-3B,Enlarged Cardiomediastinum,9992,4859,0.486289
 Qwen2.5-VL-3B,Cardiomegaly,9992,5560,0.556445
@@ -41,17 +41,17 @@ Qwen2.5-VL-7B,Pleural Effusion,10000,5320,0.532000
 Qwen2.5-VL-7B,Pleural Other,10000,8847,0.884700
 Qwen2.5-VL-7B,Fracture,10000,7201,0.720100
 Qwen2.5-VL-7B,Support Devices,10000,7381,0.738100
-gpt-4o,No Finding,144,122,0.847222
-gpt-4o,Enlarged Cardiomediastinum,144,86,0.597222
-gpt-4o,Cardiomegaly,144,97,0.673611
-gpt-4o,Lung Opacity,144,85,0.590278
-gpt-4o,Lung Lesion,144,143,0.993056
-gpt-4o,Edema,144,105,0.729167
-gpt-4o,Consolidation,144,113,0.784722
-gpt-4o,Pneumonia,144,123,0.854167
-gpt-4o,Atelectasis,144,86,0.597222
-gpt-4o,Pneumothorax,144,141,0.979167
-gpt-4o,Pleural Effusion,144,96,0.666667
-gpt-4o,Pleural Other,144,143,0.993056
-gpt-4o,Fracture,144,142,0.986111
-gpt-4o,Support Devices,144,88,0.611111
+gpt-4o,No Finding,1657,1581,0.954134
+gpt-4o,Enlarged Cardiomediastinum,1657,1042,0.628847
+gpt-4o,Cardiomegaly,1657,1127,0.680145
+gpt-4o,Lung Opacity,1657,1231,0.742909
+gpt-4o,Lung Lesion,1657,1500,0.905250
+gpt-4o,Edema,1657,1101,0.664454
+gpt-4o,Consolidation,1657,1173,0.707906
+gpt-4o,Pneumonia,1657,1197,0.722390
+gpt-4o,Atelectasis,1657,1032,0.622812
+gpt-4o,Pneumothorax,1657,1528,0.922148
+gpt-4o,Pleural Effusion,1657,1046,0.631261
+gpt-4o,Pleural Other,1657,1583,0.955341
+gpt-4o,Fracture,1657,1461,0.881714
+gpt-4o,Support Devices,1657,1325,0.799638

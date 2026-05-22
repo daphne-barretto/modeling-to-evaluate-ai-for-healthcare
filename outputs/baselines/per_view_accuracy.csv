@@ -1,3 +1,7 @@
 subject,view,n,n_correct,accuracy
+GPT-5.4,Frontal,306152,239012,0.780697
+GPT-5.4,Lateral,43736,33884,0.774739
 Qwen2.5-VL-3B,Frontal,139888,89819,0.642078
 Qwen2.5-VL-7B,Frontal,140000,94900,0.677857
+gpt-4o,Frontal,20818,16073,0.772072
+gpt-4o,Lateral,364,284,0.780220

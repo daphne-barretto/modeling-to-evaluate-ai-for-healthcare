@@ -1,12 +1,13 @@
 {
   "aggregate_accuracy": {
-    "GPT-5.4": 0.8228571428571428,
+    "GPT-5.4": 0.780293063557592,
     "Qwen2.5-VL-3B": 0.6420779480727439,
     "Qwen2.5-VL-7B": 0.6778571428571428,
-    "gpt-4o": 0.7787698412698413
+    "gpt-4o": 0.7727821363910682
   },
   "files": [
     "aggregate_accuracy.csv",
+    "baseline_summary.json",
     "per_age_bin_accuracy.csv",
     "per_anatomical_group_accuracy.csv",
     "per_ap_pa_accuracy.csv",
@@ -16,7 +17,7 @@
     "per_sex_accuracy.csv",
     "per_view_accuracy.csv"
   ],
-  "n_observations": 284704,
+  "n_observations": 655774,
   "n_unresolved_train_csv": {
     "view": 4816,
     "ap_pa": 4816,
