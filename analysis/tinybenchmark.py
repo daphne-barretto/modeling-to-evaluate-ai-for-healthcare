@@ -1,12 +1,18 @@
 """Vision analogue of Polo et al. 2024 ``tinyBenchmarks``.
 
-Given a fitted IRT panel, rank items by their 2PL discrimination |a_j| and
-ask how well the *top-K* most-informative items preserve the full-benchmark
-ranking of test-takers compared with a uniformly random K-item subset.
+Given a fitted IRT panel, rank items via several item-selection strategies
+and ask how well a *K-item* subset preserves the full-benchmark ranking
+of test-takers compared with a uniformly random K-item subset.
 
-For each K in a small grid we report Spearman ρ between the full-corpus
-ranking of subjects (by raw accuracy on all items) and the ranking induced
-by accuracy on just K items.
+Strategies evaluated:
+  - ``top_discrimination``    rank by |2PL discrim| (Polo-2024 analogue)
+  - ``fisher_info_at_mean``   rank by Fisher info I_j(θ̄) at the
+                              population-mean Rasch ability θ̄
+  - ``random``                random K subset (N_RANDOM_REPS reps)
+
+For each strategy + K we report Spearman ρ between the full-corpus
+ranking of subjects (by raw accuracy on all items) and the ranking
+induced by accuracy on just K items.
 
 Outputs
 -------
@@ -44,6 +50,42 @@ def load_item_disc(path: str) -> np.ndarray:
     for r in rows:
         a[int(r["item_idx"])] = abs(float(r["discrimination"]))
     return a
+
+
+def load_item_params_twopl(path: str) -> tuple[np.ndarray, np.ndarray]:
+    """Return (a_j, b_j) from a 2PL CSV in item_idx order."""
+    with open(path) as f:
+        reader = csv.DictReader(f)
+        rows = list(reader)
+    a = np.zeros(len(rows), dtype=np.float64)
+    b = np.zeros(len(rows), dtype=np.float64)
+    for r in rows:
+        idx = int(r["item_idx"])
+        a[idx] = float(r["discrimination"])
+        b[idx] = float(r["difficulty"])
+    return a, b
+
+
+def fisher_info_2pl(a: np.ndarray, b: np.ndarray, theta: float) -> np.ndarray:
+    """Per-item Fisher information I_j(θ) under 2PL.
+
+    I_j(θ) = a_j² · p(θ) · (1 − p(θ))   where  p(θ) = σ(a_j(θ − b_j))
+    """
+    z = a * (theta - b)
+    z = np.clip(z, -30.0, 30.0)
+    p = 1.0 / (1.0 + np.exp(-z))
+    return (a ** 2) * p * (1.0 - p)
+
+
+def load_population_theta_mean() -> float:
+    """Mean of fitted 2PL θ̂ across subjects."""
+    vals = []
+    with open(os.path.join(IRT_DIR, "abilities_twopl.csv")) as f:
+        next(f)
+        for ln in f:
+            _, v = ln.strip().split(",")
+            vals.append(float(v))
+    return float(np.mean(vals))
 
 
 def load_responses() -> tuple[np.ndarray, np.ndarray, np.ndarray, list[str]]:
@@ -95,10 +137,13 @@ def spearman(a: np.ndarray, b: np.ndarray) -> float:
 
 
 def main() -> None:
-    print("[tinybench] loading 2PL discriminations...", flush=True)
-    a = load_item_disc(os.path.join(IRT_DIR, "item_params_twopl.csv"))
+    print("[tinybench] loading 2PL item params...", flush=True)
+    a, b = load_item_params_twopl(os.path.join(IRT_DIR, "item_params_twopl.csv"))
     n_items = len(a)
     print(f"[tinybench] {n_items:,} items", flush=True)
+
+    theta_bar = load_population_theta_mean()
+    print(f"[tinybench] population θ̄ = {theta_bar:+.3f}", flush=True)
 
     print("[tinybench] loading responses...", flush=True)
     s_idx, i_idx, y, subjects = load_responses()
@@ -125,7 +170,9 @@ def main() -> None:
         flush=True,
     )
 
-    order_by_disc = np.argsort(-a)
+    order_by_disc = np.argsort(-np.abs(a))
+    fisher = fisher_info_2pl(a, b, theta_bar)
+    order_by_fisher = np.argsort(-fisher)
 
     rng = np.random.default_rng(SEED)
     rows: list[dict] = []
@@ -133,23 +180,29 @@ def main() -> None:
     for K in K_GRID:
         if K > n_items:
             continue
-        top_set = order_by_disc[:K]
-        top_acc = subject_acc_on_items(s_idx, i_idx, y, n_subj, top_set)
+        # Strategy 1: top |a|
+        top_disc_set = order_by_disc[:K]
+        top_acc = subject_acc_on_items(s_idx, i_idx, y, n_subj, top_disc_set)
         rho_top = spearman(top_acc, full_acc)
-        rows.append(
-            {"K": K, "strategy": "top_discrimination", "rep": 0, "spearman": rho_top}
-        )
+        rows.append({"K": K, "strategy": "top_discrimination", "rep": 0, "spearman": rho_top})
+
+        # Strategy 2: top I_j(θ̄)
+        fisher_set = order_by_fisher[:K]
+        fisher_acc = subject_acc_on_items(s_idx, i_idx, y, n_subj, fisher_set)
+        rho_fisher = spearman(fisher_acc, full_acc)
+        rows.append({"K": K, "strategy": "fisher_info_at_mean", "rep": 0, "spearman": rho_fisher})
+
+        # Strategy 3: random K (N_RANDOM_REPS reps)
         rhos_rand = []
         for r in range(N_RANDOM_REPS):
             sample = rng.choice(n_items, size=K, replace=False)
             rand_acc = subject_acc_on_items(s_idx, i_idx, y, n_subj, sample)
             rho = spearman(rand_acc, full_acc)
             rhos_rand.append(rho)
-            rows.append(
-                {"K": K, "strategy": "random", "rep": r, "spearman": rho}
-            )
+            rows.append({"K": K, "strategy": "random", "rep": r, "spearman": rho})
         print(
-            f"  K={K:>5}: top-disc ρ={rho_top:+.4f}  "
+            f"  K={K:>5}: top-|a| ρ={rho_top:+.4f}  "
+            f"fisher@θ̄ ρ={rho_fisher:+.4f}  "
             f"random ρ̄={np.nanmean(rhos_rand):+.4f} "
             f"(σ={np.nanstd(rhos_rand):.4f})",
             flush=True,
@@ -171,6 +224,7 @@ def main() -> None:
 
         Ks = sorted({r["K"] for r in rows})
         top = [next(r["spearman"] for r in rows if r["K"] == K and r["strategy"] == "top_discrimination") for K in Ks]
+        fisher_line = [next(r["spearman"] for r in rows if r["K"] == K and r["strategy"] == "fisher_info_at_mean") for K in Ks]
         rand_mean = []
         rand_lo = []
         rand_hi = []
@@ -186,6 +240,7 @@ def main() -> None:
 
         fig, ax = plt.subplots(figsize=(5.6, 3.4))
         ax.plot(Ks, top, "-o", color="#1f77b4", label="Top-K by |2PL discrim|")
+        ax.plot(Ks, fisher_line, "-^", color="#d62728", label="Top-K by Fisher info at θ̄")
         ax.plot(Ks, rand_mean, "-s", color="#aaaaaa", label="Random K (mean)")
         ax.fill_between(Ks, rand_lo, rand_hi, color="#aaaaaa", alpha=0.25,
                         label="Random K 5–95%")

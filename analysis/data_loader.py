@@ -116,11 +116,15 @@ def discover_sources(repo_root: str) -> list[str]:
         os.path.join(repo_root, "outputs/daphne_gpt4o_train1_15000.json"),
         # Open VLM runners (Izhan-format list of records)
         os.path.join(repo_root, "outputs/daphne_chexagent_train1_10000.json"),
+        os.path.join(repo_root, "outputs/daphne_chexagent3b_train1_10000.json"),
         os.path.join(repo_root, "outputs/daphne_llava_med_train1_10000.json"),
+        os.path.join(repo_root, "outputs/daphne_llava15_train1_10000.json"),
         os.path.join(repo_root, "outputs/daphne_llama32_vision_train1_10000.json"),
         os.path.join(repo_root, "outputs/daphne_medgemma_train1_10000.json"),
         os.path.join(repo_root, "outputs/daphne_internvl3_train1_10000.json"),
         os.path.join(repo_root, "outputs/daphne_phi35_vision_train1_10000.json"),
+        os.path.join(repo_root, "outputs/daphne_qwen25vl_32b_train1_10000.json"),
+        os.path.join(repo_root, "outputs/daphne_biomedclip_train1_10000.json"),
         # Izhan Qwen outputs (top-level list format)
         os.path.join(repo_root, "qwen3b_results_10000.json"),
         os.path.join(repo_root, "qwen7b_results_10000.json"),
