@@ -21,12 +21,11 @@ image = (
     .pip_install(
         "torch==2.3.1",
         "torchvision==0.18.1",
-        "transformers==4.43.0",
+        "transformers==4.45.2",
         "accelerate==0.30.0",
         "Pillow",
         "tqdm",
         "numpy<2",
-        "flash-attn==2.6.3",
         "einops",
     )
     .add_local_python_source("_open_vlm_helpers", "_helpers")
@@ -51,9 +50,9 @@ def run_phi35_vision(n_images: int = 10_000, save_every: int = 100):
 
     from _helpers import OUTPUTS_DIR, select_frontal_train_rows
     from _open_vlm_helpers import (
-        PROMPT,
+        FINDINGS_PROMPT,
         atomic_write_json,
-        build_record,
+        build_findings_record,
         load_existing,
         summarize,
     )
@@ -87,7 +86,7 @@ def run_phi35_vision(n_images: int = 10_000, save_every: int = 100):
         torch_dtype=torch.float16,
         trust_remote_code=True,
         cache_dir=MODEL_CACHE,
-        _attn_implementation="flash_attention_2",
+        _attn_implementation="eager",
     ).to("cuda").eval()
     print("[Phi-3.5-Vision] model loaded.", flush=True)
 
@@ -108,7 +107,7 @@ def run_phi35_vision(n_images: int = 10_000, save_every: int = 100):
 
         try:
             messages = [
-                {"role": "user", "content": f"<|image_1|>\n{PROMPT}"},
+                {"role": "user", "content": f"<|image_1|>\n{FINDINGS_PROMPT}"},
             ]
             prompt_str = processor.tokenizer.apply_chat_template(
                 messages, tokenize=False, add_generation_prompt=True
@@ -117,7 +116,7 @@ def run_phi35_vision(n_images: int = 10_000, save_every: int = 100):
             with torch.inference_mode():
                 output_ids = model.generate(
                     **inputs,
-                    max_new_tokens=512,
+                    max_new_tokens=256,
                     do_sample=False,
                     eos_token_id=processor.tokenizer.eos_token_id,
                 )
@@ -132,11 +131,11 @@ def run_phi35_vision(n_images: int = 10_000, save_every: int = 100):
             n_errors += 1
             continue
 
-        record = build_record(
+        record = build_findings_record(
             subject=SUBJECT_NAME,
             item_id=i,
             rel_path=rel_path,
-            raw_response=response,
+            response=response,
             row=row,
         )
         records.append(record)

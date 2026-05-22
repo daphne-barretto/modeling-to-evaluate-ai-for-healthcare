@@ -19,13 +19,14 @@ SUBJECT_NAME = "InternVL3-8B"
 image = (
     modal.Image.debian_slim(python_version="3.11")
     .pip_install(
-        "torch",
-        "torchvision",
-        "transformers>=4.45",
-        "accelerate",
+        "torch==2.3.1",
+        "torchvision==0.18.1",
+        "transformers==4.45.2",
+        "accelerate==0.30.0",
         "sentencepiece",
         "Pillow",
         "tqdm",
+        "numpy<2",
         "einops",
         "timm",
     )
@@ -51,9 +52,9 @@ def run_internvl3(n_images: int = 10_000, save_every: int = 100):
 
     from _helpers import OUTPUTS_DIR, select_frontal_train_rows
     from _open_vlm_helpers import (
-        PROMPT,
+        FINDINGS_PROMPT,
         atomic_write_json,
-        build_record,
+        build_findings_record,
         load_existing,
         summarize,
     )
@@ -104,7 +105,7 @@ def run_internvl3(n_images: int = 10_000, save_every: int = 100):
 
     transform = build_transform()
 
-    generation_config = dict(max_new_tokens=512, do_sample=False)
+    generation_config = dict(max_new_tokens=256, do_sample=False)
 
     n_processed = 0
     n_errors = 0
@@ -123,7 +124,7 @@ def run_internvl3(n_images: int = 10_000, save_every: int = 100):
             continue
 
         try:
-            question = f"<image>\n{PROMPT}"
+            question = f"<image>\n{FINDINGS_PROMPT}"
             with torch.inference_mode():
                 response = model.chat(
                     tokenizer,
@@ -137,11 +138,11 @@ def run_internvl3(n_images: int = 10_000, save_every: int = 100):
             n_errors += 1
             continue
 
-        record = build_record(
+        record = build_findings_record(
             subject=SUBJECT_NAME,
             item_id=i,
             rel_path=rel_path,
-            raw_response=response,
+            response=response,
             row=row,
         )
         records.append(record)
