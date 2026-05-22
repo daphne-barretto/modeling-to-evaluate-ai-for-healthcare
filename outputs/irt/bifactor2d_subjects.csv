@@ -1,0 +1,5 @@
+subject,is_medical,factor1_general,factor2_medical
+GPT-5.4,0,+0.673638,+0.182476
+gpt-4o,0,-0.217270,+0.957512
+Qwen2.5-VL-3B,0,-0.646344,-0.576174
+Qwen2.5-VL-7B,0,-0.781172,+0.146418

@@ -1,0 +1,15 @@
+pathology,loading_general,loading_medical,intercept
+No Finding,+0.188704,+1.382644,+1.575207
+Enlarged Cardiomediastinum,-0.020251,+0.669234,+0.402850
+Cardiomegaly,+0.354137,+0.289059,+0.640636
+Lung Opacity,+0.919545,+0.515878,+0.738566
+Lung Lesion,+0.005802,+0.193971,+1.837082
+Edema,+0.294224,+0.105028,+0.518711
+Consolidation,+0.707793,+0.158705,+0.660610
+Pneumonia,+0.188299,-0.092131,+1.175568
+Atelectasis,+0.813731,+0.176570,+0.426812
+Pneumothorax,+0.013953,+0.251212,+1.990830
+Pleural Effusion,+0.943042,+0.071355,+0.826904
+Pleural Other,-0.261167,+0.397734,+1.897000
+Fracture,-0.129529,+0.303684,+0.942208
+Support Devices,+0.336944,+0.407611,+1.215971

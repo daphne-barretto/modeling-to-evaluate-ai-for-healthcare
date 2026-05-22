@@ -1,0 +1,16 @@
+{
+  "n_subjects": 4,
+  "n_pathologies": 14,
+  "nll_1d": 357404.73317015916,
+  "nll_2d": 356570.37573611364,
+  "chi2_LRT": 1668.7148680910468,
+  "extra_params": 18,
+  "varimax_applied": true,
+  "subjects": [
+    "GPT-5.4",
+    "gpt-4o",
+    "Qwen2.5-VL-3B",
+    "Qwen2.5-VL-7B"
+  ],
+  "medical_subjects_seen": []
+}

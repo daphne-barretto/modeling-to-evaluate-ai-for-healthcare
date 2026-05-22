@@ -1,0 +1,16 @@
+{
+  "n_subjects_total": 4,
+  "n_with_known_size": 2,
+  "fits": {
+    "Qwen2.5-VL": {
+      "n_subjects": 2,
+      "subjects": [
+        "Qwen2.5-VL-3B",
+        "Qwen2.5-VL-7B"
+      ],
+      "slope_per_decade": 1.2208650598443054,
+      "intercept_at_1B": 0.3161403308036891,
+      "r2": 1.0
+    }
+  }
+}

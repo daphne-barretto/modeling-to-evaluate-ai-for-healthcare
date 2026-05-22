@@ -1,0 +1,58 @@
+{
+  "GPT-5.4": {
+    "n_comparisons": 56,
+    "n_significant": 46,
+    "worst_disparity": {
+      "pathology": "Edema",
+      "attribute": "ap_pa",
+      "group_A": "AP",
+      "group_B": "PA",
+      "delta_acc": -0.30256,
+      "z": -41.008,
+      "n_A": 16214,
+      "n_B": 5654
+    }
+  },
+  "Qwen2.5-VL-3B": {
+    "n_comparisons": 56,
+    "n_significant": 41,
+    "worst_disparity": {
+      "pathology": "Edema",
+      "attribute": "ap_pa",
+      "group_A": "AP",
+      "group_B": "PA",
+      "delta_acc": -0.38706,
+      "z": -34.1726,
+      "n_A": 7421,
+      "n_B": 2571
+    }
+  },
+  "Qwen2.5-VL-7B": {
+    "n_comparisons": 56,
+    "n_significant": 43,
+    "worst_disparity": {
+      "pathology": "Edema",
+      "attribute": "ap_pa",
+      "group_A": "AP",
+      "group_B": "PA",
+      "delta_acc": -0.39556,
+      "z": -34.9035,
+      "n_A": 7424,
+      "n_B": 2576
+    }
+  },
+  "gpt-4o": {
+    "n_comparisons": 56,
+    "n_significant": 23,
+    "worst_disparity": {
+      "pathology": "Pneumonia",
+      "attribute": "ap_pa",
+      "group_A": "AP",
+      "group_B": "PA",
+      "delta_acc": -0.27458,
+      "z": -9.1975,
+      "n_A": 1198,
+      "n_B": 289
+    }
+  }
+}

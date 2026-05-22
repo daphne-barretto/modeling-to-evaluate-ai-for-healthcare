@@ -1,0 +1,5 @@
+subject,family,kind,params_B,theta_hat
+GPT-5.4,GPT-frontier,general,,2.679543
+gpt-4o,GPT-frontier,general,,2.121844
+Qwen2.5-VL-3B,Qwen2.5-VL,general,3.0,0.898641
+Qwen2.5-VL-7B,Qwen2.5-VL,general,7.0,1.347891
