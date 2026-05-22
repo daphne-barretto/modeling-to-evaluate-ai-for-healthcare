@@ -1,0 +1,32 @@
+{
+  "n_items_train": 170212,
+  "n_items_test": 42560,
+  "n_images_train": 12158,
+  "n_images_test": 3040,
+  "n_test_obs": 132580,
+  "feature_dim": 23,
+  "hidden": 64,
+  "epochs": 200,
+  "lr": 0.005,
+  "difficulty_mse_test": 6.1308417320251465,
+  "difficulty_r2_test": 0.07919183677477437,
+  "discrimination_mse_test": 1.9391433000564575,
+  "discrimination_r2_test": 0.0443510148268067,
+  "nll_per_obs_test": {
+    "amortizer": 1.2694102611704177,
+    "oracle_2pl": 0.19408466192154342,
+    "null_rasch": 0.6112745701127011
+  },
+  "subjects": [
+    "GPT-5.4",
+    "gpt-4o",
+    "Qwen2.5-VL-3B",
+    "Qwen2.5-VL-7B"
+  ],
+  "theta_hat": [
+    1.3638230562210083,
+    0.9082689881324768,
+    -0.18189500272274017,
+    -0.13482600450515747
+  ]
+}
