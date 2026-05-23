@@ -1,9 +1,9 @@
 {
   "n_subjects": 12,
   "n_pathologies": 14,
-  "nll_1d": 910125.1785621643,
-  "nll_2d": 894372.3005826287,
-  "chi2_LRT": 31505.75595907122,
+  "nll_1d": 976420.5085455999,
+  "nll_2d": 960274.9830318429,
+  "chi2_LRT": 32291.05102751404,
   "extra_params": 26,
   "varimax_applied": true,
   "subjects": [
@@ -27,9 +27,9 @@
     "MedGemma-4B",
     "BiomedCLIP"
   ],
-  "mean_factor1_general_subj": 0.11968362551928231,
-  "mean_factor1_medical_subj": 0.17876594013172964,
-  "mean_factor2_general_subj": 0.02466827612367789,
-  "mean_factor2_medical_subj": 0.2086512769004754,
-  "factor2_separation": 0.18398300077679752
+  "mean_factor1_general_subj": 0.08986871087481532,
+  "mean_factor1_medical_subj": 0.15534670862720762,
+  "mean_factor2_general_subj": -0.008240452248315242,
+  "mean_factor2_medical_subj": 0.17471448898794864,
+  "factor2_separation": 0.18295494123626388
 }

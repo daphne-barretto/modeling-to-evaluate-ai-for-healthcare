@@ -29,16 +29,16 @@
   },
   "CheXagent-8B": {
     "n_comparisons": 56,
-    "n_significant": 43,
+    "n_significant": 42,
     "worst_disparity": {
       "pathology": "Enlarged Cardiomediastinum",
       "attribute": "ap_pa",
       "group_A": "AP",
       "group_B": "PA",
-      "delta_acc": -0.41993,
-      "z": -37.1942,
-      "n_A": 7001,
-      "n_B": 2399
+      "delta_acc": -0.41567,
+      "z": -37.9644,
+      "n_A": 7424,
+      "n_B": 2576
     }
   },
   "GPT-5.4": {
@@ -57,30 +57,30 @@
   },
   "InternVL3-8B": {
     "n_comparisons": 56,
-    "n_significant": 27,
+    "n_significant": 33,
     "worst_disparity": {
       "pathology": "Enlarged Cardiomediastinum",
       "attribute": "ap_pa",
       "group_A": "AP",
       "group_B": "PA",
-      "delta_acc": -0.41395,
-      "z": -22.9852,
-      "n_A": 2760,
-      "n_B": 940
+      "delta_acc": -0.40668,
+      "z": -29.2894,
+      "n_A": 4723,
+      "n_B": 1577
     }
   },
   "LLaVA-1.5-7B": {
     "n_comparisons": 56,
-    "n_significant": 45,
+    "n_significant": 43,
     "worst_disparity": {
       "pathology": "Enlarged Cardiomediastinum",
       "attribute": "ap_pa",
       "group_A": "AP",
       "group_B": "PA",
-      "delta_acc": -0.41501,
-      "z": -33.9831,
-      "n_A": 5962,
-      "n_B": 2038
+      "delta_acc": -0.41567,
+      "z": -37.9644,
+      "n_A": 7424,
+      "n_B": 2576
     }
   },
   "LLaVA-Med-7B": {
@@ -99,16 +99,16 @@
   },
   "MedGemma-4B": {
     "n_comparisons": 56,
-    "n_significant": 29,
+    "n_significant": 40,
     "worst_disparity": {
       "pathology": "Enlarged Cardiomediastinum",
       "attribute": "ap_pa",
       "group_A": "AP",
       "group_B": "PA",
-      "delta_acc": -0.37357,
-      "z": -15.313,
-      "n_A": 1553,
-      "n_B": 547
+      "delta_acc": -0.37619,
+      "z": -22.0645,
+      "n_A": 3222,
+      "n_B": 1078
     }
   },
   "Phi-3.5-Vision": {
