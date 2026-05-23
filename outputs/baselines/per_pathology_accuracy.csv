@@ -1,4 +1,46 @@
 subject,pathology,n,n_correct,accuracy
+BiomedCLIP,No Finding,10000,2396,0.239600
+BiomedCLIP,Enlarged Cardiomediastinum,10000,7177,0.717700
+BiomedCLIP,Cardiomegaly,10000,7390,0.739000
+BiomedCLIP,Lung Opacity,10000,6686,0.668600
+BiomedCLIP,Lung Lesion,10000,8407,0.840700
+BiomedCLIP,Edema,10000,7416,0.741600
+BiomedCLIP,Consolidation,10000,6485,0.648500
+BiomedCLIP,Pneumonia,10000,7738,0.773800
+BiomedCLIP,Atelectasis,10000,5144,0.514400
+BiomedCLIP,Pneumothorax,10000,8257,0.825700
+BiomedCLIP,Pleural Effusion,10000,6513,0.651300
+BiomedCLIP,Pleural Other,10000,5310,0.531000
+BiomedCLIP,Fracture,10000,6543,0.654300
+BiomedCLIP,Support Devices,10000,6379,0.637900
+CheXagent-2-3B,No Finding,10000,7079,0.707900
+CheXagent-2-3B,Enlarged Cardiomediastinum,10000,3564,0.356400
+CheXagent-2-3B,Cardiomegaly,10000,4685,0.468500
+CheXagent-2-3B,Lung Opacity,10000,4828,0.482800
+CheXagent-2-3B,Lung Lesion,10000,8637,0.863700
+CheXagent-2-3B,Edema,10000,7409,0.740900
+CheXagent-2-3B,Consolidation,10000,5745,0.574500
+CheXagent-2-3B,Pneumonia,10000,7723,0.772300
+CheXagent-2-3B,Atelectasis,10000,5467,0.546700
+CheXagent-2-3B,Pneumothorax,10000,9131,0.913100
+CheXagent-2-3B,Pleural Effusion,10000,8099,0.809900
+CheXagent-2-3B,Pleural Other,10000,8832,0.883200
+CheXagent-2-3B,Fracture,10000,7186,0.718600
+CheXagent-2-3B,Support Devices,10000,8440,0.844000
+CheXagent-8B,No Finding,9400,6784,0.721702
+CheXagent-8B,Enlarged Cardiomediastinum,9400,3298,0.350851
+CheXagent-8B,Cardiomegaly,9400,4246,0.451702
+CheXagent-8B,Lung Opacity,9400,3194,0.339787
+CheXagent-8B,Lung Lesion,9400,8116,0.863404
+CheXagent-8B,Edema,9400,5927,0.630532
+CheXagent-8B,Consolidation,9400,4925,0.523936
+CheXagent-8B,Pneumonia,9400,7257,0.772021
+CheXagent-8B,Atelectasis,9400,5012,0.533191
+CheXagent-8B,Pneumothorax,9400,7172,0.762979
+CheXagent-8B,Pleural Effusion,9400,6544,0.696170
+CheXagent-8B,Pleural Other,9400,8338,0.887021
+CheXagent-8B,Fracture,9400,6837,0.727340
+CheXagent-8B,Support Devices,9400,7517,0.799681
 GPT-5.4,No Finding,25192,22041,0.874921
 GPT-5.4,Enlarged Cardiomediastinum,25192,15804,0.627342
 GPT-5.4,Cardiomegaly,25192,18061,0.716934
@@ -13,6 +55,76 @@ GPT-5.4,Pleural Effusion,25192,20505,0.813949
 GPT-5.4,Pleural Other,25192,21552,0.855510
 GPT-5.4,Fracture,25192,17854,0.708717
 GPT-5.4,Support Devices,25192,20659,0.820062
+InternVL3-8B,No Finding,3700,1392,0.376216
+InternVL3-8B,Enlarged Cardiomediastinum,3700,1294,0.349730
+InternVL3-8B,Cardiomegaly,3700,2551,0.689459
+InternVL3-8B,Lung Opacity,3700,1992,0.538378
+InternVL3-8B,Lung Lesion,3700,1391,0.375946
+InternVL3-8B,Edema,3700,2035,0.550000
+InternVL3-8B,Consolidation,3700,1745,0.471622
+InternVL3-8B,Pneumonia,3700,2491,0.673243
+InternVL3-8B,Atelectasis,3700,2114,0.571351
+InternVL3-8B,Pneumothorax,3700,3047,0.823514
+InternVL3-8B,Pleural Effusion,3700,1927,0.520811
+InternVL3-8B,Pleural Other,3700,3291,0.889459
+InternVL3-8B,Fracture,3700,2103,0.568378
+InternVL3-8B,Support Devices,3700,2596,0.701622
+LLaVA-1.5-7B,No Finding,8000,3022,0.377750
+LLaVA-1.5-7B,Enlarged Cardiomediastinum,8000,2774,0.346750
+LLaVA-1.5-7B,Cardiomegaly,8000,3522,0.440250
+LLaVA-1.5-7B,Lung Opacity,8000,2565,0.320625
+LLaVA-1.5-7B,Lung Lesion,8000,6857,0.857125
+LLaVA-1.5-7B,Edema,8000,4467,0.558375
+LLaVA-1.5-7B,Consolidation,8000,4141,0.517625
+LLaVA-1.5-7B,Pneumonia,8000,5779,0.722375
+LLaVA-1.5-7B,Atelectasis,8000,3545,0.443125
+LLaVA-1.5-7B,Pneumothorax,8000,7003,0.875375
+LLaVA-1.5-7B,Pleural Effusion,8000,4230,0.528750
+LLaVA-1.5-7B,Pleural Other,8000,7091,0.886375
+LLaVA-1.5-7B,Fracture,8000,5765,0.720625
+LLaVA-1.5-7B,Support Devices,8000,3657,0.457125
+LLaVA-Med-7B,No Finding,10000,8205,0.820500
+LLaVA-Med-7B,Enlarged Cardiomediastinum,10000,3560,0.356000
+LLaVA-Med-7B,Cardiomegaly,10000,4493,0.449300
+LLaVA-Med-7B,Lung Opacity,10000,3253,0.325300
+LLaVA-Med-7B,Lung Lesion,10000,8615,0.861500
+LLaVA-Med-7B,Edema,10000,4813,0.481300
+LLaVA-Med-7B,Consolidation,10000,5231,0.523100
+LLaVA-Med-7B,Pneumonia,10000,2978,0.297800
+LLaVA-Med-7B,Atelectasis,10000,4490,0.449000
+LLaVA-Med-7B,Pneumothorax,10000,8080,0.808000
+LLaVA-Med-7B,Pleural Effusion,10000,4996,0.499600
+LLaVA-Med-7B,Pleural Other,10000,8847,0.884700
+LLaVA-Med-7B,Fracture,10000,7223,0.722300
+LLaVA-Med-7B,Support Devices,10000,3882,0.388200
+MedGemma-4B,No Finding,2100,628,0.299048
+MedGemma-4B,Enlarged Cardiomediastinum,2100,848,0.403810
+MedGemma-4B,Cardiomegaly,2100,1394,0.663810
+MedGemma-4B,Lung Opacity,2100,937,0.446190
+MedGemma-4B,Lung Lesion,2100,1745,0.830952
+MedGemma-4B,Edema,2100,1448,0.689524
+MedGemma-4B,Consolidation,2100,1250,0.595238
+MedGemma-4B,Pneumonia,2100,1492,0.710476
+MedGemma-4B,Atelectasis,2100,1293,0.615714
+MedGemma-4B,Pneumothorax,2100,1020,0.485714
+MedGemma-4B,Pleural Effusion,2100,1060,0.504762
+MedGemma-4B,Pleural Other,2100,1858,0.884762
+MedGemma-4B,Fracture,2100,1480,0.704762
+MedGemma-4B,Support Devices,2100,1736,0.826667
+Phi-3.5-Vision,No Finding,9999,1608,0.160816
+Phi-3.5-Vision,Enlarged Cardiomediastinum,9999,3560,0.356036
+Phi-3.5-Vision,Cardiomegaly,9999,4496,0.449645
+Phi-3.5-Vision,Lung Opacity,9999,3257,0.325733
+Phi-3.5-Vision,Lung Lesion,9999,7034,0.703470
+Phi-3.5-Vision,Edema,9999,5666,0.566657
+Phi-3.5-Vision,Consolidation,9999,5257,0.525753
+Phi-3.5-Vision,Pneumonia,9999,7630,0.763076
+Phi-3.5-Vision,Atelectasis,9999,4496,0.449645
+Phi-3.5-Vision,Pneumothorax,9999,6341,0.634163
+Phi-3.5-Vision,Pleural Effusion,9999,5499,0.549955
+Phi-3.5-Vision,Pleural Other,9999,8844,0.884488
+Phi-3.5-Vision,Fracture,9999,7208,0.720872
+Phi-3.5-Vision,Support Devices,9999,4152,0.415242
 Qwen2.5-VL-3B,No Finding,9992,6572,0.657726
 Qwen2.5-VL-3B,Enlarged Cardiomediastinum,9992,4859,0.486289
 Qwen2.5-VL-3B,Cardiomegaly,9992,5560,0.556445

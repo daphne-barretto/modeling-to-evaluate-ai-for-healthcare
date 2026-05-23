@@ -10,5 +10,4 @@ data/train_visualCheXbert.csv
 analysis/_fit_irt_v1.py.bak
 
 # Local large outputs from inference (kept on Modal volume / regenerated from source)
-outputs/daphne_gpt5_train1_*.json
-outputs/daphne_gpt4o_train1_*.json
+outputs/daphne_*_train1_*.json

@@ -3,30 +3,46 @@
   "n_items_test": 42560,
   "n_images_train": 12158,
   "n_images_test": 3040,
-  "n_test_obs": 132580,
+  "n_test_obs": 311598,
   "feature_dim": 23,
   "hidden": 64,
   "epochs": 200,
   "lr": 0.005,
-  "difficulty_mse_test": 6.1308417320251465,
-  "difficulty_r2_test": 0.07919183677477437,
-  "discrimination_mse_test": 1.9391433000564575,
-  "discrimination_r2_test": 0.0443510148268067,
+  "difficulty_mse_test": 8.49557876586914,
+  "difficulty_r2_test": 0.057722342000213644,
+  "discrimination_mse_test": 3.3281843662261963,
+  "discrimination_r2_test": 0.055358442762523,
   "nll_per_obs_test": {
-    "amortizer": 1.2694102611704177,
-    "oracle_2pl": 0.19408466192154342,
-    "null_rasch": 0.6112745701127011
+    "amortizer": 1.0736748225818051,
+    "oracle_2pl": 0.3233569220396985,
+    "null_rasch": 0.6477442717042706
   },
   "subjects": [
     "GPT-5.4",
     "gpt-4o",
+    "CheXagent-8B",
+    "CheXagent-2-3B",
+    "LLaVA-Med-7B",
+    "LLaVA-1.5-7B",
+    "MedGemma-4B",
+    "InternVL3-8B",
+    "Phi-3.5-Vision",
+    "BiomedCLIP",
     "Qwen2.5-VL-3B",
     "Qwen2.5-VL-7B"
   ],
   "theta_hat": [
-    1.3638230562210083,
-    0.9082689881324768,
-    -0.18189500272274017,
-    -0.13482600450515747
+    2.257805109024048,
+    0.9747290015220642,
+    0.36382099986076355,
+    0.4194670021533966,
+    -0.1367810070514679,
+    0.069022998213768,
+    0.435139000415802,
+    0.4464229941368103,
+    -0.15655399858951569,
+    0.49152201414108276,
+    0.4141849875450134,
+    0.4621790051460266
   ]
 }

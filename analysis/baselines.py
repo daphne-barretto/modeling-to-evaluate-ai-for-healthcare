@@ -143,9 +143,7 @@ def per_pathology_prec_rec_f1(observations_raw):
 
     counts = defaultdict(lambda: {"tp": 0, "fp": 0, "fn": 0, "tn": 0})
 
-    for path in daphne_paths:
-        with open(path) as f:
-            data = json.load(f)
+    def _bump_dict_format(data):
         for image_path, entry in data.items():
             if entry is None or entry.get("error") or entry.get("missing_reason"):
                 continue
@@ -163,9 +161,7 @@ def per_pathology_prec_rec_f1(observations_raw):
                 elif y == 1 and yhat == 0: counts[key]["fn"] += 1
                 else:                       counts[key]["tn"] += 1
 
-    for path in izhan_paths:
-        with open(path) as f:
-            data = json.load(f)
+    def _bump_list_format(data):
         for entry in data:
             subject = entry.get("subject", "unknown")
             for p in PATHOLOGIES:
@@ -183,6 +179,14 @@ def per_pathology_prec_rec_f1(observations_raw):
                 elif y == 0 and yhat == 1: counts[key]["fp"] += 1
                 elif y == 1 and yhat == 0: counts[key]["fn"] += 1
                 else:                       counts[key]["tn"] += 1
+
+    for path in daphne_paths + izhan_paths:
+        with open(path) as f:
+            data = json.load(f)
+        if isinstance(data, dict):
+            _bump_dict_format(data)
+        else:
+            _bump_list_format(data)
 
     for (s, p), c in sorted(counts.items()):
         tp, fp, fn, tn = c["tp"], c["fp"], c["fn"], c["tn"]

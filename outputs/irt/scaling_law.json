@@ -1,15 +1,25 @@
 {
-  "n_subjects_total": 4,
-  "n_with_known_size": 2,
+  "n_subjects_total": 12,
+  "n_with_known_size": 10,
   "fits": {
+    "CheXagent": {
+      "n_subjects": 2,
+      "subjects": [
+        "CheXagent-8B",
+        "CheXagent-2-3B"
+      ],
+      "slope_per_decade": -0.8793344948158629,
+      "intercept_at_1B": 1.9148451774848247,
+      "r2": 1.0
+    },
     "Qwen2.5-VL": {
       "n_subjects": 2,
       "subjects": [
         "Qwen2.5-VL-3B",
         "Qwen2.5-VL-7B"
       ],
-      "slope_per_decade": 1.2208650598443054,
-      "intercept_at_1B": 0.3161403308036891,
+      "slope_per_decade": 0.8332047353328085,
+      "intercept_at_1B": 0.6711823112396459,
       "r2": 1.0
     }
   }

@@ -1,5 +1,13 @@
 subject,family,kind,params_B,theta_hat
-GPT-5.4,GPT-frontier,general,,2.679543
-gpt-4o,GPT-frontier,general,,2.121844
-Qwen2.5-VL-3B,Qwen2.5-VL,general,3.0,0.898641
-Qwen2.5-VL-7B,Qwen2.5-VL,general,7.0,1.347891
+GPT-5.4,GPT-frontier,general,,2.323841
+gpt-4o,GPT-frontier,general,,2.120068
+CheXagent-8B,CheXagent,medical,8.0,1.120727
+CheXagent-2-3B,CheXagent,medical,3.0,1.495296
+LLaVA-Med-7B,LLaVA-Med,medical,7.0,0.424599
+LLaVA-1.5-7B,LLaVA-1.5,general,7.0,0.542872
+MedGemma-4B,MedGemma,medical,4.0,0.867946
+InternVL3-8B,InternVL3,general,8.0,0.587121
+Phi-3.5-Vision,Phi-3.5-Vision,general,4.2,0.214916
+BiomedCLIP,BiomedCLIP,medical,0.2,1.190596
+Qwen2.5-VL-3B,Qwen2.5-VL,general,3.0,1.068722
+Qwen2.5-VL-7B,Qwen2.5-VL,general,7.0,1.375322

@@ -1,16 +1,35 @@
 {
-  "n_subjects": 4,
+  "n_subjects": 12,
   "n_pathologies": 14,
-  "nll_1d": 357404.73317015916,
-  "nll_2d": 356570.37573611364,
-  "chi2_LRT": 1668.7148680910468,
-  "extra_params": 18,
+  "nll_1d": 910125.1785621643,
+  "nll_2d": 894372.3005826287,
+  "chi2_LRT": 31505.75595907122,
+  "extra_params": 26,
   "varimax_applied": true,
   "subjects": [
     "GPT-5.4",
     "gpt-4o",
+    "CheXagent-8B",
+    "CheXagent-2-3B",
+    "LLaVA-Med-7B",
+    "LLaVA-1.5-7B",
+    "MedGemma-4B",
+    "InternVL3-8B",
+    "Phi-3.5-Vision",
+    "BiomedCLIP",
     "Qwen2.5-VL-3B",
     "Qwen2.5-VL-7B"
   ],
-  "medical_subjects_seen": []
+  "medical_subjects_seen": [
+    "CheXagent-8B",
+    "CheXagent-2-3B",
+    "LLaVA-Med-7B",
+    "MedGemma-4B",
+    "BiomedCLIP"
+  ],
+  "mean_factor1_general_subj": 0.11968362551928231,
+  "mean_factor1_medical_subj": 0.17876594013172964,
+  "mean_factor2_general_subj": 0.02466827612367789,
+  "mean_factor2_medical_subj": 0.2086512769004754,
+  "factor2_separation": 0.18398300077679752
 }
