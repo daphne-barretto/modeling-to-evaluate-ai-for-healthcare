@@ -42,7 +42,7 @@ app = modal.App("daphne-medgemma-chexpert", image=image)
 @app.function(
     volumes={VOLUME_PATH: volume, MODEL_CACHE: model_vol},
     gpu="A10G",
-    timeout=60 * 60 * 8,
+    timeout=60 * 60 * 24,
     memory=32768,
     cpu=4,
     secrets=[modal.Secret.from_name("huggingface-token")],

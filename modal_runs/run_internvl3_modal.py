@@ -39,7 +39,7 @@ app = modal.App("daphne-internvl3-chexpert", image=image)
 @app.function(
     volumes={VOLUME_PATH: volume, MODEL_CACHE: model_vol},
     gpu="A100",
-    timeout=60 * 60 * 8,
+    timeout=60 * 60 * 24,
     memory=49152,
     cpu=4,
 )
