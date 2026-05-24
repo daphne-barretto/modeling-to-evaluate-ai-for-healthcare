@@ -26,7 +26,12 @@ from collections import defaultdict
 
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
-from analysis.data_loader import PATHOLOGIES, load_all  # noqa: E402
+from analysis.data_loader import (  # noqa: E402
+    PATHOLOGIES,
+    _normalize_subject,
+    discover_sources,
+    load_all,
+)
 from analysis.item_metadata import (  # noqa: E402
     ANATOMICAL_GROUP, PREVALENCE_TIER, get_image_meta,
 )
@@ -135,11 +140,9 @@ def per_pathology_prec_rec_f1(observations_raw):
     binary correct field).
     """
     # Re-read sources at the raw JSON level to retrieve per-pathology answer + gt.
-    import glob
     rows = []
     summary = {}
-    daphne_paths = sorted(glob.glob(os.path.join(REPO_ROOT, "outputs", "daphne_*.json")))
-    izhan_paths = sorted(glob.glob(os.path.join(REPO_ROOT, "qwen*_results_*.json")))
+    source_paths = discover_sources(REPO_ROOT)
 
     counts = defaultdict(lambda: {"tp": 0, "fp": 0, "fn": 0, "tn": 0})
 
@@ -147,7 +150,7 @@ def per_pathology_prec_rec_f1(observations_raw):
         for image_path, entry in data.items():
             if entry is None or entry.get("error") or entry.get("missing_reason"):
                 continue
-            subject = entry.get("deployment", "unknown")
+            subject = _normalize_subject(entry.get("deployment", "unknown"))
             preds = entry.get("predictions") or {}
             labels = entry.get("binarized_labels") or {}
             for p in PATHOLOGIES:
@@ -163,7 +166,7 @@ def per_pathology_prec_rec_f1(observations_raw):
 
     def _bump_list_format(data):
         for entry in data:
-            subject = entry.get("subject", "unknown")
+            subject = _normalize_subject(entry.get("subject", "unknown"))
             for p in PATHOLOGIES:
                 y_raw = entry.get(f"{p}__gt")
                 ans = entry.get(f"{p}__answer")
@@ -180,7 +183,7 @@ def per_pathology_prec_rec_f1(observations_raw):
                 elif y == 1 and yhat == 0: counts[key]["fn"] += 1
                 else:                       counts[key]["tn"] += 1
 
-    for path in daphne_paths + izhan_paths:
+    for path in source_paths:
         with open(path) as f:
             data = json.load(f)
         if isinstance(data, dict):
