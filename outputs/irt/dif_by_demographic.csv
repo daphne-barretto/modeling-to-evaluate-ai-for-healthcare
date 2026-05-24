@@ -55,20 +55,20 @@ GPT-5.4,Pleural Effusion,sex,Male,Female,15160,9832,0.81201,0.81814,-0.00614,-1.
 GPT-5.4,Pleural Other,sex,Male,Female,15160,9832,0.85376,0.85578,-0.00202,-0.4419
 GPT-5.4,Fracture,sex,Male,Female,15160,9832,0.7097,0.70148,0.00821,1.3926
 GPT-5.4,Support Devices,sex,Male,Female,15160,9832,0.8091,0.84022,-0.03111,-6.2724
-InternVL3-8B,No Finding,sex,Male,Female,3799,2501,0.36062,0.38625,-0.02562,-2.0602
-InternVL3-8B,Enlarged Cardiomediastinum,sex,Male,Female,3799,2501,0.35167,0.35106,0.00061,0.0498
-InternVL3-8B,Cardiomegaly,sex,Male,Female,3799,2501,0.6915,0.69532,-0.00382,-0.322
-InternVL3-8B,Lung Opacity,sex,Male,Female,3799,2501,0.53883,0.53139,0.00744,0.5792
-InternVL3-8B,Lung Lesion,sex,Male,Female,3799,2501,0.38089,0.38385,-0.00296,-0.2363
-InternVL3-8B,Edema,sex,Male,Female,3799,2501,0.56331,0.53099,0.03232,2.5231
-InternVL3-8B,Consolidation,sex,Male,Female,3799,2501,0.48065,0.46941,0.01124,0.874
-InternVL3-8B,Pneumonia,sex,Male,Female,3799,2501,0.67623,0.66293,0.0133,1.0989
-InternVL3-8B,Atelectasis,sex,Male,Female,3799,2501,0.58068,0.56777,0.01291,1.0141
-InternVL3-8B,Pneumothorax,sex,Male,Female,3799,2501,0.82101,0.81527,0.00573,0.5778
-InternVL3-8B,Pleural Effusion,sex,Male,Female,3799,2501,0.51461,0.52979,-0.01518,-1.18
-InternVL3-8B,Pleural Other,sex,Male,Female,3799,2501,0.89208,0.88165,0.01043,1.284
-InternVL3-8B,Fracture,sex,Male,Female,3799,2501,0.56752,0.56537,0.00214,0.168
-InternVL3-8B,Support Devices,sex,Male,Female,3799,2501,0.68966,0.69012,-0.00047,-0.0394
+InternVL3-8B,No Finding,sex,Male,Female,5980,4020,0.36555,0.38657,-0.02102,-2.1295
+InternVL3-8B,Enlarged Cardiomediastinum,sex,Male,Female,5980,4020,0.36037,0.34801,0.01236,1.2659
+InternVL3-8B,Cardiomegaly,sex,Male,Female,5980,4020,0.68545,0.69005,-0.0046,-0.4863
+InternVL3-8B,Lung Opacity,sex,Male,Female,5980,4020,0.5311,0.53035,0.00076,0.0742
+InternVL3-8B,Lung Lesion,sex,Male,Female,5980,4020,0.37926,0.38085,-0.00158,-0.1598
+InternVL3-8B,Edema,sex,Male,Female,5980,4020,0.55502,0.52338,0.03163,3.1132
+InternVL3-8B,Consolidation,sex,Male,Female,5980,4020,0.47642,0.47065,0.00577,0.567
+InternVL3-8B,Pneumonia,sex,Male,Female,5980,4020,0.67274,0.66493,0.00782,0.8149
+InternVL3-8B,Atelectasis,sex,Male,Female,5980,4020,0.58512,0.57239,0.01273,1.2645
+InternVL3-8B,Pneumothorax,sex,Male,Female,5980,4020,0.82224,0.82637,-0.00413,-0.5313
+InternVL3-8B,Pleural Effusion,sex,Male,Female,5980,4020,0.51171,0.5306,-0.01889,-1.8539
+InternVL3-8B,Pleural Other,sex,Male,Female,5980,4020,0.88411,0.8806,0.00352,0.5358
+InternVL3-8B,Fracture,sex,Male,Female,5980,4020,0.56789,0.56866,-0.00076,-0.0756
+InternVL3-8B,Support Devices,sex,Male,Female,5980,4020,0.68462,0.68458,4e-05,0.004
 LLaVA-1.5-7B,No Finding,sex,Male,Female,5980,4020,0.38813,0.37363,0.0145,1.4625
 LLaVA-1.5-7B,Enlarged Cardiomediastinum,sex,Male,Female,5980,4020,0.36154,0.34776,0.01378,1.4108
 LLaVA-1.5-7B,Cardiomegaly,sex,Male,Female,5980,4020,0.45886,0.43532,0.02354,2.3202
@@ -97,20 +97,34 @@ LLaVA-Med-7B,Pleural Effusion,sex,Male,Female,5980,4020,0.50401,0.49303,0.01098,
 LLaVA-Med-7B,Pleural Other,sex,Male,Female,5980,4020,0.88545,0.88358,0.00187,0.287
 LLaVA-Med-7B,Fracture,sex,Male,Female,5980,4020,0.72843,0.71318,0.01524,1.6688
 LLaVA-Med-7B,Support Devices,sex,Male,Female,5980,4020,0.38094,0.399,-0.01807,-1.8178
-MedGemma-4B,No Finding,sex,Male,Female,2581,1719,0.28594,0.29785,-0.01191,-0.8426
-MedGemma-4B,Enlarged Cardiomediastinum,sex,Male,Female,2581,1719,0.37776,0.37522,0.00254,0.1685
-MedGemma-4B,Cardiomegaly,sex,Male,Female,2581,1719,0.64897,0.66318,-0.0142,-0.9595
-MedGemma-4B,Lung Opacity,sex,Male,Female,2581,1719,0.42735,0.42757,-0.00022,-0.0143
-MedGemma-4B,Lung Lesion,sex,Male,Female,2581,1719,0.8303,0.81559,0.01471,1.2418
-MedGemma-4B,Edema,sex,Male,Female,2581,1719,0.66641,0.7039,-0.03749,-2.5845
-MedGemma-4B,Consolidation,sex,Male,Female,2581,1719,0.61139,0.56894,0.04246,2.7775
-MedGemma-4B,Pneumonia,sex,Male,Female,2581,1719,0.70283,0.70681,-0.00398,-0.28
-MedGemma-4B,Atelectasis,sex,Male,Female,2581,1719,0.60984,0.57533,0.03451,2.2589
-MedGemma-4B,Pneumothorax,sex,Male,Female,2581,1719,0.48043,0.52298,-0.04254,-2.7332
-MedGemma-4B,Pleural Effusion,sex,Male,Female,2581,1719,0.50329,0.54508,-0.04179,-2.6869
-MedGemma-4B,Pleural Other,sex,Male,Female,2581,1719,0.89151,0.8918,-0.00028,-0.0292
-MedGemma-4B,Fracture,sex,Male,Female,2581,1719,0.72801,0.71204,0.01597,1.1446
-MedGemma-4B,Support Devices,sex,Male,Female,2581,1719,0.81945,0.82897,-0.00952,-0.8017
+Llama-3.2-Vision-11B,No Finding,sex,Male,Female,6089,3911,0.24208,0.22935,0.01272,1.4598
+Llama-3.2-Vision-11B,Enlarged Cardiomediastinum,sex,Male,Female,6089,3911,0.41485,0.38788,0.02697,2.6814
+Llama-3.2-Vision-11B,Cardiomegaly,sex,Male,Female,6089,3911,0.5326,0.50371,0.02889,2.8224
+Llama-3.2-Vision-11B,Lung Opacity,sex,Male,Female,6089,3911,0.52143,0.50166,0.01977,1.9303
+Llama-3.2-Vision-11B,Lung Lesion,sex,Male,Female,6089,3911,0.87289,0.86167,0.01121,1.6192
+Llama-3.2-Vision-11B,Edema,sex,Male,Female,6089,3911,0.63639,0.58374,0.05266,5.2828
+Llama-3.2-Vision-11B,Consolidation,sex,Male,Female,6089,3911,0.59337,0.53465,0.05872,5.7886
+Llama-3.2-Vision-11B,Pneumonia,sex,Male,Female,6089,3911,0.7801,0.7594,0.0207,2.4076
+Llama-3.2-Vision-11B,Atelectasis,sex,Male,Female,6089,3911,0.50074,0.45973,0.04101,4.0044
+Llama-3.2-Vision-11B,Pneumothorax,sex,Male,Female,6089,3911,0.8852,0.8875,-0.00229,-0.3524
+Llama-3.2-Vision-11B,Pleural Effusion,sex,Male,Female,6089,3911,0.59846,0.55178,0.04668,4.6156
+Llama-3.2-Vision-11B,Pleural Other,sex,Male,Female,6089,3911,0.86205,0.85605,0.006,0.843
+Llama-3.2-Vision-11B,Fracture,sex,Male,Female,6089,3911,0.71128,0.68908,0.0222,2.37
+Llama-3.2-Vision-11B,Support Devices,sex,Male,Female,6089,3911,0.53983,0.53516,0.00467,0.457
+MedGemma-4B,No Finding,sex,Male,Female,5607,3793,0.29428,0.3111,-0.01682,-1.7446
+MedGemma-4B,Enlarged Cardiomediastinum,sex,Male,Female,5607,3793,0.38755,0.36436,0.0232,2.2752
+MedGemma-4B,Cardiomegaly,sex,Male,Female,5607,3793,0.65632,0.65595,0.00038,0.0378
+MedGemma-4B,Lung Opacity,sex,Male,Female,5607,3793,0.43606,0.42763,0.00843,0.8095
+MedGemma-4B,Lung Lesion,sex,Male,Female,5607,3793,0.82165,0.81044,0.01121,1.3795
+MedGemma-4B,Edema,sex,Male,Female,5607,3793,0.67434,0.68231,-0.00797,-0.8114
+MedGemma-4B,Consolidation,sex,Male,Female,5607,3793,0.60817,0.55418,0.05399,5.2145
+MedGemma-4B,Pneumonia,sex,Male,Female,5607,3793,0.71215,0.69707,0.01507,1.5737
+MedGemma-4B,Atelectasis,sex,Male,Female,5607,3793,0.60817,0.56762,0.04054,3.9237
+MedGemma-4B,Pneumothorax,sex,Male,Female,5607,3793,0.46906,0.53968,-0.07062,-6.7184
+MedGemma-4B,Pleural Effusion,sex,Male,Female,5607,3793,0.50526,0.55022,-0.04496,-4.2821
+MedGemma-4B,Pleural Other,sex,Male,Female,5607,3793,0.88764,0.884,0.00364,0.5457
+MedGemma-4B,Fracture,sex,Male,Female,5607,3793,0.72802,0.70419,0.02383,2.5198
+MedGemma-4B,Support Devices,sex,Male,Female,5607,3793,0.80738,0.81413,-0.00675,-0.8183
 Phi-3.5-Vision,No Finding,sex,Male,Female,5979,4020,0.1629,0.15771,0.00519,0.6929
 Phi-3.5-Vision,Enlarged Cardiomediastinum,sex,Male,Female,5979,4020,0.3616,0.34776,0.01384,1.4169
 Phi-3.5-Vision,Cardiomegaly,sex,Male,Female,5979,4020,0.45911,0.43557,0.02353,2.3195
@@ -125,34 +139,62 @@ Phi-3.5-Vision,Pleural Effusion,sex,Male,Female,5979,4020,0.56147,0.53284,0.0286
 Phi-3.5-Vision,Pleural Other,sex,Male,Female,5979,4020,0.8851,0.88358,0.00152,0.2325
 Phi-3.5-Vision,Fracture,sex,Male,Female,5979,4020,0.72621,0.71294,0.01327,1.4507
 Phi-3.5-Vision,Support Devices,sex,Male,Female,5979,4020,0.40542,0.42985,-0.02443,-2.4309
-Qwen2.5-VL-3B,No Finding,sex,Male,Female,5978,4014,0.64135,0.68211,-0.04076,-4.2099
-Qwen2.5-VL-3B,Enlarged Cardiomediastinum,sex,Male,Female,5978,4014,0.48227,0.49228,-0.01001,-0.9813
-Qwen2.5-VL-3B,Cardiomegaly,sex,Male,Female,5978,4014,0.55771,0.55456,0.00315,0.311
-Qwen2.5-VL-3B,Lung Opacity,sex,Male,Female,5978,4014,0.45483,0.4701,-0.01527,-1.5012
-Qwen2.5-VL-3B,Lung Lesion,sex,Male,Female,5978,4014,0.85564,0.84704,0.0086,1.1877
-Qwen2.5-VL-3B,Edema,sex,Male,Female,5978,4014,0.58749,0.54634,0.04115,4.0743
-Qwen2.5-VL-3B,Consolidation,sex,Male,Female,5978,4014,0.54734,0.51769,0.02965,2.9135
-Qwen2.5-VL-3B,Pneumonia,sex,Male,Female,5978,4014,0.75895,0.73293,0.02601,2.9383
-Qwen2.5-VL-3B,Atelectasis,sex,Male,Female,5978,4014,0.45969,0.44096,0.01873,1.8441
-Qwen2.5-VL-3B,Pneumothorax,sex,Male,Female,5978,4014,0.86517,0.86697,-0.00179,-0.2579
-Qwen2.5-VL-3B,Pleural Effusion,sex,Male,Female,5978,4014,0.54935,0.51644,0.03291,3.2335
-Qwen2.5-VL-3B,Pleural Other,sex,Male,Female,5978,4014,0.87387,0.86522,0.00865,1.262
-Qwen2.5-VL-3B,Fracture,sex,Male,Female,5978,4014,0.72717,0.70777,0.01939,2.1152
-Qwen2.5-VL-3B,Support Devices,sex,Male,Female,5978,4014,0.67146,0.68435,-0.01289,-1.3507
-Qwen2.5-VL-7B,No Finding,sex,Male,Female,5980,4020,0.83043,0.83582,-0.00539,-0.7074
-Qwen2.5-VL-7B,Enlarged Cardiomediastinum,sex,Male,Female,5980,4020,0.65619,0.65249,0.0037,0.3815
-Qwen2.5-VL-7B,Cardiomegaly,sex,Male,Female,5980,4020,0.59816,0.61119,-0.01303,-1.3063
-Qwen2.5-VL-7B,Lung Opacity,sex,Male,Female,5980,4020,0.51237,0.53085,-0.01847,-1.8127
-Qwen2.5-VL-7B,Lung Lesion,sex,Male,Female,5980,4020,0.8597,0.85796,0.00174,0.245
-Qwen2.5-VL-7B,Edema,sex,Male,Female,5980,4020,0.58462,0.53881,0.04581,4.532
-Qwen2.5-VL-7B,Consolidation,sex,Male,Female,5980,4020,0.53227,0.49552,0.03675,3.6061
-Qwen2.5-VL-7B,Pneumonia,sex,Male,Female,5980,4020,0.74398,0.72935,0.01463,1.6311
-Qwen2.5-VL-7B,Atelectasis,sex,Male,Female,5980,4020,0.45669,0.43234,0.02435,2.4014
-Qwen2.5-VL-7B,Pneumothorax,sex,Male,Female,5980,4020,0.87425,0.88085,-0.0066,-0.9847
-Qwen2.5-VL-7B,Pleural Effusion,sex,Male,Female,5980,4020,0.54632,0.5107,0.03562,3.5005
-Qwen2.5-VL-7B,Pleural Other,sex,Male,Female,5980,4020,0.88545,0.88358,0.00187,0.287
-Qwen2.5-VL-7B,Fracture,sex,Male,Female,5980,4020,0.72776,0.70871,0.01905,2.0808
-Qwen2.5-VL-7B,Support Devices,sex,Male,Female,5980,4020,0.73679,0.74005,-0.00326,-0.3636
+Pixtral-12B,No Finding,sex,Male,Female,6089,3911,0.79701,0.81642,-0.0194,-2.3881
+Pixtral-12B,Enlarged Cardiomediastinum,sex,Male,Female,6089,3911,0.41468,0.38865,0.02603,2.5886
+Pixtral-12B,Cardiomegaly,sex,Male,Female,6089,3911,0.52751,0.50626,0.02124,2.075
+Pixtral-12B,Lung Opacity,sex,Male,Female,6089,3911,0.54689,0.55766,-0.01077,-1.0567
+Pixtral-12B,Lung Lesion,sex,Male,Female,6089,3911,0.87272,0.86295,0.00977,1.4127
+Pixtral-12B,Edema,sex,Male,Female,6089,3911,0.63508,0.58169,0.05339,5.352
+Pixtral-12B,Consolidation,sex,Male,Female,6089,3911,0.55526,0.51572,0.03954,3.8712
+Pixtral-12B,Pneumonia,sex,Male,Female,6089,3911,0.77024,0.75275,0.01749,2.0086
+Pixtral-12B,Atelectasis,sex,Male,Female,6089,3911,0.50074,0.45973,0.04101,4.0044
+Pixtral-12B,Pneumothorax,sex,Male,Female,6089,3911,0.8852,0.8875,-0.00229,-0.3524
+Pixtral-12B,Pleural Effusion,sex,Male,Female,6089,3911,0.58138,0.52928,0.0521,5.1232
+Pixtral-12B,Pleural Other,sex,Male,Female,6089,3911,0.86205,0.85605,0.006,0.843
+Pixtral-12B,Fracture,sex,Male,Female,6089,3911,0.71095,0.68678,0.02417,2.5779
+Pixtral-12B,Support Devices,sex,Male,Female,6089,3911,0.72491,0.73332,-0.0084,-0.9217
+Qwen2.5-VL-32B,No Finding,sex,Male,Female,3403,2297,0.34793,0.36482,-0.0169,-1.3077
+Qwen2.5-VL-32B,Enlarged Cardiomediastinum,sex,Male,Female,3403,2297,0.35322,0.35568,-0.00246,-0.1907
+Qwen2.5-VL-32B,Cardiomegaly,sex,Male,Female,3403,2297,0.48281,0.49456,-0.01175,-0.8704
+Qwen2.5-VL-32B,Lung Opacity,sex,Male,Female,3403,2297,0.57185,0.58206,-0.01022,-0.7655
+Qwen2.5-VL-32B,Lung Lesion,sex,Male,Female,3403,2297,0.54481,0.56291,-0.01809,-1.3475
+Qwen2.5-VL-32B,Edema,sex,Male,Female,3403,2297,0.57361,0.55202,0.02159,1.6125
+Qwen2.5-VL-32B,Consolidation,sex,Male,Female,3403,2297,0.55745,0.5542,0.00325,0.2421
+Qwen2.5-VL-32B,Pneumonia,sex,Male,Female,3403,2297,0.60006,0.58337,0.01669,1.2582
+Qwen2.5-VL-32B,Atelectasis,sex,Male,Female,3403,2297,0.53335,0.56378,-0.03043,-2.2629
+Qwen2.5-VL-32B,Pneumothorax,sex,Male,Female,3403,2297,0.38819,0.39443,-0.00624,-0.4737
+Qwen2.5-VL-32B,Pleural Effusion,sex,Male,Female,3403,2297,0.48957,0.5037,-0.01413,-1.0467
+Qwen2.5-VL-32B,Pleural Other,sex,Male,Female,3403,2297,0.8901,0.87854,0.01156,1.3441
+Qwen2.5-VL-32B,Fracture,sex,Male,Female,3403,2297,0.73259,0.70744,0.02514,2.0794
+Qwen2.5-VL-32B,Support Devices,sex,Male,Female,3403,2297,0.6315,0.633,-0.0015,-0.115
+Qwen2.5-VL-3B,No Finding,sex,Male,Female,7298,4751,0.62428,0.65144,-0.02716,-3.0264
+Qwen2.5-VL-3B,Enlarged Cardiomediastinum,sex,Male,Female,7298,4751,0.51425,0.51126,0.00299,0.3209
+Qwen2.5-VL-3B,Cardiomegaly,sex,Male,Female,7298,4751,0.58523,0.57293,0.0123,1.3367
+Qwen2.5-VL-3B,Lung Opacity,sex,Male,Female,7298,4751,0.47904,0.48411,-0.00507,-0.5447
+Qwen2.5-VL-3B,Lung Lesion,sex,Male,Female,7298,4751,0.86106,0.85182,0.00924,1.4172
+Qwen2.5-VL-3B,Edema,sex,Male,Female,7298,4751,0.63319,0.5864,0.04678,5.157
+Qwen2.5-VL-3B,Consolidation,sex,Male,Female,7298,4751,0.58263,0.54431,0.03832,4.1491
+Qwen2.5-VL-3B,Pneumonia,sex,Male,Female,7298,4751,0.76062,0.73479,0.02583,3.2014
+Qwen2.5-VL-3B,Atelectasis,sex,Male,Female,7298,4751,0.49726,0.46853,0.02873,3.0832
+Qwen2.5-VL-3B,Pneumothorax,sex,Male,Female,7298,4751,0.87366,0.87392,-0.00026,-0.0416
+Qwen2.5-VL-3B,Pleural Effusion,sex,Male,Female,7298,4751,0.5766,0.53841,0.03818,4.128
+Qwen2.5-VL-3B,Pleural Other,sex,Male,Female,7298,4751,0.85229,0.84466,0.00762,1.1431
+Qwen2.5-VL-3B,Fracture,sex,Male,Female,7298,4751,0.70937,0.68807,0.02131,2.4965
+Qwen2.5-VL-3B,Support Devices,sex,Male,Female,7298,4751,0.6858,0.6967,-0.01089,-1.2633
+Qwen2.5-VL-7B,No Finding,sex,Male,Female,7300,4757,0.79808,0.81123,-0.01314,-1.7744
+Qwen2.5-VL-7B,Enlarged Cardiomediastinum,sex,Male,Female,7300,4757,0.61247,0.62434,-0.01188,-1.3113
+Qwen2.5-VL-7B,Cardiomegaly,sex,Male,Female,7300,4757,0.55685,0.58167,-0.02482,-2.688
+Qwen2.5-VL-7B,Lung Opacity,sex,Male,Female,7300,4757,0.50466,0.53353,-0.02887,-3.1006
+Qwen2.5-VL-7B,Lung Lesion,sex,Male,Female,7300,4757,0.86575,0.86126,0.0045,0.7039
+Qwen2.5-VL-7B,Edema,sex,Male,Female,7300,4757,0.63164,0.58041,0.05124,5.6413
+Qwen2.5-VL-7B,Consolidation,sex,Male,Female,7300,4757,0.56329,0.5205,0.04279,4.6129
+Qwen2.5-VL-7B,Pneumonia,sex,Male,Female,7300,4757,0.74123,0.72314,0.01809,2.1972
+Qwen2.5-VL-7B,Atelectasis,sex,Male,Female,7300,4757,0.49562,0.46079,0.03482,3.74
+Qwen2.5-VL-7B,Pneumothorax,sex,Male,Female,7300,4757,0.88219,0.8869,-0.00471,-0.7898
+Qwen2.5-VL-7B,Pleural Effusion,sex,Male,Female,7300,4757,0.57493,0.5329,0.04203,4.5426
+Qwen2.5-VL-7B,Pleural Other,sex,Male,Female,7300,4757,0.86315,0.86063,0.00252,0.393
+Qwen2.5-VL-7B,Fracture,sex,Male,Female,7300,4757,0.70877,0.68846,0.02031,2.38
+Qwen2.5-VL-7B,Support Devices,sex,Male,Female,7300,4757,0.73247,0.74269,-0.01023,-1.2462
 gpt-4o,No Finding,sex,Male,Female,901,612,0.97225,0.95261,0.01964,2.0209
 gpt-4o,Enlarged Cardiomediastinum,sex,Male,Female,901,612,0.6182,0.65196,-0.03376,-1.3363
 gpt-4o,Cardiomegaly,sex,Male,Female,901,612,0.66371,0.70588,-0.04218,-1.7271
@@ -223,20 +265,20 @@ GPT-5.4,Pleural Effusion,ap_pa,AP,PA,16214,5654,0.79376,0.86806,-0.0743,-12.337
 GPT-5.4,Pleural Other,ap_pa,AP,PA,16214,5654,0.91088,0.7531,0.15778,30.3858
 GPT-5.4,Fracture,ap_pa,AP,PA,16214,5654,0.75607,0.61921,0.13687,19.7515
 GPT-5.4,Support Devices,ap_pa,AP,PA,16214,5654,0.83335,0.81022,0.02313,3.9629
-InternVL3-8B,No Finding,ap_pa,AP,PA,4723,1577,0.35147,0.42866,-0.07719,-5.4948
-InternVL3-8B,Enlarged Cardiomediastinum,ap_pa,AP,PA,4723,1577,0.24963,0.65631,-0.40668,-29.2894
-InternVL3-8B,Cardiomegaly,ap_pa,AP,PA,4723,1577,0.68325,0.72226,-0.03901,-2.9077
-InternVL3-8B,Lung Opacity,ap_pa,AP,PA,4723,1577,0.49545,0.65694,-0.1615,-11.1344
-InternVL3-8B,Lung Lesion,ap_pa,AP,PA,4723,1577,0.44866,0.18263,0.26603,18.8255
-InternVL3-8B,Edema,ap_pa,AP,PA,4723,1577,0.5145,0.65821,-0.14371,-9.9332
-InternVL3-8B,Consolidation,ap_pa,AP,PA,4723,1577,0.50858,0.3792,0.12937,8.9069
-InternVL3-8B,Pneumonia,ap_pa,AP,PA,4723,1577,0.66102,0.7007,-0.03968,-2.9035
-InternVL3-8B,Atelectasis,ap_pa,AP,PA,4723,1577,0.53229,0.70514,-0.17285,-12.0244
-InternVL3-8B,Pneumothorax,ap_pa,AP,PA,4723,1577,0.80648,0.85542,-0.04894,-4.3683
-InternVL3-8B,Pleural Effusion,ap_pa,AP,PA,4723,1577,0.54033,0.46164,0.0787,5.4165
-InternVL3-8B,Pleural Other,ap_pa,AP,PA,4723,1577,0.93055,0.7603,0.17025,18.5573
-InternVL3-8B,Fracture,ap_pa,AP,PA,4723,1577,0.5596,0.58782,-0.02822,-1.9583
-InternVL3-8B,Support Devices,ap_pa,AP,PA,4723,1577,0.71776,0.60621,0.11155,8.292
+InternVL3-8B,No Finding,ap_pa,AP,PA,7424,2576,0.35035,0.44216,-0.09181,-8.2976
+InternVL3-8B,Enlarged Cardiomediastinum,ap_pa,AP,PA,7424,2576,0.24906,0.66188,-0.41282,-37.7182
+InternVL3-8B,Cardiomegaly,ap_pa,AP,PA,7424,2576,0.67699,0.717,-0.04001,-3.7741
+InternVL3-8B,Lung Opacity,ap_pa,AP,PA,7424,2576,0.48693,0.65722,-0.17029,-14.922
+InternVL3-8B,Lung Lesion,ap_pa,AP,PA,7424,2576,0.44518,0.19177,0.25341,22.8321
+InternVL3-8B,Edema,ap_pa,AP,PA,7424,2576,0.50256,0.65683,-0.15427,-13.5417
+InternVL3-8B,Consolidation,ap_pa,AP,PA,7424,2576,0.50485,0.38548,0.11937,10.4542
+InternVL3-8B,Pneumonia,ap_pa,AP,PA,7424,2576,0.66056,0.69565,-0.03509,-3.2626
+InternVL3-8B,Atelectasis,ap_pa,AP,PA,7424,2576,0.53825,0.70031,-0.16206,-14.3588
+InternVL3-8B,Pneumothorax,ap_pa,AP,PA,7424,2576,0.81398,0.85248,-0.0385,-4.4205
+InternVL3-8B,Pleural Effusion,ap_pa,AP,PA,7424,2576,0.54001,0.45963,0.08038,7.0353
+InternVL3-8B,Pleural Other,ap_pa,AP,PA,7424,2576,0.92982,0.74689,0.18293,24.8609
+InternVL3-8B,Fracture,ap_pa,AP,PA,7424,2576,0.56021,0.59123,-0.03102,-2.7384
+InternVL3-8B,Support Devices,ap_pa,AP,PA,7424,2576,0.71121,0.60792,0.10329,9.7206
 LLaVA-1.5-7B,No Finding,ap_pa,AP,PA,7424,2576,0.34523,0.48913,-0.1439,-12.9496
 LLaVA-1.5-7B,Enlarged Cardiomediastinum,ap_pa,AP,PA,7424,2576,0.24892,0.6646,-0.41567,-37.9644
 LLaVA-1.5-7B,Cardiomegaly,ap_pa,AP,PA,7424,2576,0.35412,0.72399,-0.36987,-32.5166
@@ -265,20 +307,34 @@ LLaVA-Med-7B,Pleural Effusion,ap_pa,AP,PA,7424,2576,0.47872,0.55978,-0.08106,-7.
 LLaVA-Med-7B,Pleural Other,ap_pa,AP,PA,7424,2576,0.93252,0.74689,0.18562,25.4161
 LLaVA-Med-7B,Fracture,ap_pa,AP,PA,7424,2576,0.75889,0.61685,0.14204,13.8696
 LLaVA-Med-7B,Support Devices,ap_pa,AP,PA,7424,2576,0.29027,0.67042,-0.38014,-34.1121
-MedGemma-4B,No Finding,ap_pa,AP,PA,3222,1078,0.24922,0.41466,-0.16543,-10.3543
-MedGemma-4B,Enlarged Cardiomediastinum,ap_pa,AP,PA,3222,1078,0.28243,0.65863,-0.37619,-22.0645
-MedGemma-4B,Cardiomegaly,ap_pa,AP,PA,3222,1078,0.61794,0.76438,-0.14644,-8.7531
-MedGemma-4B,Lung Opacity,ap_pa,AP,PA,3222,1078,0.35692,0.63822,-0.2813,-16.1605
-MedGemma-4B,Lung Lesion,ap_pa,AP,PA,3222,1078,0.81657,0.84787,-0.03129,-2.3376
-MedGemma-4B,Edema,ap_pa,AP,PA,3222,1078,0.64525,0.78942,-0.14417,-8.7942
-MedGemma-4B,Consolidation,ap_pa,AP,PA,3222,1078,0.53166,0.782,-0.25035,-14.4909
-MedGemma-4B,Pneumonia,ap_pa,AP,PA,3222,1078,0.6887,0.75139,-0.06269,-3.9046
-MedGemma-4B,Atelectasis,ap_pa,AP,PA,3222,1078,0.55028,0.73284,-0.18256,-10.5739
-MedGemma-4B,Pneumothorax,ap_pa,AP,PA,3222,1078,0.56983,0.28108,0.28876,16.4136
-MedGemma-4B,Pleural Effusion,ap_pa,AP,PA,3222,1078,0.56331,0.39054,0.17278,9.8288
-MedGemma-4B,Pleural Other,ap_pa,AP,PA,3222,1078,0.93358,0.76623,0.16735,15.3006
-MedGemma-4B,Fracture,ap_pa,AP,PA,3222,1078,0.74922,0.63915,0.11008,6.9802
-MedGemma-4B,Support Devices,ap_pa,AP,PA,3222,1078,0.81378,0.85158,-0.0378,-2.8161
+Llama-3.2-Vision-11B,No Finding,ap_pa,AP,PA,5929,2014,0.14977,0.37537,-0.2256,-21.5906
+Llama-3.2-Vision-11B,Enlarged Cardiomediastinum,ap_pa,AP,PA,5929,2014,0.24152,0.65541,-0.41389,-33.7245
+Llama-3.2-Vision-11B,Cardiomegaly,ap_pa,AP,PA,5929,2014,0.38657,0.7433,-0.35672,-27.6916
+Llama-3.2-Vision-11B,Lung Opacity,ap_pa,AP,PA,5929,2014,0.43447,0.65641,-0.22193,-17.2127
+Llama-3.2-Vision-11B,Lung Lesion,ap_pa,AP,PA,5929,2014,0.85208,0.89523,-0.04315,-4.8661
+Llama-3.2-Vision-11B,Edema,ap_pa,AP,PA,5929,2014,0.46011,0.85402,-0.39391,-30.7684
+Llama-3.2-Vision-11B,Consolidation,ap_pa,AP,PA,5929,2014,0.44982,0.76266,-0.31284,-24.3006
+Llama-3.2-Vision-11B,Pneumonia,ap_pa,AP,PA,5929,2014,0.76657,0.78947,-0.0229,-2.1178
+Llama-3.2-Vision-11B,Atelectasis,ap_pa,AP,PA,5929,2014,0.36161,0.67627,-0.31465,-24.5694
+Llama-3.2-Vision-11B,Pneumothorax,ap_pa,AP,PA,5929,2014,0.8644,0.91658,-0.05219,-6.1746
+Llama-3.2-Vision-11B,Pleural Effusion,ap_pa,AP,PA,5929,2014,0.49486,0.72244,-0.22759,-17.7468
+Llama-3.2-Vision-11B,Pleural Other,ap_pa,AP,PA,5929,2014,0.93304,0.75323,0.17981,22.0599
+Llama-3.2-Vision-11B,Fracture,ap_pa,AP,PA,5929,2014,0.76168,0.62115,0.14053,12.2172
+Llama-3.2-Vision-11B,Support Devices,ap_pa,AP,PA,5929,2014,0.41171,0.74081,-0.32911,-25.5222
+MedGemma-4B,No Finding,ap_pa,AP,PA,7001,2399,0.25968,0.42184,-0.16217,-14.9431
+MedGemma-4B,Enlarged Cardiomediastinum,ap_pa,AP,PA,7001,2399,0.27953,0.66611,-0.38658,-33.6966
+MedGemma-4B,Cardiomegaly,ap_pa,AP,PA,7001,2399,0.61463,0.77741,-0.16278,-14.4862
+MedGemma-4B,Lung Opacity,ap_pa,AP,PA,7001,2399,0.35681,0.65402,-0.29722,-25.3576
+MedGemma-4B,Lung Lesion,ap_pa,AP,PA,7001,2399,0.81331,0.82826,-0.01495,-1.6347
+MedGemma-4B,Edema,ap_pa,AP,PA,7001,2399,0.64005,0.78699,-0.14694,-13.2886
+MedGemma-4B,Consolidation,ap_pa,AP,PA,7001,2399,0.52121,0.77657,-0.25536,-21.9179
+MedGemma-4B,Pneumonia,ap_pa,AP,PA,7001,2399,0.69019,0.7524,-0.06221,-5.7722
+MedGemma-4B,Atelectasis,ap_pa,AP,PA,7001,2399,0.54678,0.72322,-0.17644,-15.1741
+MedGemma-4B,Pneumothorax,ap_pa,AP,PA,7001,2399,0.56992,0.28637,0.28355,23.9715
+MedGemma-4B,Pleural Effusion,ap_pa,AP,PA,7001,2399,0.56635,0.39808,0.16827,14.2407
+MedGemma-4B,Pleural Other,ap_pa,AP,PA,7001,2399,0.93315,0.74906,0.18409,24.5005
+MedGemma-4B,Fracture,ap_pa,AP,PA,7001,2399,0.75104,0.62318,0.12786,12.0162
+MedGemma-4B,Support Devices,ap_pa,AP,PA,7001,2399,0.80489,0.82534,-0.02046,-2.2049
 Phi-3.5-Vision,No Finding,ap_pa,AP,PA,7423,2576,0.08541,0.37811,-0.2927,-34.8423
 Phi-3.5-Vision,Enlarged Cardiomediastinum,ap_pa,AP,PA,7423,2576,0.24896,0.6646,-0.41564,-37.9598
 Phi-3.5-Vision,Cardiomegaly,ap_pa,AP,PA,7423,2576,0.35444,0.72399,-0.36955,-32.4865
@@ -293,6 +349,34 @@ Phi-3.5-Vision,Pleural Effusion,ap_pa,AP,PA,7423,2576,0.52432,0.62384,-0.09952,-
 Phi-3.5-Vision,Pleural Other,ap_pa,AP,PA,7423,2576,0.93237,0.74651,0.18587,25.4288
 Phi-3.5-Vision,Fracture,ap_pa,AP,PA,7423,2576,0.75657,0.61801,0.13856,13.5075
 Phi-3.5-Vision,Support Devices,ap_pa,AP,PA,7423,2576,0.3186,0.69371,-0.37511,-33.289
+Pixtral-12B,No Finding,ap_pa,AP,PA,5929,2014,0.91179,0.65045,0.26134,28.0379
+Pixtral-12B,Enlarged Cardiomediastinum,ap_pa,AP,PA,5929,2014,0.24186,0.65541,-0.41355,-33.6912
+Pixtral-12B,Cardiomegaly,ap_pa,AP,PA,5929,2014,0.39062,0.72393,-0.33331,-25.8788
+Pixtral-12B,Lung Opacity,ap_pa,AP,PA,5929,2014,0.6141,0.50199,0.11211,8.8245
+Pixtral-12B,Lung Lesion,ap_pa,AP,PA,5929,2014,0.85326,0.89325,-0.03998,-4.5142
+Pixtral-12B,Edema,ap_pa,AP,PA,5929,2014,0.45724,0.85452,-0.39727,-31.0162
+Pixtral-12B,Consolidation,ap_pa,AP,PA,5929,2014,0.46163,0.69215,-0.23053,-17.8907
+Pixtral-12B,Pneumonia,ap_pa,AP,PA,5929,2014,0.76421,0.7721,-0.00789,-0.7224
+Pixtral-12B,Atelectasis,ap_pa,AP,PA,5929,2014,0.36161,0.67627,-0.31465,-24.5694
+Pixtral-12B,Pneumothorax,ap_pa,AP,PA,5929,2014,0.8644,0.91658,-0.05219,-6.1746
+Pixtral-12B,Pleural Effusion,ap_pa,AP,PA,5929,2014,0.46922,0.70357,-0.23436,-18.2032
+Pixtral-12B,Pleural Other,ap_pa,AP,PA,5929,2014,0.93304,0.75323,0.17981,22.0599
+Pixtral-12B,Fracture,ap_pa,AP,PA,5929,2014,0.76016,0.62115,0.13901,12.0697
+Pixtral-12B,Support Devices,ap_pa,AP,PA,5929,2014,0.73081,0.74528,-0.01447,-1.2703
+Qwen2.5-VL-32B,No Finding,ap_pa,AP,PA,4267,1433,0.33068,0.42638,-0.0957,-6.5515
+Qwen2.5-VL-32B,Enlarged Cardiomediastinum,ap_pa,AP,PA,4267,1433,0.2517,0.65946,-0.40776,-27.9236
+Qwen2.5-VL-32B,Cardiomegaly,ap_pa,AP,PA,4267,1433,0.41176,0.71319,-0.30142,-19.7511
+Qwen2.5-VL-32B,Lung Opacity,ap_pa,AP,PA,4267,1433,0.62175,0.43964,0.18211,12.0694
+Qwen2.5-VL-32B,Lung Lesion,ap_pa,AP,PA,4267,1433,0.59316,0.42987,0.16329,10.7549
+Qwen2.5-VL-32B,Edema,ap_pa,AP,PA,4267,1433,0.51887,0.70202,-0.18316,-12.1002
+Qwen2.5-VL-32B,Consolidation,ap_pa,AP,PA,4267,1433,0.55753,0.55199,0.00555,0.3656
+Qwen2.5-VL-32B,Pneumonia,ap_pa,AP,PA,4267,1433,0.57558,0.6462,-0.07062,-4.7085
+Qwen2.5-VL-32B,Atelectasis,ap_pa,AP,PA,4267,1433,0.58308,0.43405,0.14903,9.8028
+Qwen2.5-VL-32B,Pneumothorax,ap_pa,AP,PA,4267,1433,0.41903,0.30635,0.11268,7.564
+Qwen2.5-VL-32B,Pleural Effusion,ap_pa,AP,PA,4267,1433,0.51488,0.43685,0.07804,5.112
+Qwen2.5-VL-32B,Pleural Other,ap_pa,AP,PA,4267,1433,0.92852,0.75715,0.17137,17.623
+Qwen2.5-VL-32B,Fracture,ap_pa,AP,PA,4267,1433,0.75369,0.62945,0.12424,9.0875
+Qwen2.5-VL-32B,Support Devices,ap_pa,AP,PA,4267,1433,0.60019,0.72715,-0.12696,-8.6229
 Qwen2.5-VL-3B,No Finding,ap_pa,AP,PA,7421,2571,0.68899,0.56748,0.12151,11.1905
 Qwen2.5-VL-3B,Enlarged Cardiomediastinum,ap_pa,AP,PA,7421,2571,0.4176,0.68456,-0.26696,-23.3397
 Qwen2.5-VL-3B,Cardiomegaly,ap_pa,AP,PA,7421,2571,0.49266,0.74057,-0.24791,-21.8056
@@ -391,20 +475,20 @@ GPT-5.4,Pleural Effusion,age,60-79,<40,9360,3754,0.80748,0.84417,-0.03669,-4.921
 GPT-5.4,Pleural Other,age,60-79,<40,9360,3754,0.84252,0.88759,-0.04507,-6.6331
 GPT-5.4,Fracture,age,60-79,<40,9360,3754,0.68739,0.73548,-0.04809,-5.4379
 GPT-5.4,Support Devices,age,60-79,<40,9360,3754,0.80962,0.8407,-0.03109,-4.1752
-InternVL3-8B,No Finding,age,60-79,<40,2363,964,0.3614,0.40353,-0.04212,-2.2784
-InternVL3-8B,Enlarged Cardiomediastinum,age,60-79,<40,2363,964,0.31401,0.45643,-0.14242,-7.7868
-InternVL3-8B,Cardiomegaly,age,60-79,<40,2363,964,0.68345,0.71784,-0.03439,-1.9516
-InternVL3-8B,Lung Opacity,age,60-79,<40,2363,964,0.50402,0.57054,-0.06652,-3.4849
-InternVL3-8B,Lung Lesion,age,60-79,<40,2363,964,0.41769,0.33506,0.08263,4.4252
-InternVL3-8B,Edema,age,60-79,<40,2363,964,0.5328,0.60062,-0.06783,-3.5692
-InternVL3-8B,Consolidation,age,60-79,<40,2363,964,0.48963,0.47614,0.01349,0.7063
-InternVL3-8B,Pneumonia,age,60-79,<40,2363,964,0.65764,0.68672,-0.02908,-1.6136
-InternVL3-8B,Atelectasis,age,60-79,<40,2363,964,0.55734,0.62759,-0.07025,-3.7216
-InternVL3-8B,Pneumothorax,age,60-79,<40,2363,964,0.81803,0.72199,0.09604,6.1718
-InternVL3-8B,Pleural Effusion,age,60-79,<40,2363,964,0.55777,0.46784,0.08992,4.7154
-InternVL3-8B,Pleural Other,age,60-79,<40,2363,964,0.8832,0.9222,-0.039,-3.3219
-InternVL3-8B,Fracture,age,60-79,<40,2363,964,0.55734,0.5778,-0.02046,-1.0793
-InternVL3-8B,Support Devices,age,60-79,<40,2363,964,0.69403,0.71162,-0.01759,-1.0033
+InternVL3-8B,No Finding,age,60-79,<40,3732,1504,0.36468,0.41157,-0.04689,-3.1656
+InternVL3-8B,Enlarged Cardiomediastinum,age,60-79,<40,3732,1504,0.32288,0.48471,-0.16182,-10.978
+InternVL3-8B,Cardiomegaly,age,60-79,<40,3732,1504,0.67872,0.72473,-0.04601,-3.2628
+InternVL3-8B,Lung Opacity,age,60-79,<40,3732,1504,0.5008,0.58045,-0.07965,-5.2214
+InternVL3-8B,Lung Lesion,age,60-79,<40,3732,1504,0.41935,0.33311,0.08623,5.7767
+InternVL3-8B,Edema,age,60-79,<40,3732,1504,0.5343,0.59508,-0.06078,-4.0016
+InternVL3-8B,Consolidation,age,60-79,<40,3732,1504,0.49357,0.44149,0.05208,3.4134
+InternVL3-8B,Pneumonia,age,60-79,<40,3732,1504,0.66158,0.69082,-0.02925,-2.0366
+InternVL3-8B,Atelectasis,age,60-79,<40,3732,1504,0.55788,0.64495,-0.08707,-5.7815
+InternVL3-8B,Pneumothorax,age,60-79,<40,3732,1504,0.82931,0.74269,0.08663,7.1509
+InternVL3-8B,Pleural Effusion,age,60-79,<40,3732,1504,0.55198,0.46742,0.08456,5.5459
+InternVL3-8B,Pleural Other,age,60-79,<40,3732,1504,0.87353,0.91157,-0.03804,-3.8963
+InternVL3-8B,Fracture,age,60-79,<40,3732,1504,0.56324,0.57646,-0.01323,-0.874
+InternVL3-8B,Support Devices,age,60-79,<40,3732,1504,0.68355,0.7008,-0.01725,-1.2196
 LLaVA-1.5-7B,No Finding,age,60-79,<40,3732,1504,0.37192,0.40625,-0.03433,-2.3137
 LLaVA-1.5-7B,Enlarged Cardiomediastinum,age,60-79,<40,3732,1504,0.32208,0.48604,-0.16396,-11.1239
 LLaVA-1.5-7B,Cardiomegaly,age,60-79,<40,3732,1504,0.41077,0.58112,-0.17035,-11.191
@@ -433,20 +517,34 @@ LLaVA-Med-7B,Pleural Effusion,age,60-79,<40,3732,1504,0.47401,0.55984,-0.08583,-
 LLaVA-Med-7B,Pleural Other,age,60-79,<40,3732,1504,0.8746,0.9129,-0.0383,-3.9398
 LLaVA-Med-7B,Fracture,age,60-79,<40,3732,1504,0.70766,0.73471,-0.02704,-1.9624
 LLaVA-Med-7B,Support Devices,age,60-79,<40,3732,1504,0.36736,0.36902,-0.00165,-0.1122
-MedGemma-4B,No Finding,age,60-79,<40,1610,624,0.25839,0.32212,-0.06373,-3.0227
-MedGemma-4B,Enlarged Cardiomediastinum,age,60-79,<40,1610,624,0.32981,0.52564,-0.19583,-8.5364
-MedGemma-4B,Cardiomegaly,age,60-79,<40,1610,624,0.59441,0.73558,-0.14117,-6.214
-MedGemma-4B,Lung Opacity,age,60-79,<40,1610,624,0.39317,0.5,-0.10683,-4.5857
-MedGemma-4B,Lung Lesion,age,60-79,<40,1610,624,0.81863,0.83494,-0.0163,-0.9062
-MedGemma-4B,Edema,age,60-79,<40,1610,624,0.66149,0.73237,-0.07088,-3.2257
-MedGemma-4B,Consolidation,age,60-79,<40,1610,624,0.56335,0.64423,-0.08088,-3.482
-MedGemma-4B,Pneumonia,age,60-79,<40,1610,624,0.67578,0.74038,-0.06461,-2.9726
-MedGemma-4B,Atelectasis,age,60-79,<40,1610,624,0.58758,0.66026,-0.07268,-3.1568
-MedGemma-4B,Pneumothorax,age,60-79,<40,1610,624,0.51988,0.4391,0.08077,3.4258
-MedGemma-4B,Pleural Effusion,age,60-79,<40,1610,624,0.55776,0.45353,0.10424,4.4283
-MedGemma-4B,Pleural Other,age,60-79,<40,1610,624,0.88509,0.91346,-0.02837,-1.9463
-MedGemma-4B,Fracture,age,60-79,<40,1610,624,0.7118,0.71635,-0.00454,-0.2131
-MedGemma-4B,Support Devices,age,60-79,<40,1610,624,0.82298,0.84135,-0.01836,-1.0322
+Llama-3.2-Vision-11B,No Finding,age,60-79,<40,3778,1461,0.2099,0.33196,-0.12206,-9.2258
+Llama-3.2-Vision-11B,Enlarged Cardiomediastinum,age,60-79,<40,3778,1461,0.36421,0.52225,-0.15803,-10.4361
+Llama-3.2-Vision-11B,Cardiomegaly,age,60-79,<40,3778,1461,0.48465,0.63723,-0.15259,-9.9202
+Llama-3.2-Vision-11B,Lung Opacity,age,60-79,<40,3778,1461,0.48041,0.577,-0.09659,-6.271
+Llama-3.2-Vision-11B,Lung Lesion,age,60-79,<40,3778,1461,0.87427,0.85626,0.01801,1.7339
+Llama-3.2-Vision-11B,Edema,age,60-79,<40,3778,1461,0.59582,0.71047,-0.11465,-7.6988
+Llama-3.2-Vision-11B,Consolidation,age,60-79,<40,3778,1461,0.5315,0.64271,-0.11121,-7.2767
+Llama-3.2-Vision-11B,Pneumonia,age,60-79,<40,3778,1461,0.75754,0.79329,-0.03575,-2.7469
+Llama-3.2-Vision-11B,Atelectasis,age,60-79,<40,3778,1461,0.43515,0.58864,-0.15349,-9.9737
+Llama-3.2-Vision-11B,Pneumothorax,age,60-79,<40,3778,1461,0.88618,0.82546,0.06072,5.8463
+Llama-3.2-Vision-11B,Pleural Effusion,age,60-79,<40,3778,1461,0.54129,0.67762,-0.13633,-8.9634
+Llama-3.2-Vision-11B,Pleural Other,age,60-79,<40,3778,1461,0.85071,0.89938,-0.04867,-4.6126
+Llama-3.2-Vision-11B,Fracture,age,60-79,<40,3778,1461,0.68237,0.73922,-0.05685,-4.0198
+Llama-3.2-Vision-11B,Support Devices,age,60-79,<40,3778,1461,0.50715,0.51677,-0.00962,-0.6248
+MedGemma-4B,No Finding,age,60-79,<40,3486,1382,0.27108,0.3589,-0.08782,-6.0517
+MedGemma-4B,Enlarged Cardiomediastinum,age,60-79,<40,3486,1382,0.34509,0.50217,-0.15708,-10.1325
+MedGemma-4B,Cardiomegaly,age,60-79,<40,3486,1382,0.62278,0.71708,-0.0943,-6.2178
+MedGemma-4B,Lung Opacity,age,60-79,<40,3486,1382,0.38985,0.52388,-0.13403,-8.5221
+MedGemma-4B,Lung Lesion,age,60-79,<40,3486,1382,0.82473,0.81476,0.00997,0.8195
+MedGemma-4B,Edema,age,60-79,<40,3486,1382,0.66867,0.71274,-0.04406,-2.9743
+MedGemma-4B,Consolidation,age,60-79,<40,3486,1382,0.56483,0.63025,-0.06542,-4.1743
+MedGemma-4B,Pneumonia,age,60-79,<40,3486,1382,0.69191,0.733,-0.04109,-2.8302
+MedGemma-4B,Atelectasis,age,60-79,<40,3486,1382,0.57745,0.66208,-0.08463,-5.438
+MedGemma-4B,Pneumothorax,age,60-79,<40,3486,1382,0.50832,0.43922,0.0691,4.3487
+MedGemma-4B,Pleural Effusion,age,60-79,<40,3486,1382,0.54647,0.46889,0.07759,4.8874
+MedGemma-4B,Pleural Other,age,60-79,<40,3486,1382,0.87608,0.911,-0.03492,-3.4567
+MedGemma-4B,Fracture,age,60-79,<40,3486,1382,0.70396,0.73155,-0.02759,-1.9163
+MedGemma-4B,Support Devices,age,60-79,<40,3486,1382,0.7969,0.84515,-0.04825,-3.8739
 Phi-3.5-Vision,No Finding,age,60-79,<40,3732,1504,0.1321,0.23737,-0.10527,-9.3463
 Phi-3.5-Vision,Enlarged Cardiomediastinum,age,60-79,<40,3732,1504,0.32208,0.48604,-0.16396,-11.1239
 Phi-3.5-Vision,Cardiomegaly,age,60-79,<40,3732,1504,0.4105,0.58112,-0.17061,-11.209
@@ -461,34 +559,62 @@ Phi-3.5-Vision,Pleural Effusion,age,60-79,<40,3732,1504,0.54314,0.54255,0.00059,
 Phi-3.5-Vision,Pleural Other,age,60-79,<40,3732,1504,0.8746,0.9129,-0.0383,-3.9398
 Phi-3.5-Vision,Fracture,age,60-79,<40,3732,1504,0.70713,0.7367,-0.02957,-2.1465
 Phi-3.5-Vision,Support Devices,age,60-79,<40,3732,1504,0.39175,0.40359,-0.01184,-0.7932
-Qwen2.5-VL-3B,No Finding,age,60-79,<40,3728,1503,0.65719,0.67598,-0.01879,-1.3008
-Qwen2.5-VL-3B,Enlarged Cardiomediastinum,age,60-79,<40,3728,1503,0.45306,0.59082,-0.13776,-9.0183
-Qwen2.5-VL-3B,Cardiomegaly,age,60-79,<40,3728,1503,0.522,0.65336,-0.13136,-8.6607
-Qwen2.5-VL-3B,Lung Opacity,age,60-79,<40,3728,1503,0.43616,0.52029,-0.08413,-5.5246
-Qwen2.5-VL-3B,Lung Lesion,age,60-79,<40,3728,1503,0.86105,0.84365,0.01741,1.6228
-Qwen2.5-VL-3B,Edema,age,60-79,<40,3728,1503,0.55258,0.68796,-0.13538,-9.0138
-Qwen2.5-VL-3B,Consolidation,age,60-79,<40,3728,1503,0.50027,0.61344,-0.11317,-7.4238
-Qwen2.5-VL-3B,Pneumonia,age,60-79,<40,3728,1503,0.73525,0.77312,-0.03787,-2.8481
-Qwen2.5-VL-3B,Atelectasis,age,60-79,<40,3728,1503,0.40156,0.55223,-0.15067,-9.9231
-Qwen2.5-VL-3B,Pneumothorax,age,60-79,<40,3728,1503,0.8691,0.78909,0.08001,7.2569
-Qwen2.5-VL-3B,Pleural Effusion,age,60-79,<40,3728,1503,0.48981,0.63806,-0.14825,-9.7244
-Qwen2.5-VL-3B,Pleural Other,age,60-79,<40,3728,1503,0.86373,0.9002,-0.03647,-3.599
-Qwen2.5-VL-3B,Fracture,age,60-79,<40,3728,1503,0.70628,0.73453,-0.02825,-2.0472
-Qwen2.5-VL-3B,Support Devices,age,60-79,<40,3728,1503,0.66792,0.69328,-0.02536,-1.7725
-Qwen2.5-VL-7B,No Finding,age,60-79,<40,3732,1504,0.84941,0.78723,0.06218,5.4393
-Qwen2.5-VL-7B,Enlarged Cardiomediastinum,age,60-79,<40,3732,1504,0.66077,0.62101,0.03976,2.7282
-Qwen2.5-VL-7B,Cardiomegaly,age,60-79,<40,3732,1504,0.60959,0.56981,0.03978,2.6565
-Qwen2.5-VL-7B,Lung Opacity,age,60-79,<40,3732,1504,0.52974,0.49601,0.03373,2.2106
-Qwen2.5-VL-7B,Lung Lesion,age,60-79,<40,3732,1504,0.86683,0.84508,0.02175,2.0557
-Qwen2.5-VL-7B,Edema,age,60-79,<40,3732,1504,0.54904,0.68285,-0.13381,-8.8995
-Qwen2.5-VL-7B,Consolidation,age,60-79,<40,3732,1504,0.49544,0.56649,-0.07104,-4.6545
-Qwen2.5-VL-7B,Pneumonia,age,60-79,<40,3732,1504,0.73392,0.73338,0.00055,0.0404
-Qwen2.5-VL-7B,Atelectasis,age,60-79,<40,3732,1504,0.3963,0.54987,-0.15356,-10.128
-Qwen2.5-VL-7B,Pneumothorax,age,60-79,<40,3732,1504,0.87728,0.79255,0.08472,7.8325
-Qwen2.5-VL-7B,Pleural Effusion,age,60-79,<40,3732,1504,0.48473,0.63697,-0.15224,-9.9853
-Qwen2.5-VL-7B,Pleural Other,age,60-79,<40,3732,1504,0.8746,0.9129,-0.0383,-3.9398
-Qwen2.5-VL-7B,Fracture,age,60-79,<40,3732,1504,0.7074,0.7254,-0.018,-1.3025
-Qwen2.5-VL-7B,Support Devices,age,60-79,<40,3732,1504,0.73794,0.7746,-0.03666,-2.7663
+Pixtral-12B,No Finding,age,60-79,<40,3778,1461,0.82848,0.72964,0.09884,8.0347
+Pixtral-12B,Enlarged Cardiomediastinum,age,60-79,<40,3778,1461,0.36395,0.52225,-0.1583,-10.4543
+Pixtral-12B,Cardiomegaly,age,60-79,<40,3778,1461,0.47141,0.63039,-0.15898,-10.3255
+Pixtral-12B,Lung Opacity,age,60-79,<40,3778,1461,0.5937,0.44695,0.14675,9.5799
+Pixtral-12B,Lung Lesion,age,60-79,<40,3778,1461,0.87718,0.85626,0.02092,2.0282
+Pixtral-12B,Edema,age,60-79,<40,3778,1461,0.5937,0.70979,-0.11609,-7.7877
+Pixtral-12B,Consolidation,age,60-79,<40,3778,1461,0.50212,0.60027,-0.09816,-6.3832
+Pixtral-12B,Pneumonia,age,60-79,<40,3778,1461,0.74696,0.79192,-0.04497,-3.4151
+Pixtral-12B,Atelectasis,age,60-79,<40,3778,1461,0.43515,0.58864,-0.15349,-9.9737
+Pixtral-12B,Pneumothorax,age,60-79,<40,3778,1461,0.88618,0.82546,0.06072,5.8463
+Pixtral-12B,Pleural Effusion,age,60-79,<40,3778,1461,0.51218,0.67146,-0.15928,-10.4071
+Pixtral-12B,Pleural Other,age,60-79,<40,3778,1461,0.85071,0.89938,-0.04867,-4.6126
+Pixtral-12B,Fracture,age,60-79,<40,3778,1461,0.6837,0.73443,-0.05073,-3.5862
+Pixtral-12B,Support Devices,age,60-79,<40,3778,1461,0.73346,0.75222,-0.01877,-1.3865
+Qwen2.5-VL-32B,No Finding,age,60-79,<40,2150,889,0.3493,0.38245,-0.03315,-1.733
+Qwen2.5-VL-32B,Enlarged Cardiomediastinum,age,60-79,<40,2150,889,0.30884,0.46344,-0.1546,-8.1076
+Qwen2.5-VL-32B,Cardiomegaly,age,60-79,<40,2150,889,0.45628,0.58493,-0.12865,-6.4531
+Qwen2.5-VL-32B,Lung Opacity,age,60-79,<40,2150,889,0.61674,0.54218,0.07456,3.8091
+Qwen2.5-VL-32B,Lung Lesion,age,60-79,<40,2150,889,0.55488,0.52418,0.0307,1.5463
+Qwen2.5-VL-32B,Edema,age,60-79,<40,2150,889,0.55953,0.57368,-0.01414,-0.7152
+Qwen2.5-VL-32B,Consolidation,age,60-79,<40,2150,889,0.56512,0.53206,0.03306,1.6684
+Qwen2.5-VL-32B,Pneumonia,age,60-79,<40,2150,889,0.57442,0.60742,-0.03301,-1.6794
+Qwen2.5-VL-32B,Atelectasis,age,60-79,<40,2150,889,0.57581,0.49044,0.08538,4.3045
+Qwen2.5-VL-32B,Pneumothorax,age,60-79,<40,2150,889,0.4014,0.40945,-0.00805,-0.4116
+Qwen2.5-VL-32B,Pleural Effusion,age,60-79,<40,2150,889,0.50884,0.50394,0.0049,0.2458
+Qwen2.5-VL-32B,Pleural Other,age,60-79,<40,2150,889,0.88419,0.91114,-0.02695,-2.1782
+Qwen2.5-VL-32B,Fracture,age,60-79,<40,2150,889,0.71721,0.71429,0.00292,0.1627
+Qwen2.5-VL-32B,Support Devices,age,60-79,<40,2150,889,0.63256,0.61305,0.01951,1.0117
+Qwen2.5-VL-3B,No Finding,age,60-79,<40,4516,1801,0.6322,0.6613,-0.0291,-2.1762
+Qwen2.5-VL-3B,Enlarged Cardiomediastinum,age,60-79,<40,4516,1801,0.47941,0.6191,-0.13969,-10.0325
+Qwen2.5-VL-3B,Cardiomegaly,age,60-79,<40,4516,1801,0.54739,0.67574,-0.12835,-9.3436
+Qwen2.5-VL-3B,Lung Opacity,age,60-79,<40,4516,1801,0.45571,0.54969,-0.09398,-6.7487
+Qwen2.5-VL-3B,Lung Lesion,age,60-79,<40,4516,1801,0.86537,0.85008,0.01528,1.5854
+Qwen2.5-VL-3B,Edema,age,60-79,<40,4516,1801,0.5981,0.72182,-0.12373,-9.2129
+Qwen2.5-VL-3B,Consolidation,age,60-79,<40,4516,1801,0.53189,0.64908,-0.1172,-8.4832
+Qwen2.5-VL-3B,Pneumonia,age,60-79,<40,4516,1801,0.73539,0.78401,-0.04862,-4.0252
+Qwen2.5-VL-3B,Atelectasis,age,60-79,<40,4516,1801,0.43778,0.59356,-0.15578,-11.1867
+Qwen2.5-VL-3B,Pneumothorax,age,60-79,<40,4516,1801,0.876,0.81455,0.06145,6.3258
+Qwen2.5-VL-3B,Pleural Effusion,age,60-79,<40,4516,1801,0.51661,0.6724,-0.1558,-11.2649
+Qwen2.5-VL-3B,Pleural Other,age,60-79,<40,4516,1801,0.84035,0.88951,-0.04916,-5.0007
+Qwen2.5-VL-3B,Fracture,age,60-79,<40,4516,1801,0.68091,0.73404,-0.05312,-4.1443
+Qwen2.5-VL-3B,Support Devices,age,60-79,<40,4516,1801,0.67715,0.70128,-0.02413,-1.8623
+Qwen2.5-VL-7B,No Finding,age,60-79,<40,4520,1802,0.82235,0.74806,0.07429,6.6809
+Qwen2.5-VL-7B,Enlarged Cardiomediastinum,age,60-79,<40,4520,1802,0.62257,0.58768,0.03489,2.5704
+Qwen2.5-VL-7B,Cardiomegaly,age,60-79,<40,4520,1802,0.5719,0.54107,0.03084,2.2316
+Qwen2.5-VL-7B,Lung Opacity,age,60-79,<40,4520,1802,0.52478,0.49501,0.02977,2.1385
+Qwen2.5-VL-7B,Lung Lesion,age,60-79,<40,4520,1802,0.87146,0.85183,0.01963,2.0674
+Qwen2.5-VL-7B,Edema,age,60-79,<40,4520,1802,0.5958,0.71809,-0.12229,-9.0952
+Qwen2.5-VL-7B,Consolidation,age,60-79,<40,4520,1802,0.52323,0.60211,-0.07888,-5.6863
+Qwen2.5-VL-7B,Pneumonia,age,60-79,<40,4520,1802,0.725,0.74473,-0.01973,-1.5962
+Qwen2.5-VL-7B,Atelectasis,age,60-79,<40,4520,1802,0.43407,0.59212,-0.15805,-11.3559
+Qwen2.5-VL-7B,Pneumothorax,age,60-79,<40,4520,1802,0.88385,0.81687,0.06698,7.03
+Qwen2.5-VL-7B,Pleural Effusion,age,60-79,<40,4520,1802,0.51305,0.67203,-0.15898,-11.4912
+Qwen2.5-VL-7B,Pleural Other,age,60-79,<40,4520,1802,0.85044,0.90067,-0.05022,-5.2714
+Qwen2.5-VL-7B,Fracture,age,60-79,<40,4520,1802,0.68252,0.72475,-0.04223,-3.2908
+Qwen2.5-VL-7B,Support Devices,age,60-79,<40,4520,1802,0.73319,0.77081,-0.03762,-3.0941
 gpt-4o,No Finding,age,60-79,<40,535,177,0.95888,0.9661,-0.00722,-0.4286
 gpt-4o,Enlarged Cardiomediastinum,age,60-79,<40,535,177,0.63551,0.71186,-0.07635,-1.8516
 gpt-4o,Cardiomegaly,age,60-79,<40,535,177,0.67664,0.67797,-0.00133,-0.0328
@@ -559,20 +685,20 @@ GPT-5.4,Pleural Effusion,age,80+,<40,3350,3754,0.8009,0.84417,-0.04327,-4.7782
 GPT-5.4,Pleural Other,age,80+,<40,3350,3754,0.83493,0.88759,-0.05266,-6.4389
 GPT-5.4,Fracture,age,80+,<40,3350,3754,0.66239,0.73548,-0.07309,-6.7176
 GPT-5.4,Support Devices,age,80+,<40,3350,3754,0.81701,0.8407,-0.02369,-2.6504
-InternVL3-8B,No Finding,age,80+,<40,793,964,0.3657,0.40353,-0.03783,-1.6204
-InternVL3-8B,Enlarged Cardiomediastinum,age,80+,<40,793,964,0.26103,0.45643,-0.1954,-8.4502
-InternVL3-8B,Cardiomegaly,age,80+,<40,793,964,0.69609,0.71784,-0.02175,-0.9979
-InternVL3-8B,Lung Opacity,age,80+,<40,793,964,0.5599,0.57054,-0.01064,-0.4478
-InternVL3-8B,Lung Lesion,age,80+,<40,793,964,0.40605,0.33506,0.07099,3.0721
-InternVL3-8B,Edema,age,80+,<40,793,964,0.49433,0.60062,-0.1063,-4.4592
-InternVL3-8B,Consolidation,age,80+,<40,793,964,0.47289,0.47614,-0.00325,-0.1359
-InternVL3-8B,Pneumonia,age,80+,<40,793,964,0.62043,0.68672,-0.06629,-2.9125
-InternVL3-8B,Atelectasis,age,80+,<40,793,964,0.52963,0.62759,-0.09796,-4.1447
-InternVL3-8B,Pneumothorax,age,80+,<40,793,964,0.8512,0.72199,0.12921,6.5093
-InternVL3-8B,Pleural Effusion,age,80+,<40,793,964,0.55612,0.46784,0.08827,3.683
-InternVL3-8B,Pleural Other,age,80+,<40,793,964,0.86129,0.9222,-0.06091,-4.1396
-InternVL3-8B,Fracture,age,80+,<40,793,964,0.56494,0.5778,-0.01286,-0.542
-InternVL3-8B,Support Devices,age,80+,<40,793,964,0.63682,0.71162,-0.0748,-3.3387
+InternVL3-8B,No Finding,age,80+,<40,1311,1504,0.3669,0.41157,-0.04467,-2.4232
+InternVL3-8B,Enlarged Cardiomediastinum,age,80+,<40,1311,1504,0.25172,0.48471,-0.23299,-12.729
+InternVL3-8B,Cardiomegaly,age,80+,<40,1311,1504,0.67277,0.72473,-0.05197,-3.0027
+InternVL3-8B,Lung Opacity,age,80+,<40,1311,1504,0.55072,0.58045,-0.02973,-1.5877
+InternVL3-8B,Lung Lesion,age,80+,<40,1311,1504,0.41495,0.33311,0.08184,4.4831
+InternVL3-8B,Edema,age,80+,<40,1311,1504,0.49428,0.59508,-0.1008,-5.3604
+InternVL3-8B,Consolidation,age,80+,<40,1311,1504,0.4836,0.44149,0.04211,2.2358
+InternVL3-8B,Pneumonia,age,80+,<40,1311,1504,0.62777,0.69082,-0.06306,-3.5268
+InternVL3-8B,Atelectasis,age,80+,<40,1311,1504,0.53166,0.64495,-0.11329,-6.1013
+InternVL3-8B,Pneumothorax,age,80+,<40,1311,1504,0.85965,0.74269,0.11696,7.6981
+InternVL3-8B,Pleural Effusion,age,80+,<40,1311,1504,0.54996,0.46742,0.08254,4.3694
+InternVL3-8B,Pleural Other,age,80+,<40,1311,1504,0.86651,0.91157,-0.04506,-3.8199
+InternVL3-8B,Fracture,age,80+,<40,1311,1504,0.55301,0.57646,-0.02345,-1.252
+InternVL3-8B,Support Devices,age,80+,<40,1311,1504,0.627,0.7008,-0.0738,-4.1423
 LLaVA-1.5-7B,No Finding,age,80+,<40,1311,1504,0.39817,0.40625,-0.00808,-0.4361
 LLaVA-1.5-7B,Enlarged Cardiomediastinum,age,80+,<40,1311,1504,0.25172,0.48604,-0.23432,-12.7969
 LLaVA-1.5-7B,Cardiomegaly,age,80+,<40,1311,1504,0.3341,0.58112,-0.24702,-13.1054
@@ -601,20 +727,34 @@ LLaVA-Med-7B,Pleural Effusion,age,80+,<40,1311,1504,0.45843,0.55984,-0.10141,-5.
 LLaVA-Med-7B,Pleural Other,age,80+,<40,1311,1504,0.87109,0.9129,-0.04181,-3.5859
 LLaVA-Med-7B,Fracture,age,80+,<40,1311,1504,0.67963,0.73471,-0.05507,-3.2091
 LLaVA-Med-7B,Support Devices,age,80+,<40,1311,1504,0.48741,0.36902,0.1184,6.3404
-MedGemma-4B,No Finding,age,80+,<40,571,624,0.30998,0.32212,-0.01213,-0.4505
-MedGemma-4B,Enlarged Cardiomediastinum,age,80+,<40,571,624,0.2732,0.52564,-0.25244,-8.8795
-MedGemma-4B,Cardiomegaly,age,80+,<40,571,624,0.65499,0.73558,-0.08059,-3.0281
-MedGemma-4B,Lung Opacity,age,80+,<40,571,624,0.39405,0.5,-0.10595,-3.678
-MedGemma-4B,Lung Lesion,age,80+,<40,571,624,0.81611,0.83494,-0.01882,-0.8573
-MedGemma-4B,Edema,age,80+,<40,571,624,0.66375,0.73237,-0.06862,-2.5848
-MedGemma-4B,Consolidation,age,80+,<40,571,624,0.5359,0.64423,-0.10833,-3.8068
-MedGemma-4B,Pneumonia,age,80+,<40,571,624,0.68827,0.74038,-0.05212,-1.9946
-MedGemma-4B,Atelectasis,age,80+,<40,571,624,0.56042,0.66026,-0.09984,-3.5386
-MedGemma-4B,Pneumothorax,age,80+,<40,571,624,0.53065,0.4391,0.09155,3.1634
-MedGemma-4B,Pleural Effusion,age,80+,<40,571,624,0.58144,0.45353,0.12791,4.4193
-MedGemma-4B,Pleural Other,age,80+,<40,571,624,0.86865,0.91346,-0.04481,-2.4934
-MedGemma-4B,Fracture,age,80+,<40,571,624,0.6725,0.71635,-0.04384,-1.6449
-MedGemma-4B,Support Devices,age,80+,<40,571,624,0.77933,0.84135,-0.06201,-2.739
+Llama-3.2-Vision-11B,No Finding,age,80+,<40,1312,1461,0.1753,0.33196,-0.15666,-9.4156
+Llama-3.2-Vision-11B,Enlarged Cardiomediastinum,age,80+,<40,1312,1461,0.29649,0.52225,-0.22575,-12.0442
+Llama-3.2-Vision-11B,Cardiomegaly,age,80+,<40,1312,1461,0.43216,0.63723,-0.20507,-10.8183
+Llama-3.2-Vision-11B,Lung Opacity,age,80+,<40,1312,1461,0.47332,0.577,-0.10368,-5.4603
+Llama-3.2-Vision-11B,Lung Lesion,age,80+,<40,1312,1461,0.86204,0.85626,0.00578,0.4366
+Llama-3.2-Vision-11B,Edema,age,80+,<40,1312,1461,0.50457,0.71047,-0.2059,-11.1147
+Llama-3.2-Vision-11B,Consolidation,age,80+,<40,1312,1461,0.52439,0.64271,-0.11832,-6.3174
+Llama-3.2-Vision-11B,Pneumonia,age,80+,<40,1312,1461,0.75686,0.79329,-0.03643,-2.2977
+Llama-3.2-Vision-11B,Atelectasis,age,80+,<40,1312,1461,0.43674,0.58864,-0.1519,-7.9919
+Llama-3.2-Vision-11B,Pneumothorax,age,80+,<40,1312,1461,0.92759,0.82546,0.10213,8.0855
+Llama-3.2-Vision-11B,Pleural Effusion,age,80+,<40,1312,1461,0.51753,0.67762,-0.16009,-8.5983
+Llama-3.2-Vision-11B,Pleural Other,age,80+,<40,1312,1461,0.84146,0.89938,-0.05792,-4.5578
+Llama-3.2-Vision-11B,Fracture,age,80+,<40,1312,1461,0.66082,0.73922,-0.0784,-4.507
+Llama-3.2-Vision-11B,Support Devices,age,80+,<40,1312,1461,0.66235,0.51677,0.14558,7.7698
+MedGemma-4B,No Finding,age,80+,<40,1210,1382,0.32975,0.3589,-0.02915,-1.5571
+MedGemma-4B,Enlarged Cardiomediastinum,age,80+,<40,1210,1382,0.28264,0.50217,-0.21953,-11.3832
+MedGemma-4B,Cardiomegaly,age,80+,<40,1210,1382,0.62231,0.71708,-0.09476,-5.1302
+MedGemma-4B,Lung Opacity,age,80+,<40,1210,1382,0.40661,0.52388,-0.11727,-5.9685
+MedGemma-4B,Lung Lesion,age,80+,<40,1210,1382,0.80496,0.81476,-0.0098,-0.6349
+MedGemma-4B,Edema,age,80+,<40,1210,1382,0.65124,0.71274,-0.0615,-3.3598
+MedGemma-4B,Consolidation,age,80+,<40,1210,1382,0.53388,0.63025,-0.09636,-4.9679
+MedGemma-4B,Pneumonia,age,80+,<40,1210,1382,0.68264,0.733,-0.05035,-2.817
+MedGemma-4B,Atelectasis,age,80+,<40,1210,1382,0.54793,0.66208,-0.11415,-5.9411
+MedGemma-4B,Pneumothorax,age,80+,<40,1210,1382,0.53967,0.43922,0.10045,5.1048
+MedGemma-4B,Pleural Effusion,age,80+,<40,1210,1382,0.57769,0.46889,0.1088,5.5313
+MedGemma-4B,Pleural Other,age,80+,<40,1210,1382,0.87686,0.911,-0.03414,-2.8294
+MedGemma-4B,Fracture,age,80+,<40,1210,1382,0.66942,0.73155,-0.06213,-3.4519
+MedGemma-4B,Support Devices,age,80+,<40,1210,1382,0.76198,0.84515,-0.08317,-5.3456
 Phi-3.5-Vision,No Finding,age,80+,<40,1311,1504,0.12586,0.23737,-0.11151,-7.5934
 Phi-3.5-Vision,Enlarged Cardiomediastinum,age,80+,<40,1311,1504,0.25172,0.48604,-0.23432,-12.7969
 Phi-3.5-Vision,Cardiomegaly,age,80+,<40,1311,1504,0.33486,0.58112,-0.24626,-13.0643
@@ -629,34 +769,62 @@ Phi-3.5-Vision,Pleural Effusion,age,80+,<40,1311,1504,0.54539,0.54255,0.00283,0.
 Phi-3.5-Vision,Pleural Other,age,80+,<40,1311,1504,0.87109,0.9129,-0.04181,-3.5859
 Phi-3.5-Vision,Fracture,age,80+,<40,1311,1504,0.67582,0.7367,-0.06088,-3.545
 Phi-3.5-Vision,Support Devices,age,80+,<40,1311,1504,0.5225,0.40359,0.11891,6.3155
-Qwen2.5-VL-3B,No Finding,age,80+,<40,1310,1503,0.69466,0.67598,0.01868,1.0633
-Qwen2.5-VL-3B,Enlarged Cardiomediastinum,age,80+,<40,1310,1503,0.4374,0.59082,-0.15341,-8.1236
-Qwen2.5-VL-3B,Cardiomegaly,age,80+,<40,1310,1503,0.50458,0.65336,-0.14878,-7.9861
-Qwen2.5-VL-3B,Lung Opacity,age,80+,<40,1310,1503,0.46794,0.52029,-0.05235,-2.7703
-Qwen2.5-VL-3B,Lung Lesion,age,80+,<40,1310,1503,0.84733,0.84365,0.00368,0.2694
-Qwen2.5-VL-3B,Edema,age,80+,<40,1310,1503,0.45649,0.68796,-0.23147,-12.4082
-Qwen2.5-VL-3B,Consolidation,age,80+,<40,1310,1503,0.49542,0.61344,-0.11802,-6.2879
-Qwen2.5-VL-3B,Pneumonia,age,80+,<40,1310,1503,0.71145,0.77312,-0.06167,-3.7404
-Qwen2.5-VL-3B,Atelectasis,age,80+,<40,1310,1503,0.4084,0.55223,-0.14383,-7.6139
-Qwen2.5-VL-3B,Pneumothorax,age,80+,<40,1310,1503,0.91527,0.78909,0.12618,9.2944
-Qwen2.5-VL-3B,Pleural Effusion,age,80+,<40,1310,1503,0.46947,0.63806,-0.16859,-8.9846
-Qwen2.5-VL-3B,Pleural Other,age,80+,<40,1310,1503,0.84962,0.9002,-0.05058,-4.0694
-Qwen2.5-VL-3B,Fracture,age,80+,<40,1310,1503,0.67634,0.73453,-0.0582,-3.3842
-Qwen2.5-VL-3B,Support Devices,age,80+,<40,1310,1503,0.68168,0.69328,-0.0116,-0.6624
-Qwen2.5-VL-7B,No Finding,age,80+,<40,1311,1504,0.87338,0.78723,0.08615,6.0324
-Qwen2.5-VL-7B,Enlarged Cardiomediastinum,age,80+,<40,1311,1504,0.7193,0.62101,0.09829,5.5186
-Qwen2.5-VL-7B,Cardiomegaly,age,80+,<40,1311,1504,0.66514,0.56981,0.09533,5.1829
-Qwen2.5-VL-7B,Lung Opacity,age,80+,<40,1311,1504,0.5553,0.49601,0.05929,3.1419
-Qwen2.5-VL-7B,Lung Lesion,age,80+,<40,1311,1504,0.85889,0.84508,0.01381,1.0276
-Qwen2.5-VL-7B,Edema,age,80+,<40,1311,1504,0.44241,0.68285,-0.24044,-12.8565
-Qwen2.5-VL-7B,Consolidation,age,80+,<40,1311,1504,0.47597,0.56649,-0.09052,-4.7969
-Qwen2.5-VL-7B,Pneumonia,age,80+,<40,1311,1504,0.72464,0.73338,-0.00874,-0.5206
-Qwen2.5-VL-7B,Atelectasis,age,80+,<40,1311,1504,0.40351,0.54987,-0.14636,-7.7522
-Qwen2.5-VL-7B,Pneumothorax,age,80+,<40,1311,1504,0.93669,0.79255,0.14414,10.9833
-Qwen2.5-VL-7B,Pleural Effusion,age,80+,<40,1311,1504,0.46682,0.63697,-0.17015,-9.0669
-Qwen2.5-VL-7B,Pleural Other,age,80+,<40,1311,1504,0.87109,0.9129,-0.04181,-3.5859
-Qwen2.5-VL-7B,Fracture,age,80+,<40,1311,1504,0.67811,0.7254,-0.04729,-2.7401
-Qwen2.5-VL-7B,Support Devices,age,80+,<40,1311,1504,0.65217,0.7746,-0.12243,-7.1975
+Pixtral-12B,No Finding,age,80+,<40,1312,1461,0.85442,0.72964,0.12478,8.0362
+Pixtral-12B,Enlarged Cardiomediastinum,age,80+,<40,1312,1461,0.29649,0.52225,-0.22575,-12.0442
+Pixtral-12B,Cardiomegaly,age,80+,<40,1312,1461,0.44131,0.63039,-0.18908,-9.9759
+Pixtral-12B,Lung Opacity,age,80+,<40,1312,1461,0.59604,0.44695,0.14908,7.844
+Pixtral-12B,Lung Lesion,age,80+,<40,1312,1461,0.86509,0.85626,0.00883,0.6698
+Pixtral-12B,Edema,age,80+,<40,1312,1461,0.50229,0.70979,-0.2075,-11.1935
+Pixtral-12B,Consolidation,age,80+,<40,1312,1461,0.51143,0.60027,-0.08884,-4.7036
+Pixtral-12B,Pneumonia,age,80+,<40,1312,1461,0.74924,0.79192,-0.04269,-2.6739
+Pixtral-12B,Atelectasis,age,80+,<40,1312,1461,0.43674,0.58864,-0.1519,-7.9919
+Pixtral-12B,Pneumothorax,age,80+,<40,1312,1461,0.92759,0.82546,0.10213,8.0855
+Pixtral-12B,Pleural Effusion,age,80+,<40,1312,1461,0.49848,0.67146,-0.17298,-9.2457
+Pixtral-12B,Pleural Other,age,80+,<40,1312,1461,0.84146,0.89938,-0.05792,-4.5578
+Pixtral-12B,Fracture,age,80+,<40,1312,1461,0.65854,0.73443,-0.07589,-4.348
+Pixtral-12B,Support Devices,age,80+,<40,1312,1461,0.67683,0.75222,-0.0754,-4.3985
+Qwen2.5-VL-32B,No Finding,age,80+,<40,752,889,0.32447,0.38245,-0.05798,-2.4444
+Qwen2.5-VL-32B,Enlarged Cardiomediastinum,age,80+,<40,752,889,0.26463,0.46344,-0.19881,-8.3009
+Qwen2.5-VL-32B,Cardiomegaly,age,80+,<40,752,889,0.39495,0.58493,-0.18998,-7.6692
+Qwen2.5-VL-32B,Lung Opacity,age,80+,<40,752,889,0.59176,0.54218,0.04957,2.0182
+Qwen2.5-VL-32B,Lung Lesion,age,80+,<40,752,889,0.59441,0.52418,0.07023,2.8532
+Qwen2.5-VL-32B,Edema,age,80+,<40,752,889,0.51862,0.57368,-0.05506,-2.2332
+Qwen2.5-VL-32B,Consolidation,age,80+,<40,752,889,0.54521,0.53206,0.01315,0.5326
+Qwen2.5-VL-32B,Pneumonia,age,80+,<40,752,889,0.58378,0.60742,-0.02365,-0.9729
+Qwen2.5-VL-32B,Atelectasis,age,80+,<40,752,889,0.58245,0.49044,0.09201,3.7221
+Qwen2.5-VL-32B,Pneumothorax,age,80+,<40,752,889,0.40293,0.40945,-0.00652,-0.2681
+Qwen2.5-VL-32B,Pleural Effusion,age,80+,<40,752,889,0.47872,0.50394,-0.02521,-1.0179
+Qwen2.5-VL-32B,Pleural Other,age,80+,<40,752,889,0.8617,0.91114,-0.04943,-3.1698
+Qwen2.5-VL-32B,Fracture,age,80+,<40,752,889,0.6742,0.71429,-0.04008,-1.7587
+Qwen2.5-VL-32B,Support Devices,age,80+,<40,752,889,0.64096,0.61305,0.02791,1.1641
+Qwen2.5-VL-3B,No Finding,age,80+,<40,1560,1801,0.66346,0.6613,0.00216,0.1322
+Qwen2.5-VL-3B,Enlarged Cardiomediastinum,age,80+,<40,1560,1801,0.44423,0.6191,-0.17487,-10.1411
+Qwen2.5-VL-3B,Cardiomegaly,age,80+,<40,1560,1801,0.50705,0.67574,-0.16868,-9.9448
+Qwen2.5-VL-3B,Lung Opacity,age,80+,<40,1560,1801,0.47564,0.54969,-0.07405,-4.2842
+Qwen2.5-VL-3B,Lung Lesion,age,80+,<40,1560,1801,0.85256,0.85008,0.00248,0.2016
+Qwen2.5-VL-3B,Edema,age,80+,<40,1560,1801,0.49551,0.72182,-0.22631,-13.4585
+Qwen2.5-VL-3B,Consolidation,age,80+,<40,1560,1801,0.52756,0.64908,-0.12152,-7.1508
+Qwen2.5-VL-3B,Pneumonia,age,80+,<40,1560,1801,0.71987,0.78401,-0.06414,-4.3071
+Qwen2.5-VL-3B,Atelectasis,age,80+,<40,1560,1801,0.43654,0.59356,-0.15702,-9.0875
+Qwen2.5-VL-3B,Pneumothorax,age,80+,<40,1560,1801,0.91859,0.81455,0.10404,8.7441
+Qwen2.5-VL-3B,Pleural Effusion,age,80+,<40,1560,1801,0.49295,0.6724,-0.17946,-10.5458
+Qwen2.5-VL-3B,Pleural Other,age,80+,<40,1560,1801,0.82821,0.88951,-0.0613,-5.124
+Qwen2.5-VL-3B,Fracture,age,80+,<40,1560,1801,0.66154,0.73404,-0.0725,-4.5758
+Qwen2.5-VL-3B,Support Devices,age,80+,<40,1560,1801,0.70641,0.70128,0.00513,0.325
+Qwen2.5-VL-7B,No Finding,age,80+,<40,1561,1802,0.85522,0.74806,0.10716,7.7166
+Qwen2.5-VL-7B,Enlarged Cardiomediastinum,age,80+,<40,1561,1802,0.69186,0.58768,0.10418,6.2625
+Qwen2.5-VL-7B,Cardiomegaly,age,80+,<40,1561,1802,0.63741,0.54107,0.09635,5.6568
+Qwen2.5-VL-7B,Lung Opacity,age,80+,<40,1561,1802,0.55221,0.49501,0.0572,3.3119
+Qwen2.5-VL-7B,Lung Lesion,age,80+,<40,1561,1802,0.86227,0.85183,0.01044,0.8614
+Qwen2.5-VL-7B,Edema,age,80+,<40,1561,1802,0.4843,0.71809,-0.23379,-13.8596
+Qwen2.5-VL-7B,Consolidation,age,80+,<40,1561,1802,0.50224,0.60211,-0.09987,-5.8128
+Qwen2.5-VL-7B,Pneumonia,age,80+,<40,1561,1802,0.72069,0.74473,-0.02404,-1.5724
+Qwen2.5-VL-7B,Atelectasis,age,80+,<40,1561,1802,0.43177,0.59212,-0.16035,-9.2806
+Qwen2.5-VL-7B,Pneumothorax,age,80+,<40,1561,1802,0.93722,0.81687,0.12035,10.4439
+Qwen2.5-VL-7B,Pleural Effusion,age,80+,<40,1561,1802,0.49071,0.67203,-0.18132,-10.6538
+Qwen2.5-VL-7B,Pleural Other,age,80+,<40,1561,1802,0.84561,0.90067,-0.05505,-4.8163
+Qwen2.5-VL-7B,Fracture,age,80+,<40,1561,1802,0.66047,0.72475,-0.06428,-4.0373
+Qwen2.5-VL-7B,Support Devices,age,80+,<40,1561,1802,0.66304,0.77081,-0.10777,-6.9479
 gpt-4o,No Finding,age,80+,<40,352,177,0.97443,0.9661,0.00833,0.5446
 gpt-4o,Enlarged Cardiomediastinum,age,80+,<40,352,177,0.61932,0.71186,-0.09255,-2.1061
 gpt-4o,Cardiomegaly,age,80+,<40,352,177,0.67614,0.67797,-0.00183,-0.0425

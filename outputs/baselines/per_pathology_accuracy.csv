@@ -55,20 +55,20 @@ GPT-5.4,Pleural Effusion,25192,20505,0.813949
 GPT-5.4,Pleural Other,25192,21552,0.855510
 GPT-5.4,Fracture,25192,17854,0.708717
 GPT-5.4,Support Devices,25192,20659,0.820062
-InternVL3-8B,No Finding,6300,2336,0.370794
-InternVL3-8B,Enlarged Cardiomediastinum,6300,2214,0.351429
-InternVL3-8B,Cardiomegaly,6300,4366,0.693016
-InternVL3-8B,Lung Opacity,6300,3376,0.535873
-InternVL3-8B,Lung Lesion,6300,2407,0.382063
-InternVL3-8B,Edema,6300,3468,0.550476
-InternVL3-8B,Consolidation,6300,3000,0.476190
-InternVL3-8B,Pneumonia,6300,4227,0.670952
-InternVL3-8B,Atelectasis,6300,3626,0.575556
-InternVL3-8B,Pneumothorax,6300,5158,0.818730
-InternVL3-8B,Pleural Effusion,6300,3280,0.520635
-InternVL3-8B,Pleural Other,6300,5594,0.887937
-InternVL3-8B,Fracture,6300,3570,0.566667
-InternVL3-8B,Support Devices,6300,4346,0.689841
+InternVL3-8B,No Finding,10000,3740,0.374000
+InternVL3-8B,Enlarged Cardiomediastinum,10000,3554,0.355400
+InternVL3-8B,Cardiomegaly,10000,6873,0.687300
+InternVL3-8B,Lung Opacity,10000,5308,0.530800
+InternVL3-8B,Lung Lesion,10000,3799,0.379900
+InternVL3-8B,Edema,10000,5423,0.542300
+InternVL3-8B,Consolidation,10000,4741,0.474100
+InternVL3-8B,Pneumonia,10000,6696,0.669600
+InternVL3-8B,Atelectasis,10000,5800,0.580000
+InternVL3-8B,Pneumothorax,10000,8239,0.823900
+InternVL3-8B,Pleural Effusion,10000,5193,0.519300
+InternVL3-8B,Pleural Other,10000,8827,0.882700
+InternVL3-8B,Fracture,10000,5682,0.568200
+InternVL3-8B,Support Devices,10000,6846,0.684600
 LLaVA-1.5-7B,No Finding,10000,3823,0.382300
 LLaVA-1.5-7B,Enlarged Cardiomediastinum,10000,3560,0.356000
 LLaVA-1.5-7B,Cardiomegaly,10000,4494,0.449400
@@ -97,20 +97,34 @@ LLaVA-Med-7B,Pleural Effusion,10000,4996,0.499600
 LLaVA-Med-7B,Pleural Other,10000,8847,0.884700
 LLaVA-Med-7B,Fracture,10000,7223,0.722300
 LLaVA-Med-7B,Support Devices,10000,3882,0.388200
-MedGemma-4B,No Finding,4300,1250,0.290698
-MedGemma-4B,Enlarged Cardiomediastinum,4300,1620,0.376744
-MedGemma-4B,Cardiomegaly,4300,2815,0.654651
-MedGemma-4B,Lung Opacity,4300,1838,0.427442
-MedGemma-4B,Lung Lesion,4300,3545,0.824419
-MedGemma-4B,Edema,4300,2930,0.681395
-MedGemma-4B,Consolidation,4300,2556,0.594419
-MedGemma-4B,Pneumonia,4300,3029,0.704419
-MedGemma-4B,Atelectasis,4300,2563,0.596047
-MedGemma-4B,Pneumothorax,4300,2139,0.497442
-MedGemma-4B,Pleural Effusion,4300,2236,0.520000
-MedGemma-4B,Pleural Other,4300,3834,0.891628
-MedGemma-4B,Fracture,4300,3103,0.721628
-MedGemma-4B,Support Devices,4300,3540,0.823256
+Llama-3.2-Vision-11B,No Finding,10000,2371,0.237100
+Llama-3.2-Vision-11B,Enlarged Cardiomediastinum,10000,4043,0.404300
+Llama-3.2-Vision-11B,Cardiomegaly,10000,5213,0.521300
+Llama-3.2-Vision-11B,Lung Opacity,10000,5137,0.513700
+Llama-3.2-Vision-11B,Lung Lesion,10000,8685,0.868500
+Llama-3.2-Vision-11B,Edema,10000,6158,0.615800
+Llama-3.2-Vision-11B,Consolidation,10000,5704,0.570400
+Llama-3.2-Vision-11B,Pneumonia,10000,7720,0.772000
+Llama-3.2-Vision-11B,Atelectasis,10000,4847,0.484700
+Llama-3.2-Vision-11B,Pneumothorax,10000,8861,0.886100
+Llama-3.2-Vision-11B,Pleural Effusion,10000,5802,0.580200
+Llama-3.2-Vision-11B,Pleural Other,10000,8597,0.859700
+Llama-3.2-Vision-11B,Fracture,10000,7026,0.702600
+Llama-3.2-Vision-11B,Support Devices,10000,5380,0.538000
+MedGemma-4B,No Finding,9400,2830,0.301064
+MedGemma-4B,Enlarged Cardiomediastinum,9400,3555,0.378191
+MedGemma-4B,Cardiomegaly,9400,6168,0.656170
+MedGemma-4B,Lung Opacity,9400,4067,0.432660
+MedGemma-4B,Lung Lesion,9400,7681,0.817128
+MedGemma-4B,Edema,9400,6369,0.677553
+MedGemma-4B,Consolidation,9400,5512,0.586383
+MedGemma-4B,Pneumonia,9400,6637,0.706064
+MedGemma-4B,Atelectasis,9400,5563,0.591809
+MedGemma-4B,Pneumothorax,9400,4677,0.497553
+MedGemma-4B,Pleural Effusion,9400,4920,0.523404
+MedGemma-4B,Pleural Other,9400,8330,0.886170
+MedGemma-4B,Fracture,9400,6753,0.718404
+MedGemma-4B,Support Devices,9400,7615,0.810106
 Phi-3.5-Vision,No Finding,9999,1608,0.160816
 Phi-3.5-Vision,Enlarged Cardiomediastinum,9999,3560,0.356036
 Phi-3.5-Vision,Cardiomegaly,9999,4496,0.449645
@@ -125,34 +139,62 @@ Phi-3.5-Vision,Pleural Effusion,9999,5499,0.549955
 Phi-3.5-Vision,Pleural Other,9999,8844,0.884488
 Phi-3.5-Vision,Fracture,9999,7208,0.720872
 Phi-3.5-Vision,Support Devices,9999,4152,0.415242
-Qwen2.5-VL-3B,No Finding,9992,6572,0.657726
-Qwen2.5-VL-3B,Enlarged Cardiomediastinum,9992,4859,0.486289
-Qwen2.5-VL-3B,Cardiomegaly,9992,5560,0.556445
-Qwen2.5-VL-3B,Lung Opacity,9992,4606,0.460969
-Qwen2.5-VL-3B,Lung Lesion,9992,8515,0.852182
-Qwen2.5-VL-3B,Edema,9992,5705,0.570957
-Qwen2.5-VL-3B,Consolidation,9992,5350,0.535428
-Qwen2.5-VL-3B,Pneumonia,9992,7479,0.748499
-Qwen2.5-VL-3B,Atelectasis,9992,4518,0.452162
-Qwen2.5-VL-3B,Pneumothorax,9992,8652,0.865893
-Qwen2.5-VL-3B,Pleural Effusion,9992,5357,0.536129
-Qwen2.5-VL-3B,Pleural Other,9992,8697,0.870396
-Qwen2.5-VL-3B,Fracture,9992,7188,0.719376
-Qwen2.5-VL-3B,Support Devices,9992,6761,0.676641
-Qwen2.5-VL-7B,No Finding,10000,8326,0.832600
-Qwen2.5-VL-7B,Enlarged Cardiomediastinum,10000,6547,0.654700
-Qwen2.5-VL-7B,Cardiomegaly,10000,6034,0.603400
-Qwen2.5-VL-7B,Lung Opacity,10000,5198,0.519800
-Qwen2.5-VL-7B,Lung Lesion,10000,8590,0.859000
-Qwen2.5-VL-7B,Edema,10000,5662,0.566200
-Qwen2.5-VL-7B,Consolidation,10000,5175,0.517500
-Qwen2.5-VL-7B,Pneumonia,10000,7381,0.738100
-Qwen2.5-VL-7B,Atelectasis,10000,4469,0.446900
-Qwen2.5-VL-7B,Pneumothorax,10000,8769,0.876900
-Qwen2.5-VL-7B,Pleural Effusion,10000,5320,0.532000
-Qwen2.5-VL-7B,Pleural Other,10000,8847,0.884700
-Qwen2.5-VL-7B,Fracture,10000,7201,0.720100
-Qwen2.5-VL-7B,Support Devices,10000,7381,0.738100
+Pixtral-12B,No Finding,10000,8046,0.804600
+Pixtral-12B,Enlarged Cardiomediastinum,10000,4045,0.404500
+Pixtral-12B,Cardiomegaly,10000,5192,0.519200
+Pixtral-12B,Lung Opacity,10000,5511,0.551100
+Pixtral-12B,Lung Lesion,10000,8689,0.868900
+Pixtral-12B,Edema,10000,6142,0.614200
+Pixtral-12B,Consolidation,10000,5398,0.539800
+Pixtral-12B,Pneumonia,10000,7634,0.763400
+Pixtral-12B,Atelectasis,10000,4847,0.484700
+Pixtral-12B,Pneumothorax,10000,8861,0.886100
+Pixtral-12B,Pleural Effusion,10000,5610,0.561000
+Pixtral-12B,Pleural Other,10000,8597,0.859700
+Pixtral-12B,Fracture,10000,7015,0.701500
+Pixtral-12B,Support Devices,10000,7282,0.728200
+Qwen2.5-VL-32B,No Finding,5700,2022,0.354737
+Qwen2.5-VL-32B,Enlarged Cardiomediastinum,5700,2019,0.354211
+Qwen2.5-VL-32B,Cardiomegaly,5700,2779,0.487544
+Qwen2.5-VL-32B,Lung Opacity,5700,3283,0.575965
+Qwen2.5-VL-32B,Lung Lesion,5700,3147,0.552105
+Qwen2.5-VL-32B,Edema,5700,3220,0.564912
+Qwen2.5-VL-32B,Consolidation,5700,3170,0.556140
+Qwen2.5-VL-32B,Pneumonia,5700,3382,0.593333
+Qwen2.5-VL-32B,Atelectasis,5700,3110,0.545614
+Qwen2.5-VL-32B,Pneumothorax,5700,2227,0.390702
+Qwen2.5-VL-32B,Pleural Effusion,5700,2823,0.495263
+Qwen2.5-VL-32B,Pleural Other,5700,5047,0.885439
+Qwen2.5-VL-32B,Fracture,5700,4118,0.722456
+Qwen2.5-VL-32B,Support Devices,5700,3603,0.632105
+Qwen2.5-VL-3B,No Finding,12049,7651,0.634990
+Qwen2.5-VL-3B,Enlarged Cardiomediastinum,12049,6182,0.513072
+Qwen2.5-VL-3B,Cardiomegaly,12049,6993,0.580380
+Qwen2.5-VL-3B,Lung Opacity,12049,5796,0.481036
+Qwen2.5-VL-3B,Lung Lesion,12049,10331,0.857416
+Qwen2.5-VL-3B,Edema,12049,7407,0.614740
+Qwen2.5-VL-3B,Consolidation,12049,6838,0.567516
+Qwen2.5-VL-3B,Pneumonia,12049,9042,0.750436
+Qwen2.5-VL-3B,Atelectasis,12049,5855,0.485932
+Qwen2.5-VL-3B,Pneumothorax,12049,10528,0.873765
+Qwen2.5-VL-3B,Pleural Effusion,12049,6766,0.561540
+Qwen2.5-VL-3B,Pleural Other,12049,10233,0.849282
+Qwen2.5-VL-3B,Fracture,12049,8446,0.700971
+Qwen2.5-VL-3B,Support Devices,12049,8315,0.690099
+Qwen2.5-VL-7B,No Finding,12057,9685,0.803268
+Qwen2.5-VL-7B,Enlarged Cardiomediastinum,12057,7441,0.617152
+Qwen2.5-VL-7B,Cardiomegaly,12057,6832,0.566642
+Qwen2.5-VL-7B,Lung Opacity,12057,6222,0.516049
+Qwen2.5-VL-7B,Lung Lesion,12057,10417,0.863979
+Qwen2.5-VL-7B,Edema,12057,7372,0.611429
+Qwen2.5-VL-7B,Consolidation,12057,6588,0.546405
+Qwen2.5-VL-7B,Pneumonia,12057,8851,0.734096
+Qwen2.5-VL-7B,Atelectasis,12057,5810,0.481878
+Qwen2.5-VL-7B,Pneumothorax,12057,10659,0.884051
+Qwen2.5-VL-7B,Pleural Effusion,12057,6732,0.558348
+Qwen2.5-VL-7B,Pleural Other,12057,10395,0.862155
+Qwen2.5-VL-7B,Fracture,12057,8449,0.700755
+Qwen2.5-VL-7B,Support Devices,12057,8880,0.736502
 gpt-4o,No Finding,1657,1581,0.954134
 gpt-4o,Enlarged Cardiomediastinum,1657,1042,0.628847
 gpt-4o,Cardiomegaly,1657,1127,0.680145
