@@ -204,17 +204,6 @@ filename under `data/inference/`. All launchers default to the first
 | `pixtral-12b.json` (HF, requires `HF_TOKEN`)       | `modal run inference/inference_pixtral.py`                                                           |
 | `llama-3.2-vision-11b.json` (HF, gated repo)       | `modal run inference/inference_llama_vision.py`                                                      |
 
-> **Qwen2.5-VL 3B / 7B.** The committed `data/inference/qwen2.5-vl-3b.json`
-> and `qwen2.5-vl-7b.json` were produced with an earlier standalone Modal
-> script that has since been removed. The 32B launcher above (or any one of
-> the open-VLM launchers under `modal_runs/`) is a good template if you
-> want to regenerate them yourself.
-
-> **Optional GPT extensions.** `run_gpt5_topup_modal.py` and
-> `run_gpt4o_topup_modal.py` extend the GPT runs with ~5,000 lateral
-> views plus 200 validation images — used by some downstream analyses but
-> not required for the IRT/factor fits.
-
 For long-running detached jobs, monitor via `modal app logs <app-id>`.
 
 ### Step 3 — pull the inference outputs back to `data/inference/`
@@ -243,7 +232,7 @@ python -m matrix.construct_matrix
 
 Writes `outputs/response_matrix.csv` — the J × I binary matrix consumed
 by the IRT fits (rows = items, columns = test-takers; cells are
-1 / 0 / empty for correct / incorrect / missing).
+1 / 0 / empty for missing).
 
 ### Step 5 — fit the full IRT / factor / baseline panel and regenerate every figure
 
@@ -284,13 +273,12 @@ To re-run a single stage, invoke it directly — e.g.
 
 ## Data access
 
-Raw imaging data is **not** committed to this repo. Both source datasets
+Raw imaging data is **not** committed to this repo. Source source datasets
 require an external research agreement:
 
 | Dataset             | Size        | Conditions | Access                                                                         |
 | ------------------- | ----------- | ---------- | ------------------------------------------------------------------------------ |
-| CheXpert (Stanford) | 224K images | 14         | [Research agreement](https://stanfordmlgroup.github.io/competitions/chexpert/) |
-| MIMIC-CXR (MIT)     | 377K images | 14         | [PhysioNet credentialed](https://physionet.org/content/mimic-cxr/)             |
+| CheXpert (Stanford) | 224K images | 14         | [Research agreement](https://stanfordmlgroup.github.io/competitions/chexpert/) |        |
 
 After agreeing to the CheXpert terms, you receive a SAS URL — that is the
 value you paste into `modal secret create chexpert-secret CHEXPERT_SAS_URL="..."`
