@@ -125,20 +125,20 @@ MedGemma-4B,Pleural Effusion,10000,5227,0.522700
 MedGemma-4B,Pleural Other,10000,8836,0.883600
 MedGemma-4B,Fracture,10000,7154,0.715400
 MedGemma-4B,Support Devices,10000,8094,0.809400
-Phi-3.5-Vision,No Finding,9999,1608,0.160816
-Phi-3.5-Vision,Enlarged Cardiomediastinum,9999,3560,0.356036
-Phi-3.5-Vision,Cardiomegaly,9999,4496,0.449645
-Phi-3.5-Vision,Lung Opacity,9999,3257,0.325733
-Phi-3.5-Vision,Lung Lesion,9999,7034,0.703470
-Phi-3.5-Vision,Edema,9999,5666,0.566657
-Phi-3.5-Vision,Consolidation,9999,5257,0.525753
-Phi-3.5-Vision,Pneumonia,9999,7630,0.763076
-Phi-3.5-Vision,Atelectasis,9999,4496,0.449645
-Phi-3.5-Vision,Pneumothorax,9999,6341,0.634163
-Phi-3.5-Vision,Pleural Effusion,9999,5499,0.549955
-Phi-3.5-Vision,Pleural Other,9999,8844,0.884488
-Phi-3.5-Vision,Fracture,9999,7208,0.720872
-Phi-3.5-Vision,Support Devices,9999,4152,0.415242
+Phi-3.5-Vision,No Finding,10000,1608,0.160800
+Phi-3.5-Vision,Enlarged Cardiomediastinum,10000,3561,0.356100
+Phi-3.5-Vision,Cardiomegaly,10000,4497,0.449700
+Phi-3.5-Vision,Lung Opacity,10000,3257,0.325700
+Phi-3.5-Vision,Lung Lesion,10000,7034,0.703400
+Phi-3.5-Vision,Edema,10000,5667,0.566700
+Phi-3.5-Vision,Consolidation,10000,5257,0.525700
+Phi-3.5-Vision,Pneumonia,10000,7630,0.763000
+Phi-3.5-Vision,Atelectasis,10000,4497,0.449700
+Phi-3.5-Vision,Pneumothorax,10000,6341,0.634100
+Phi-3.5-Vision,Pleural Effusion,10000,5500,0.550000
+Phi-3.5-Vision,Pleural Other,10000,8845,0.884500
+Phi-3.5-Vision,Fracture,10000,7208,0.720800
+Phi-3.5-Vision,Support Devices,10000,4152,0.415200
 Pixtral-12B,No Finding,10000,8046,0.804600
 Pixtral-12B,Enlarged Cardiomediastinum,10000,4045,0.404500
 Pixtral-12B,Cardiomegaly,10000,5192,0.519200

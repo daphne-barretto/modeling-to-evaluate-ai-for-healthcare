@@ -35,10 +35,10 @@ MedGemma-4B,cardiac,20000,10446,0.522300
 MedGemma-4B,other,30000,18266,0.608867
 MedGemma-4B,pleural,30000,19049,0.634967
 MedGemma-4B,pulmonary,60000,38154,0.635900
-Phi-3.5-Vision,cardiac,19998,8056,0.402840
-Phi-3.5-Vision,other,29997,12968,0.432310
-Phi-3.5-Vision,pleural,29997,20684,0.689536
-Phi-3.5-Vision,pulmonary,59994,33340,0.555722
+Phi-3.5-Vision,cardiac,20000,8058,0.402900
+Phi-3.5-Vision,other,30000,12968,0.432267
+Phi-3.5-Vision,pleural,30000,20686,0.689533
+Phi-3.5-Vision,pulmonary,60000,33342,0.555700
 Pixtral-12B,cardiac,20000,9237,0.461850
 Pixtral-12B,other,30000,22343,0.744767
 Pixtral-12B,pleural,30000,23068,0.768933
