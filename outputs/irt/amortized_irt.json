@@ -13,9 +13,9 @@
   "discrimination_mse_test": 3.584827184677124,
   "discrimination_r2_test": 0.07777805197736687,
   "nll_per_obs_test": {
-    "amortizer": 0.9483257589853408,
+    "amortizer": 0.9483257589853407,
     "oracle_2pl": 0.36342814782119787,
-    "null_rasch": 0.655855069136062
+    "null_rasch": 0.6558550691360617
   },
   "subjects": [
     "GPT-5.4",

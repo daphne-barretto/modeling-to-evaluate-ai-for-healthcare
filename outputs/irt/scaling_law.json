@@ -8,8 +8,8 @@
         "CheXagent-8B",
         "CheXagent-2-3B"
       ],
-      "slope_per_decade": -0.8367186908267659,
-      "intercept_at_1B": 1.7534462716146597,
+      "slope_per_decade": -0.8367186908267652,
+      "intercept_at_1B": 1.75344627161466,
       "r2": 1.0
     },
     "Qwen2.5-VL": {
@@ -19,8 +19,8 @@
         "Qwen2.5-VL-3B",
         "Qwen2.5-VL-7B"
       ],
-      "slope_per_decade": -0.780596091180485,
-      "intercept_at_1B": 1.5384491342898747,
+      "slope_per_decade": -0.7805960911804851,
+      "intercept_at_1B": 1.5384491342898754,
       "r2": 0.7147905905159828
     }
   }

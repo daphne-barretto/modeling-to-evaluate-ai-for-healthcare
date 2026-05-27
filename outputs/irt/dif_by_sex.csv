@@ -1,15 +1,15 @@
 pathology,Female,Male,max_minus_min
-Atelectasis,0.5189,0.5379,0.0190
-Cardiomegaly,0.5582,0.5644,0.0062
-Consolidation,0.5511,0.5905,0.0395
-Edema,0.6084,0.6278,0.0194
-Enlarged Cardiomediastinum,0.4478,0.4551,0.0073
-Fracture,0.7025,0.7152,0.0127
-Lung Lesion,0.7928,0.8001,0.0073
-Lung Opacity,0.5080,0.5100,0.0020
-No Finding,0.5634,0.5557,0.0077
-Pleural Effusion,0.5910,0.6039,0.0129
-Pleural Other,0.8532,0.8583,0.0050
-Pneumonia,0.6946,0.7126,0.0180
-Pneumothorax,0.7971,0.7867,0.0104
-Support Devices,0.6751,0.6617,0.0134
+Atelectasis,0.5186,0.5377,0.0190
+Cardiomegaly,0.5577,0.5657,0.0080
+Consolidation,0.5516,0.5907,0.0392
+Edema,0.6084,0.6276,0.0192
+Enlarged Cardiomediastinum,0.4477,0.4561,0.0084
+Fracture,0.7024,0.7144,0.0120
+Lung Lesion,0.7934,0.8000,0.0066
+Lung Opacity,0.5082,0.5097,0.0015
+No Finding,0.5637,0.5563,0.0074
+Pleural Effusion,0.5904,0.6040,0.0136
+Pleural Other,0.8530,0.8573,0.0043
+Pneumonia,0.6948,0.7129,0.0181
+Pneumothorax,0.7965,0.7871,0.0095
+Support Devices,0.6764,0.6618,0.0146
