@@ -81,7 +81,7 @@ def main() -> None:
 
     corpus = fit_summary["corpus"]
     lines += [
-        rf"\newcommand{{\NSubjects}}{{{corpus['n_subjects']}}}",
+        rf"\newcommand{{\NTestTakers}}{{{corpus['n_subjects']}}}",
         rf"\newcommand{{\NItems}}{{{corpus['n_items']:,}}}",
         rf"\newcommand{{\NObservations}}{{{corpus['n_observations']:,}}}",
         rf"\newcommand{{\NPathologies}}{{14}}",

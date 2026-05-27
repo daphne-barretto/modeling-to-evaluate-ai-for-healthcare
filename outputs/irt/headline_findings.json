@@ -93,7 +93,7 @@
       "test_auc": "0.500000"
     },
     {
-      "model": "subject_mean",
+      "model": "test_taker_mean",
       "test_nll_per_obs": "0.639415",
       "BIC": "2585925.0797",
       "n_params": "15",
@@ -115,7 +115,7 @@
       "test_auc": "0.637191"
     },
     {
-      "model": "subj_x_pathology",
+      "model": "test_taker_x_pathology",
       "test_nll_per_obs": "0.585723",
       "BIC": "2371136.0075",
       "n_params": "210",

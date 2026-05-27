@@ -4,11 +4,11 @@ augments fit_summary.json, and refreshes headline_findings.json's
 model_fit_table.
 
 Baselines reported (all probabilistic, calibrated by held-out NLL):
-    constant            global mean correctness         (1 param)
-    subject_mean        per-subject mean correctness    (J params)
-    pathology_mean      per-pathology mean correctness  (14 params)
-    subj_x_pathology    per (subject, pathology) cell   (J*14 params)
-    item_mean_smoothed  per-item smoothed mean          (I params, alpha=2)
+    constant                global mean correctness            (1 param)
+    test_taker_mean         per-test-taker mean correctness    (J params)
+    pathology_mean          per-pathology mean correctness     (14 params)
+    test_taker_x_pathology  per (test-taker, pathology) cell   (J*14 params)
+    item_mean_smoothed      per-item smoothed mean             (I params, alpha=2)
 
 The first four mirror common stratification baselines; the last shows what
 a per-item lookup with mild Laplace smoothing achieves. Comparing the
@@ -161,11 +161,11 @@ def _predict_item_mean_smoothed(
 
 
 BASELINES = [
-    ("constant",            _predict_constant),
-    ("subject_mean",        _predict_by_subject),
-    ("pathology_mean",      _predict_by_pathology),
-    ("subj_x_pathology",    _predict_by_subject_x_pathology),
-    ("item_mean_smoothed",  _predict_item_mean_smoothed),
+    ("constant",              _predict_constant),
+    ("test_taker_mean",       _predict_by_subject),
+    ("pathology_mean",        _predict_by_pathology),
+    ("test_taker_x_pathology", _predict_by_subject_x_pathology),
+    ("item_mean_smoothed",    _predict_item_mean_smoothed),
 ]
 
 

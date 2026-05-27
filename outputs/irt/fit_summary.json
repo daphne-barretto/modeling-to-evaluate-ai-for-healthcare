@@ -208,23 +208,6 @@
       "test_f1_positive": 0.7823427559989319,
       "test_auc": 0.5
     },
-    "subject_mean": {
-      "n_params": 15,
-      "n_obs": 2028033,
-      "log_likelihood": -1292853.6205248307,
-      "AIC": 2585737.2410496613,
-      "BIC": 2585925.0797033976,
-      "test_log_likelihood": -141419.97368934058,
-      "test_nll_per_obs": 0.639414632521174,
-      "seconds": 0.0,
-      "final_loss": 0.6374914118876915,
-      "kind": "baseline",
-      "test_accuracy": 0.6424983383897527,
-      "test_f1_macro": 0.39117137799946594,
-      "test_f1_micro": 0.6424983383897527,
-      "test_f1_positive": 0.7823427559989319,
-      "test_auc": 0.5910691618026468
-    },
     "pathology_mean": {
       "n_params": 14,
       "n_obs": 2028033,
@@ -242,23 +225,6 @@
       "test_f1_positive": 0.7760739375791778,
       "test_auc": 0.6371907031784522
     },
-    "subj_x_pathology": {
-      "n_params": 210,
-      "n_obs": 2028033,
-      "log_likelihood": -1184043.133149879,
-      "AIC": 2368506.266299758,
-      "BIC": 2371136.0074520656,
-      "test_log_likelihood": -129544.93428714425,
-      "test_nll_per_obs": 0.5857229667865328,
-      "seconds": 0.0,
-      "final_loss": 0.5838381984661389,
-      "kind": "baseline",
-      "test_accuracy": 0.6848682693481515,
-      "test_f1_macro": 0.61646982436368,
-      "test_f1_micro": 0.6848682693481515,
-      "test_f1_positive": 0.7784354615159645,
-      "test_auc": 0.7122906725485131
-    },
     "item_mean_smoothed": {
       "n_params": 208654,
       "n_obs": 2028033,
@@ -275,6 +241,40 @@
       "test_f1_micro": 0.785148143291842,
       "test_f1_positive": 0.8371270415245669,
       "test_auc": 0.8275852380054618
+    },
+    "test_taker_mean": {
+      "n_params": 15,
+      "n_obs": 2028033,
+      "log_likelihood": -1292853.6205248307,
+      "AIC": 2585737.2410496613,
+      "BIC": 2585925.0797033976,
+      "test_log_likelihood": -141419.97368934058,
+      "test_nll_per_obs": 0.639414632521174,
+      "seconds": 0.0,
+      "final_loss": 0.6374914118876915,
+      "kind": "baseline",
+      "test_accuracy": 0.6424983383897527,
+      "test_f1_macro": 0.39117137799946594,
+      "test_f1_micro": 0.6424983383897527,
+      "test_f1_positive": 0.7823427559989319,
+      "test_auc": 0.5910691618026468
+    },
+    "test_taker_x_pathology": {
+      "n_params": 210,
+      "n_obs": 2028033,
+      "log_likelihood": -1184043.133149879,
+      "AIC": 2368506.266299758,
+      "BIC": 2371136.0074520656,
+      "test_log_likelihood": -129544.93428714425,
+      "test_nll_per_obs": 0.5857229667865328,
+      "seconds": 0.0,
+      "final_loss": 0.5838381984661389,
+      "kind": "baseline",
+      "test_accuracy": 0.6848682693481515,
+      "test_f1_macro": 0.61646982436368,
+      "test_f1_micro": 0.6848682693481515,
+      "test_f1_positive": 0.7784354615159645,
+      "test_auc": 0.7122906725485131
     }
   },
   "anatomical_groups": [
