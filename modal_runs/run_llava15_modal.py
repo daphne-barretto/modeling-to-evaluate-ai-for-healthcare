@@ -9,7 +9,7 @@ Uses the free-text findings prompt + synonym parser (LLaVA-1.5 also
 echoes structured templates).
 
 Run (detached):
-    MODAL_PROFILE=daphne-personal modal run --detach \\
+    modal run --detach \\
         modal_runs/run_llava15_modal.py::run_llava15
 """
 
@@ -38,7 +38,7 @@ image = (
     .add_local_python_source("_open_vlm_helpers", "_helpers")
 )
 
-app = modal.App("daphne-llava15-chexpert", image=image)
+app = modal.App("llava15-chexpert", image=image)
 
 
 @app.function(

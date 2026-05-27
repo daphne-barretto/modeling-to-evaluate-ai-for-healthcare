@@ -1,11 +1,11 @@
 """Download CheXpert from Stanford AIMI into Modal volume `chexpert-vol-v2`.
 
 Prereqs (one-time, in this workspace):
-    MODAL_PROFILE=daphne-personal modal secret create chexpert-secret \
+    MODAL_PROFILE=$MODAL_PROFILE modal secret create chexpert-secret \
         CHEXPERT_SAS_URL="https://..."
 
 Run:
-    MODAL_PROFILE=daphne-personal modal run modal/download_chexpert.py
+    modal run modal_runs/download_chexpert.py
 
 Total size ~471 GB. Allow ~2-6 hours.
 """

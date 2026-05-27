@@ -1,4 +1,5 @@
-"""Shared Azure OpenAI inference helper for Daphne's models (GPT-5.4, GPT-4o).
+"""Shared Azure OpenAI inference helper for the GPT-5.4 and GPT-4o local
+entry points.
 
 Uses the official `openai` Python SDK's `AzureOpenAI` client class. This class
 ONLY sends requests to the `azure_endpoint` you configure; it never contacts

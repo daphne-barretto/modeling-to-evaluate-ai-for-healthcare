@@ -1,9 +1,9 @@
 """Modal: run GPT-4o (Azure Chat Completions) on first 10,000 frontal train1 images.
 
 Run:
-    MODAL_PROFILE=daphne-personal modal run modal/run_gpt4o_modal.py
+    modal run modal_runs/run_gpt4o_modal.py
     # to override the count:
-    MODAL_PROFILE=daphne-personal modal run modal/run_gpt4o_modal.py --n-images 100
+    modal run modal_runs/run_gpt4o_modal.py --n-images 100
 """
 
 import modal
@@ -17,7 +17,7 @@ image = (
     .add_local_python_source("_helpers")
 )
 
-app = modal.App("daphne-gpt4o-chexpert", image=image)
+app = modal.App("gpt4o-chexpert", image=image)
 
 
 @app.function(

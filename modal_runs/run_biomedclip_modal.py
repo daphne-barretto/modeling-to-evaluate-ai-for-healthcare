@@ -11,7 +11,7 @@ discriminative-only baseline that should sit clearly below the
 generative VLMs but well above a random/prevalence baseline.
 
 Run (detached):
-    MODAL_PROFILE=daphne-personal modal run --detach \\
+    modal run --detach \\
         modal_runs/run_biomedclip_modal.py::run_biomedclip
 """
 
@@ -40,7 +40,7 @@ image = (
     .add_local_python_source("_open_vlm_helpers", "_helpers")
 )
 
-app = modal.App("daphne-biomedclip-chexpert", image=image)
+app = modal.App("biomedclip-chexpert", image=image)
 
 
 PROMPT_TEMPLATES = {

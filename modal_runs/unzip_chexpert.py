@@ -1,9 +1,9 @@
 """Unzip a single CheXpert batch (train 1 by default) inside `chexpert-vol-v2`.
 
 Run:
-    MODAL_PROFILE=daphne-personal modal run modal/unzip_chexpert.py
+    modal run modal_runs/unzip_chexpert.py
     # to unzip a different batch:
-    MODAL_PROFILE=daphne-personal modal run modal/unzip_chexpert.py --batch "CheXpert-v1.0 batch 3 (train 2).zip"
+    modal run modal_runs/unzip_chexpert.py --batch "CheXpert-v1.0 batch 3 (train 2).zip"
 """
 
 import modal

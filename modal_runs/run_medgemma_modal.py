@@ -7,7 +7,7 @@ through the Modal secret `huggingface-token` (which must expose
 `HF_TOKEN`).
 
 Run (detached):
-    MODAL_PROFILE=daphne-personal modal run --detach \\
+    modal run --detach \\
         modal_runs/run_medgemma_modal.py::run_medgemma
 """
 
@@ -36,7 +36,7 @@ image = (
     .add_local_python_source("_open_vlm_helpers", "_helpers")
 )
 
-app = modal.App("daphne-medgemma-chexpert", image=image)
+app = modal.App("medgemma-chexpert", image=image)
 
 
 @app.function(

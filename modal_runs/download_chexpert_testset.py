@@ -17,7 +17,7 @@ resolves naturally).
 Run with::
 
     SAS_URL='https://...'  \
-    MODAL_PROFILE=daphne-personal modal run modal_runs/download_chexpert_testset.py
+    modal run modal_runs/download_chexpert_testset.py
 """
 from __future__ import annotations
 
@@ -26,7 +26,7 @@ import re
 
 import modal
 
-app = modal.App("daphne-download-chexpert-test")
+app = modal.App("download-chexpert-test")
 
 image = (
     modal.Image.debian_slim(python_version="3.11")

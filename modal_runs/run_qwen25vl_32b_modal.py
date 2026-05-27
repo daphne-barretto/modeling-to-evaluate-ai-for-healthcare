@@ -6,7 +6,7 @@ The "large" end of the Qwen2.5-VL family (3B / 7B / 32B). Together with
 single VLM family on chest X-ray reasoning.
 
 Run (detached):
-    MODAL_PROFILE=daphne-personal modal run --detach \\
+    modal run --detach \\
         modal_runs/run_qwen25vl_32b_modal.py::run_qwen25vl_32b
 """
 
@@ -37,7 +37,7 @@ image = (
     .add_local_python_source("_open_vlm_helpers", "_helpers")
 )
 
-app = modal.App("daphne-qwen25vl-32b-chexpert", image=image)
+app = modal.App("qwen25vl-32b-chexpert", image=image)
 
 
 @app.function(

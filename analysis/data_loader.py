@@ -18,17 +18,17 @@ images, some include additional val / lateral / top-up images).
 Supported file shapes
 ---------------------
 
-1. **Daphne GPT-style** outputs (``gpt-5.4.json``, ``gpt-4o.json``, plus
-   ``pixtral-12b.json`` / ``llama-3.2-vision-11b.json``). Top-level dict
+1. **Dict-keyed shape** (``gpt-5.4.json``, ``gpt-4o.json``,
+   ``pixtral-12b.json``, ``llama-3.2-vision-11b.json``). Top-level dict
    keyed by item path; each value has ``deployment``,
    ``per_label_correct``, ``predictions`` (or ``correct=None`` for
    refusals).
 
-2. **Izhan Qwen-style** outputs (everything else under
-   ``data/inference/``, e.g. ``qwen2.5-vl-3b.json``,
-   ``chexagent-8b.json``). Top-level list; each entry has
-   ``image_path``, ``subject``, plus ``{pathology}__correct`` for each
-   of the 14 pathologies (None for unanswered).
+2. **List-record shape** (everything else under ``data/inference/``,
+   e.g. ``qwen2.5-vl-3b.json``, ``chexagent-8b.json``). Top-level list;
+   each entry has ``image_path``, ``subject``, plus
+   ``{pathology}__correct`` for each of the 14 pathologies (None for
+   unanswered).
 
 All loaders normalise ``image_path`` to the canonical CheXpert form
 ``CheXpert-v1.0/train/patientXXXXX/studyN/viewN_orientation.jpg`` so that
@@ -108,7 +108,14 @@ def _normalize_image_path(p: str) -> str:
     return p
 
 
-def _load_daphne_outputs(path: str) -> list[Observation]:
+def _load_dict_keyed_outputs(path: str) -> list[Observation]:
+    """Load the dict-keyed-by-image JSON shape (GPT-5.4, GPT-4o, Pixtral,
+    Llama-3.2-Vision).
+
+    Top-level dict ``{image_path: entry}``. Each entry has ``deployment``,
+    ``per_label_correct``, ``predictions`` (or ``correct=None`` for
+    refusals). Rows with ``error`` or ``missing_reason`` are skipped.
+    """
     with open(path) as f:
         data = json.load(f)
     obs: list[Observation] = []
@@ -130,7 +137,13 @@ def _load_daphne_outputs(path: str) -> list[Observation]:
     return obs
 
 
-def _load_izhan_qwen_outputs(path: str) -> list[Observation]:
+def _load_list_record_outputs(path: str) -> list[Observation]:
+    """Load the list-of-records JSON shape (Qwen2.5-VL, CheXagent, LLaVA,
+    MedGemma, BiomedCLIP, InternVL3, Phi-3.5-Vision).
+
+    Top-level list ``[{image_path, subject, "{pathology}__correct": 0|1|None, ...}]``.
+    Cells with ``None`` for ``{pathology}__correct`` are skipped (MAR).
+    """
     with open(path) as f:
         data = json.load(f)
     obs: list[Observation] = []
@@ -155,9 +168,9 @@ def load_source(path: str) -> list[Observation]:
     with open(path) as f:
         head = f.read(64).lstrip()
     if head.startswith("["):
-        return _load_izhan_qwen_outputs(path)
+        return _load_list_record_outputs(path)
     if head.startswith("{"):
-        return _load_daphne_outputs(path)
+        return _load_dict_keyed_outputs(path)
     raise ValueError(f"Unrecognised top-level JSON in {path}: {head[:32]!r}")
 
 

@@ -3,7 +3,7 @@
 Endpoint, key, and deployment are loaded from `.env` at the repo root.
 Run:
     pip install openai python-dotenv datasets pillow
-    python inference/daphne_gpt5.py
+    python inference/gpt5_local.py
 """
 
 import os

@@ -2,9 +2,9 @@
 
 Each model-specific runner imports these to keep per-record parsing,
 scoring, and JSON output identical across subjects.  The output format
-matches Izhan's qwen_inference.py JSON list (one record per image, with
-`{pathology}__gt|__answer|__correct` columns), so `analysis/data_loader.py`
-ingests it without changes.
+is a JSON list with one record per image, each holding
+``{pathology}__gt | __answer | __correct`` columns for the 14 CheXpert
+pathologies, so ``analysis/data_loader.py`` ingests it without changes.
 """
 
 from __future__ import annotations
@@ -40,8 +40,8 @@ PROMPT = (
 def parse_response(response: str) -> dict[str, bool | None]:
     """Parse one yes/no per pathology from the model response.
 
-    Identical behaviour to qwen_inference.parse_response so cross-subject
-    rows are scored under the same rules.
+    Behaviour is fixed across every subject so cross-model rows are
+    scored under identical rules.
     """
     result: dict[str, bool | None] = {}
     lines = response.strip().lower().splitlines()

@@ -9,8 +9,8 @@ Missing items are intentionally left blank so downstream IRT and factor models
 can treat them as missing data rather than as wrong answers. A per-model
 summary (counts and reasons) is printed so missingness is acknowledged.
 
-NOTE: this script only handles the dict-keyed-by-image Daphne-GPT output
-shape (``data/inference/gpt-5.4.json``, ``data/inference/gpt-4o.json``).
+NOTE: this script only handles the dict-keyed-by-image GPT output shape
+(``data/inference/gpt-5.4.json``, ``data/inference/gpt-4o.json``).
 For the full 15-model long-form response set used by the IRT pipeline,
 use ``analysis/data_loader.load_all()`` instead.
 """

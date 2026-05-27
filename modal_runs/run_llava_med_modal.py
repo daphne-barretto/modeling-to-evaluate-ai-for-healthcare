@@ -1,11 +1,10 @@
 """Modal: run LLaVA-Med v1.5 (Mistral-7B) on the first 10K frontal train1 rows.
 
-Covers the test-taker slot originally assigned to Shannon's first model.
 Image selection matches Qwen 3B/7B and the GPT runs (same `select_frontal_train_rows`)
 so the response matrix joins cleanly across subjects.
 
 Run (detached):
-    MODAL_PROFILE=daphne-personal modal run --detach modal_runs/run_llava_med_modal.py
+    modal run --detach modal_runs/run_llava_med_modal.py
 """
 
 import modal
@@ -44,7 +43,7 @@ image = (
     .add_local_python_source("_open_vlm_helpers", "_helpers")
 )
 
-app = modal.App("daphne-llava-med-chexpert", image=image)
+app = modal.App("llava-med-chexpert", image=image)
 
 
 @app.function(

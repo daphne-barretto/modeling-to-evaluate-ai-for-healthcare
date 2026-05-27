@@ -10,7 +10,7 @@ This matches how the model was trained, in contrast to forcing the model
 into a 14-condition yes/no list format it does not follow.
 
 Run (detached):
-    MODAL_PROFILE=daphne-personal modal run --detach modal_runs/run_chexagent_modal.py
+    modal run --detach modal_runs/run_chexagent_modal.py
 """
 
 import modal
@@ -37,7 +37,7 @@ image = (
     .add_local_python_source("_open_vlm_helpers", "_helpers")
 )
 
-app = modal.App("daphne-chexagent-chexpert", image=image)
+app = modal.App("chexagent-chexpert", image=image)
 
 
 @app.function(

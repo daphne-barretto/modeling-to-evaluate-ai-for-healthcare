@@ -1,0 +1,24 @@
+# Local-side dependencies for the analysis pipeline.
+#
+# Modal inference launchers under `modal_runs/` declare their own
+# `modal.Image.pip_install(...)` for heavy GPU dependencies (transformers,
+# accelerate, qwen-vl-utils, open_clip_torch, ...), so those are NOT listed
+# here. This file only covers what runs locally: matrix construction,
+# IRT fitting, baselines, figures, and the Azure-OpenAI GPT entry points.
+
+# Core analysis + IRT / factor fitting
+# torch_measure pulls torch, numpy, scipy, scikit-learn, pandas, pyarrow, pyro-ppl.
+torch_measure>=0.1.0
+
+# Figures
+matplotlib>=3.10
+
+# Progress bars used by several analysis modules
+tqdm>=4.67
+
+# Local Azure OpenAI inference (inference/gpt5_local.py, inference/gpt4o_local.py)
+openai>=1.40
+python-dotenv>=1.2
+
+# Modal CLI / Python client for launching the GPU inference jobs
+modal>=0.60

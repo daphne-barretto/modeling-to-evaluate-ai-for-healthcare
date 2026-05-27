@@ -4,7 +4,7 @@ Paired with `run_chexagent_modal.py` (8B) for a within-family Stanford-AIMI
 scaling-law fit. Otherwise identical pipeline to the 8B runner.
 
 Run (detached):
-    MODAL_PROFILE=daphne-personal modal run --detach \\
+    modal run --detach \\
         modal_runs/run_chexagent3b_modal.py::run_chexagent3b
 """
 
@@ -38,7 +38,7 @@ image = (
     .add_local_python_source("_open_vlm_helpers", "_helpers")
 )
 
-app = modal.App("daphne-chexagent3b-chexpert", image=image)
+app = modal.App("chexagent3b-chexpert", image=image)
 
 
 @app.function(

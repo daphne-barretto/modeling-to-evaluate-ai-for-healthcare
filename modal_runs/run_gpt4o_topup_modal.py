@@ -6,7 +6,7 @@ the resumable loop skips already-done items (keyed by row['Path']) and
 processes only the ~5,000 new rows (lateral + a few extra frontal).
 
 Run:
-    MODAL_PROFILE=daphne-personal modal run --detach modal_runs/run_gpt4o_topup_modal.py
+    modal run --detach modal_runs/run_gpt4o_topup_modal.py
 """
 
 import modal
@@ -20,7 +20,7 @@ image = (
     .add_local_python_source("_helpers")
 )
 
-app = modal.App("daphne-gpt4o-chexpert-topup15k", image=image)
+app = modal.App("gpt4o-chexpert-topup15k", image=image)
 
 
 @app.function(

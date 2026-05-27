@@ -4,7 +4,7 @@ Phi-3.5-vision is Microsoft's open-weights 4.2B-param VLM, fits comfortably on A
 Uses the structured 14-pathology yes/no prompt from `_open_vlm_helpers.PROMPT`.
 
 Run (detached):
-    MODAL_PROFILE=daphne-personal modal run --detach modal_runs/run_phi35_vision_modal.py
+    modal run --detach modal_runs/run_phi35_vision_modal.py
 """
 
 import modal
@@ -31,7 +31,7 @@ image = (
     .add_local_python_source("_open_vlm_helpers", "_helpers")
 )
 
-app = modal.App("daphne-phi35-vision-chexpert", image=image)
+app = modal.App("phi35-vision-chexpert", image=image)
 
 
 @app.function(

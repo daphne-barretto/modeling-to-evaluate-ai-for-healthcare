@@ -1,25 +1,30 @@
 # Modal CheXpert pipeline (GPT-5.4 + GPT-4o via Azure)
 
-All scripts assume **`MODAL_PROFILE=daphne-personal`** (set per-terminal so other
-sessions are unaffected).
+All scripts assume a Modal profile is selected via the `MODAL_PROFILE` env
+var (set per-terminal so other sessions are unaffected — never use
+`modal profile activate`, which rewrites the global config).
 
 ## One-time setup
 ```bash
-export MODAL_PROFILE=daphne-personal
+export MODAL_PROFILE=<your-modal-profile>
 
 # 1) Stanford AIMI SAS URL  → secret `chexpert-secret`
 #    (get URL from https://stanfordaimi.azurewebsites.net/datasets/8cbd9ed4-...)
-modal secret create chexpert-secret CHEXPERT_SAS_URL="https://..."
+modal secret create chexpert-secret CHEXPERT_SAS_URL="<paste-your-SAS-URL>"
 
 # 2) Azure OpenAI credentials  → secret `azure-openai-creds`
 modal secret create azure-openai-creds \
-    AZURE_OPENAI_ENDPOINT="https://...openai.azure.com" \
-    AZURE_OPENAI_API_KEY="..."
+    AZURE_OPENAI_ENDPOINT="<your-endpoint>" \
+    AZURE_OPENAI_API_KEY="<your-key>"
+
+# 3) Hugging Face token (needed for gated open-weight VLMs such as
+#    meta-llama/Llama-3.2-11B-Vision-Instruct) → secret `huggingface-token`
+modal secret create huggingface-token HF_TOKEN="<your-hf-token>"
 ```
 
 ## Pipeline
 ```bash
-export MODAL_PROFILE=daphne-personal
+export MODAL_PROFILE=<your-modal-profile>
 
 # Step 1: download CheXpert  (~2-6 hours, ~471 GB) → volume `chexpert-vol-v2`
 modal run modal_runs/download_chexpert.py
@@ -33,7 +38,6 @@ modal run modal_runs/unzip_chexpert.py
 modal run modal_runs/run_gpt5_modal.py   --n-images 10000
 modal run modal_runs/run_gpt4o_modal.py  --n-images 10000
 
-# Step 4: pull results
 # Step 4: pull results into local data/inference/<canonical>.json
 python modal_runs/download_results.py
 ```
