@@ -94,11 +94,6 @@ MAR, so cells/rows that a given model never produced (refusal, content
 filter, exception, unanswered pathology) are simply dropped from that
 test-taker’s contribution.
 
-> **Cell-level missingness in GPT-4o.** `data/inference/gpt-4o.json` carries
-> the same set of images as the other models but ~93% of those rows are
-> `missing_reason=model_refusal` (Azure OpenAI content filter); only ~6.94%
-> of pathology cells are populated. The IRT loader skips missing cells.
-
 ---
 
 ## Setup
