@@ -1,7 +1,7 @@
 """Modal: top up GPT-5.4 (Azure Responses API) from 10K frontal → first 15K
 train1 rows in CSV order (frontal + lateral mixed, no view filter).
 
-Pre-seeds `daphne_gpt5_train1_15000.json` with the prior 10K-frontal run so
+Pre-seeds ``data/inference/gpt-5.4.json`` with the prior 10K-frontal run so
 the resumable loop skips already-done items (keyed by row['Path']) and
 processes only the ~5,000 new rows (lateral + a few extra frontal).
 
@@ -37,12 +37,12 @@ def run_gpt5_topup(n_images: int = 15_000, max_workers: int = 8):
         deployment="GPT-5.4",
         api_type="responses",
         api_version="2025-04-01-preview",
-        output_filename=f"daphne_gpt5_train1_{n_images}.json",
+        output_filename="gpt-5.4.json",
         n_images=n_images,
         extra_kwargs={"max_output_tokens": 2000},
         max_workers=max_workers,
         frontal_only=False,
-        seed_from="daphne_gpt5_train1_10000.json",
+        seed_from="gpt-5.4.json",
     )
     volume.commit()
     return n_done
@@ -56,5 +56,5 @@ def main(n_images: int = 15_000, max_workers: int = 8):
     call = run_gpt5_topup.spawn(n_images=n_images, max_workers=max_workers)
     print(f"✓ Spawned function call: {call.object_id}")
     print(f"  Runs autonomously; safe to disconnect.")
-    print(f"  Output → /data/outputs/daphne_gpt5_train1_{n_images}.json")
+    print(f"  Output → /data/outputs/gpt-5.4.json")
     print(f"  Monitor:  modal app logs <app_id>  (see dashboard)")

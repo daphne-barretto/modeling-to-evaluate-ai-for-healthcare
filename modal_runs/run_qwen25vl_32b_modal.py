@@ -1,9 +1,9 @@
 """Modal: run Qwen2.5-VL-32B-Instruct on the first 10K frontal train1 rows.
 
 The "large" end of the Qwen2.5-VL family (3B / 7B / 32B). Together with
-`qwen3b_results_10000.json` and `qwen7b_results_10000.json` (already on
-disk) this enables a clean 3-point scaling-law fit for a single VLM
-family on chest X-ray reasoning.
+``data/inference/qwen2.5-vl-3b.json`` and ``data/inference/qwen2.5-vl-7b.json``
+(already on disk) this enables a clean 3-point scaling-law fit for a
+single VLM family on chest X-ray reasoning.
 
 Run (detached):
     MODAL_PROFILE=daphne-personal modal run --detach \\
@@ -65,7 +65,7 @@ def run_qwen25vl_32b(n_images: int = 10_000, save_every: int = 100):
     )
 
     output_path = os.path.join(
-        OUTPUTS_DIR, f"daphne_qwen25vl_32b_train1_{n_images}.json"
+        OUTPUTS_DIR, "qwen2.5-vl-32b.json"
     )
     os.makedirs(OUTPUTS_DIR, exist_ok=True)
     records, done = load_existing(output_path)

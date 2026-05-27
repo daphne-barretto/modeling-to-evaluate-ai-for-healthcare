@@ -70,7 +70,7 @@ def run_llava_med(n_images: int = 10_000, save_every: int = 100):
     )
 
     output_path = os.path.join(
-        OUTPUTS_DIR, f"daphne_llava_med_train1_{n_images}.json"
+        OUTPUTS_DIR, "llava-med-7b.json"
     )
     os.makedirs(OUTPUTS_DIR, exist_ok=True)
     records, done = load_existing(output_path)
@@ -216,4 +216,4 @@ def main(n_images: int = 10_000, save_every: int = 100):
     call = run_llava_med.spawn(n_images=n_images, save_every=save_every)
     print(f"✓ Spawned function call: {call.object_id}")
     print("  Runs autonomously; safe to disconnect.")
-    print(f"  Output → /data/outputs/daphne_llava_med_train1_{n_images}.json")
+    print(f"  Output → /data/outputs/llava-med-7b.json")

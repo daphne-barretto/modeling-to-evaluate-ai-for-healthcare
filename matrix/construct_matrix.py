@@ -1,4 +1,4 @@
-"""Construct the J × I response matrix from per-model inference outputs.
+"""Construct the J × I response matrix from per-model GPT inference outputs.
 
 Cells are coded:
     1  = model got all 14 pathologies correct (i.e. entry's `correct` field)
@@ -8,6 +8,11 @@ Cells are coded:
 Missing items are intentionally left blank so downstream IRT and factor models
 can treat them as missing data rather than as wrong answers. A per-model
 summary (counts and reasons) is printed so missingness is acknowledged.
+
+NOTE: this script only handles the dict-keyed-by-image Daphne-GPT output
+shape (``data/inference/gpt-5.4.json``, ``data/inference/gpt-4o.json``).
+For the full 15-model long-form response set used by the IRT pipeline,
+use ``analysis/data_loader.load_all()`` instead.
 """
 
 import csv
@@ -16,10 +21,8 @@ import os
 from collections import Counter
 
 OUTPUT_FILES = {
-    "GPT-5.4": "outputs/daphne_gpt5_outputs.json",
-    "GPT-4o": "outputs/daphne_gpt4o_outputs.json",
-    "Qwen-large": "outputs/izhan_outputs.json",
-    "LLaVA-Med": "outputs/shannon_outputs.json",
+    "GPT-5.4": "data/inference/gpt-5.4.json",
+    "GPT-4o": "data/inference/gpt-4o.json",
 }
 
 

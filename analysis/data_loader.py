@@ -5,24 +5,40 @@ Each observation is one (subject, item) cell with a binary `response`
 cells (refusal, content filter, exception, unanswered pathology) are
 *omitted*, not coded as 0 — IRT treats absent rows as MAR.
 
-Supported sources
------------------
+Layout
+------
 
-1. **Daphne GPT-style** outputs (``outputs/daphne_gpt5_outputs.json``,
-   ``outputs/daphne_gpt4o_outputs.json``, and Shannon's
-   ``outputs/pixtral_outputs.json`` / ``outputs/llama_vision_outputs.json``).
-   Top-level dict keyed by item path; each value has ``deployment``,
-   ``per_label_correct``, ``predictions`` (or ``correct=None`` for refusals).
+All inference outputs live under ``data/inference/`` with one JSON file
+per model, named with the canonical (lowercased, dash-separated)
+manuscript subject ID — e.g. ``gpt-5.4.json``, ``pixtral-12b.json``,
+``qwen2.5-vl-3b.json``. Each file contains every row that model
+produced; row counts vary between models (most are ~10 000 train1
+images, some include additional val / lateral / top-up images).
 
-2. **Izhan Qwen-style** outputs (``qwen3b_results_10000.json``,
-   ``qwen7b_results_10000.json``, ``outputs/qwen{3b,7b}_combined.json``).
-   Top-level list; each entry has ``image_path``, ``subject``, plus
-   ``{pathology}__correct`` for each of the 14 pathologies (None for
-   unanswered).
+Supported file shapes
+---------------------
+
+1. **Daphne GPT-style** outputs (``gpt-5.4.json``, ``gpt-4o.json``, plus
+   ``pixtral-12b.json`` / ``llama-3.2-vision-11b.json``). Top-level dict
+   keyed by item path; each value has ``deployment``,
+   ``per_label_correct``, ``predictions`` (or ``correct=None`` for
+   refusals).
+
+2. **Izhan Qwen-style** outputs (everything else under
+   ``data/inference/``, e.g. ``qwen2.5-vl-3b.json``,
+   ``chexagent-8b.json``). Top-level list; each entry has
+   ``image_path``, ``subject``, plus ``{pathology}__correct`` for each
+   of the 14 pathologies (None for unanswered).
 
 All loaders normalise ``image_path`` to the canonical CheXpert form
 ``CheXpert-v1.0/train/patientXXXXX/studyN/viewN_orientation.jpg`` so that
 items align across subjects regardless of the prefix used upstream.
+
+Pixtral-12B and Llama-3.2-Vision-11B are *open-weight* HuggingFace models
+that we run on Modal-hosted GPUs (see ``inference/inference_pixtral.py``
+and ``inference/inference_llama_vision.py``); their in-file
+``deployment`` strings (``pixtral-12b-2409`` / ``llama-3.2-vision-11b``)
+are normalised to manuscript IDs via ``_SUBJECT_ALIASES`` below.
 """
 
 from __future__ import annotations
@@ -67,6 +83,7 @@ _PATIENT_RE = re.compile(r"(patient\d+/study\d+/view\d+_[A-Za-z]+\.jpg)")
 _SUBJECT_ALIASES = {
     "pixtral-12b-2409": "Pixtral-12B",
     "llama-3.2-vision-11b": "Llama-3.2-Vision-11B",
+    "gpt-4o": "GPT-4o",
 }
 
 
@@ -79,8 +96,8 @@ def _normalize_image_path(p: str) -> str:
 
     Handles three observed forms:
       - already canonical: ``CheXpert-v1.0/train/patient00001/study1/view1_frontal.jpg``
-      - Shannon's Azure: ``CheXpert/chexpertchestxrays-u20210408/CheXpert-v1.0 batch 2 (train 1)/patient00001/...``
-      - Izhan's combined: ``patient00001/study1/view1_frontal.jpg``
+      - HF-on-Modal batch-prefixed: ``CheXpert/chexpertchestxrays-u20210408/CheXpert-v1.0 batch 2 (train 1)/patient00001/...``
+      - bare patient-relative: ``patient00001/study1/view1_frontal.jpg``
     Unknown formats pass through unchanged so the caller can decide.
     """
     if not p:
@@ -145,40 +162,23 @@ def load_source(path: str) -> list[Observation]:
 
 
 def discover_sources(repo_root: str) -> list[str]:
-    """Return paths to all inference output files we know how to load."""
+    """Return paths to all inference output files we know how to load.
+
+    Picks up every ``data/inference/<subject>.json`` file (one per model).
+    Row counts vary between models — this loader does not enforce a
+    shared image set; ``load_source`` will yield whatever cells each
+    file contains.
+    """
+    inference_dir = os.path.join(repo_root, "data", "inference")
+    if not os.path.isdir(inference_dir):
+        return []
     paths: list[str] = []
-    candidates = [
-        # Daphne validation outputs
-        os.path.join(repo_root, "outputs/daphne_gpt5_outputs.json"),
-        os.path.join(repo_root, "outputs/daphne_gpt4o_outputs.json"),
-        # Daphne 10K train1 outputs (will be created once Modal run finishes)
-        os.path.join(repo_root, "outputs/daphne_gpt5_train1_10000.json"),
-        os.path.join(repo_root, "outputs/daphne_gpt4o_train1_10000.json"),
-        os.path.join(repo_root, "outputs/daphne_gpt5_train1_15000.json"),
-        os.path.join(repo_root, "outputs/daphne_gpt4o_train1_15000.json"),
-        # Open VLM runners (Izhan-format list of records)
-        os.path.join(repo_root, "outputs/daphne_chexagent_train1_10000.json"),
-        os.path.join(repo_root, "outputs/daphne_chexagent3b_train1_10000.json"),
-        os.path.join(repo_root, "outputs/daphne_llava_med_train1_10000.json"),
-        os.path.join(repo_root, "outputs/daphne_llava15_train1_10000.json"),
-        os.path.join(repo_root, "outputs/daphne_llama32_vision_train1_10000.json"),
-        os.path.join(repo_root, "outputs/daphne_medgemma_train1_10000.json"),
-        os.path.join(repo_root, "outputs/daphne_internvl3_train1_10000.json"),
-        os.path.join(repo_root, "outputs/daphne_phi35_vision_train1_10000.json"),
-        os.path.join(repo_root, "outputs/daphne_qwen25vl_32b_train1_10000.json"),
-        os.path.join(repo_root, "outputs/daphne_biomedclip_train1_10000.json"),
-        # Shannon's Azure-deployed open VLMs (dict-keyed, batch-2 path prefix)
-        os.path.join(repo_root, "outputs/pixtral_outputs.json"),
-        os.path.join(repo_root, "outputs/llama_vision_outputs.json"),
-        # Izhan Qwen combined frontal+lateral outputs (preferred over
-        # frontal-only ``qwen{3b,7b}_results_10000.json``, which use the
-        # same subject IDs and would double-count).
-        os.path.join(repo_root, "outputs/qwen3b_combined.json"),
-        os.path.join(repo_root, "outputs/qwen7b_combined.json"),
-    ]
-    for p in candidates:
-        if os.path.exists(p):
-            paths.append(p)
+    for name in sorted(os.listdir(inference_dir)):
+        if not name.endswith(".json"):
+            continue
+        full = os.path.join(inference_dir, name)
+        if os.path.isfile(full):
+            paths.append(full)
     return paths
 
 

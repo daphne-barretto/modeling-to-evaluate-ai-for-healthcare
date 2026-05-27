@@ -13,7 +13,7 @@ sys.path.insert(0, os.path.dirname(__file__))
 from openai_inference import run_inference
 
 DEPLOYMENT = os.environ.get("GPT5_DEPLOYMENT", "gpt-5.4")
-OUTPUT_PATH = os.environ.get("GPT5_OUTPUT", "outputs/daphne_gpt5_outputs.json")
+OUTPUT_PATH = os.environ.get("GPT5_OUTPUT", "data/inference/gpt-5.4.json")
 API_VERSION = os.environ.get("GPT5_API_VERSION", "2025-04-01-preview")
 MAX_OUTPUT_TOKENS = int(os.environ.get("GPT5_MAX_OUTPUT_TOKENS", "2000"))
 

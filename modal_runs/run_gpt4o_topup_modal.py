@@ -1,7 +1,7 @@
 """Modal: top up GPT-4o (Azure Chat Completions) from 10K frontal → first 15K
 train1 rows in CSV order (frontal + lateral mixed, no view filter).
 
-Pre-seeds `daphne_gpt4o_train1_15000.json` with the prior 10K-frontal run so
+Pre-seeds ``data/inference/gpt-4o.json`` with the prior 10K-frontal run so
 the resumable loop skips already-done items (keyed by row['Path']) and
 processes only the ~5,000 new rows (lateral + a few extra frontal).
 
@@ -37,12 +37,12 @@ def run_gpt4o_topup(n_images: int = 15_000, max_workers: int = 8):
         deployment="gpt-4o",
         api_type="chat",
         api_version="2025-01-01-preview",
-        output_filename=f"daphne_gpt4o_train1_{n_images}.json",
+        output_filename="gpt-4o.json",
         n_images=n_images,
         extra_kwargs={"max_tokens": 400, "temperature": 0, "seed": 42},
         max_workers=max_workers,
         frontal_only=False,
-        seed_from="daphne_gpt4o_train1_10000.json",
+        seed_from="gpt-4o.json",
     )
     volume.commit()
     return n_done
@@ -56,5 +56,5 @@ def main(n_images: int = 15_000, max_workers: int = 8):
     call = run_gpt4o_topup.spawn(n_images=n_images, max_workers=max_workers)
     print(f"✓ Spawned function call: {call.object_id}")
     print(f"  Runs autonomously; safe to disconnect.")
-    print(f"  Output → /data/outputs/daphne_gpt4o_train1_{n_images}.json")
+    print(f"  Output → /data/outputs/gpt-4o.json")
     print(f"  Monitor:  modal app logs <app_id>  (see dashboard)")

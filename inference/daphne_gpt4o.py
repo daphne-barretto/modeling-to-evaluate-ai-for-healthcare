@@ -13,7 +13,7 @@ sys.path.insert(0, os.path.dirname(__file__))
 from openai_inference import run_inference
 
 DEPLOYMENT = os.environ.get("GPT4O_DEPLOYMENT", "gpt-4o")
-OUTPUT_PATH = os.environ.get("GPT4O_OUTPUT", "outputs/daphne_gpt4o_outputs.json")
+OUTPUT_PATH = os.environ.get("GPT4O_OUTPUT", "data/inference/gpt-4o.json")
 API_VERSION = os.environ.get("GPT4O_API_VERSION", "2025-01-01-preview")
 MAX_TOKENS = int(os.environ.get("GPT4O_MAX_TOKENS", "400"))
 TEMPERATURE = float(os.environ.get("GPT4O_TEMPERATURE", "0"))

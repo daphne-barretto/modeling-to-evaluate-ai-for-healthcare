@@ -65,7 +65,7 @@ def run_chexagent3b(n_images: int = 10_000, save_every: int = 100):
     )
 
     output_path = os.path.join(
-        OUTPUTS_DIR, f"daphne_chexagent3b_train1_{n_images}.json"
+        OUTPUTS_DIR, "chexagent-2-3b.json"
     )
     os.makedirs(OUTPUTS_DIR, exist_ok=True)
     records, done = load_existing(output_path)

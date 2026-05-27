@@ -58,7 +58,7 @@ def run_phi35_vision(n_images: int = 10_000, save_every: int = 100):
     )
 
     output_path = os.path.join(
-        OUTPUTS_DIR, f"daphne_phi35_vision_train1_{n_images}.json"
+        OUTPUTS_DIR, "phi-3.5-vision.json"
     )
     os.makedirs(OUTPUTS_DIR, exist_ok=True)
     records, done = load_existing(output_path)
@@ -164,4 +164,4 @@ def main(n_images: int = 10_000, save_every: int = 100):
     call = run_phi35_vision.spawn(n_images=n_images, save_every=save_every)
     print(f"✓ Spawned function call: {call.object_id}")
     print("  Runs autonomously; safe to disconnect.")
-    print(f"  Output → /data/outputs/daphne_phi35_vision_train1_{n_images}.json")
+    print(f"  Output → /data/outputs/phi-3.5-vision.json")

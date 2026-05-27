@@ -34,7 +34,7 @@ def run_gpt5(n_images: int = 10_000, max_workers: int = 8):
         deployment="GPT-5.4",
         api_type="responses",
         api_version="2025-04-01-preview",
-        output_filename=f"daphne_gpt5_train1_{n_images}.json",
+        output_filename="gpt-5.4.json",
         n_images=n_images,
         extra_kwargs={"max_output_tokens": 2000},
         max_workers=max_workers,
@@ -49,5 +49,5 @@ def main(n_images: int = 10_000, max_workers: int = 8):
     call = run_gpt5.spawn(n_images=n_images, max_workers=max_workers)
     print(f"✓ Spawned function call: {call.object_id}")
     print(f"  Runs autonomously; safe to disconnect.")
-    print(f"  Output → /data/outputs/daphne_gpt5_train1_{n_images}.json")
+    print(f"  Output → /data/outputs/gpt-5.4.json")
     print(f"  Monitor:  modal app logs <app_id>  (see dashboard)")

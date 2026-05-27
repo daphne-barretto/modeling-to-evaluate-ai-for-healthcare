@@ -65,7 +65,7 @@ def run_llava15(n_images: int = 10_000, save_every: int = 100):
     )
 
     output_path = os.path.join(
-        OUTPUTS_DIR, f"daphne_llava15_train1_{n_images}.json"
+        OUTPUTS_DIR, "llava-1.5-7b.json"
     )
     os.makedirs(OUTPUTS_DIR, exist_ok=True)
     records, done = load_existing(output_path)

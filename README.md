@@ -27,7 +27,12 @@ We fit and compare Rasch/1PL, 2PL, and Factor models to reveal item-level struct
 ├── data/
 │   ├── raw/                  # Raw dataset files (not committed; see Data Access)
 │   ├── processed/            # Binarized response matrices (J × I)
-│   └── labels/               # Ground-truth condition labels
+│   ├── labels/               # Ground-truth condition labels
+│   └── inference/            # Per-model inference outputs on CheXpert
+│                             # train1, one canonical JSON per model
+│                             # (e.g. gpt-5.4.json, pixtral-12b.json).
+│                             # Row counts vary across models; the IRT
+│                             # loader treats missing cells as MAR.
 │
 ├── models/
 │   ├── inference/            # Scripts to run AI model inference on CheXpert
@@ -40,6 +45,7 @@ We fit and compare Rasch/1PL, 2PL, and Factor models to reveal item-level struct
 │   └── fit_factor.py         # Latent factor model fitting (1- and 2-factor)
 │
 ├── analysis/
+│   ├── data_loader.py        # Load data/inference/*.json into long-form IRT obs
 │   ├── model_comparison.py   # AIC, BIC, LRT, M2, RMSEA
 │   ├── item_fit.py           # Infit/outfit (Rasch), S-chi2 (2PL)
 │   ├── ranking_stability.py  # Spearman's ρ: θ-based vs. accuracy-based rankings
@@ -53,11 +59,18 @@ We fit and compare Rasch/1PL, 2PL, and Factor models to reveal item-level struct
 │
 ├── outputs/
 │   ├── figures/              # ICCs, TIF curves, θ vs. accuracy scatter plots
-│   └── tables/               # Fit statistics, parameter estimates
+│   ├── tables/               # Fit statistics, parameter estimates
+│   └── irt/                  # IRT artifacts (e.g. dif_by_sex.csv, headline_findings.json)
 │
 ├── requirements.txt
 └── README.md
 ```
+
+> **Cell-level missingness in gpt-4o.** ``data/inference/gpt-4o.json`` carries
+> the same train1 images as the other models but ~93% of those rows are
+> `missing_reason=model_refusal` (Azure OpenAI content filter) — only
+> ~6.94% of pathology cells are populated. IRT loaders skip missing cells
+> (treating them as MAR).
 
 ---
 

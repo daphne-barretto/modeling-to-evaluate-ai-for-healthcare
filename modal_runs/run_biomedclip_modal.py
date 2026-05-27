@@ -126,7 +126,7 @@ def run_biomedclip(n_images: int = 10_000, save_every: int = 200):
     )
 
     output_path = os.path.join(
-        OUTPUTS_DIR, f"daphne_biomedclip_train1_{n_images}.json"
+        OUTPUTS_DIR, "biomedclip.json"
     )
     os.makedirs(OUTPUTS_DIR, exist_ok=True)
     records, done = load_existing(output_path)

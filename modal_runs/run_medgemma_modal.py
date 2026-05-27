@@ -64,7 +64,7 @@ def run_medgemma(n_images: int = 10_000, save_every: int = 100):
     )
 
     output_path = os.path.join(
-        OUTPUTS_DIR, f"daphne_medgemma_train1_{n_images}.json"
+        OUTPUTS_DIR, "medgemma-4b.json"
     )
     os.makedirs(OUTPUTS_DIR, exist_ok=True)
     records, done = load_existing(output_path)

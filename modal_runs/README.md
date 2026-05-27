@@ -34,7 +34,8 @@ modal run modal_runs/run_gpt5_modal.py   --n-images 10000
 modal run modal_runs/run_gpt4o_modal.py  --n-images 10000
 
 # Step 4: pull results
-modal volume get chexpert-vol-v2 outputs/ ./outputs/
+# Step 4: pull results into local data/inference/<canonical>.json
+python modal_runs/download_results.py
 ```
 
 ## Volume layout (inside `chexpert-vol-v2`)
@@ -47,8 +48,18 @@ modal volume get chexpert-vol-v2 outputs/ ./outputs/
 │   └── extracted/
 │       └── CheXpert-v1.0 batch 2 (train 1)/...    # unzipped images
 └── outputs/
-    ├── daphne_gpt5_train1_10000.json
-    └── daphne_gpt4o_train1_10000.json
+    ├── gpt-5.4.json          # canonical filenames matching local data/inference/
+    ├── gpt-4o.json
+    ├── biomedclip.json
+    ├── chexagent-8b.json
+    ├── chexagent-2-3b.json
+    ├── internvl3-8b.json
+    ├── llava-med-7b.json
+    ├── llava-1.5-7b.json
+    ├── medgemma-4b.json
+    ├── phi-3.5-vision.json
+    ├── qwen2.5-vl-32b.json
+    └── qwen2.5-vl-7b.json
 ```
 
 ## Inference selection rule

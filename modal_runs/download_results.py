@@ -13,9 +13,9 @@ import os
 app = modal.App("chexpert-download-results")
 volume = modal.Volume.from_name("chexpert-vol-v2")
 
-LLAMA_OUTPUT = "inference_outputs/llama_vision_outputs.json"
+LLAMA_OUTPUT = "inference_outputs/llama-3.2-vision-11b.json"
 LLAMA_CKPT_DIR = "inference_outputs/checkpoints"
-PIXTRAL_OUTPUT = "inference_outputs/pixtral_outputs.json"
+PIXTRAL_OUTPUT = "inference_outputs/pixtral-12b.json"
 PIXTRAL_CKPT_DIR = "inference_outputs/pixtral_checkpoints"
 
 
@@ -71,7 +71,10 @@ def compile_and_get_results(model: str) -> str:
 @app.local_entrypoint()
 def main():
     """Compile checkpoints and download results for both models."""
-    for model, local_file in [("llama", "llama_vision_outputs.json"), ("pixtral", "pixtral_outputs.json")]:
+    for model, local_file in [
+        ("llama", "data/inference/llama-3.2-vision-11b.json"),
+        ("pixtral", "data/inference/pixtral-12b.json"),
+    ]:
         print(f"\n{'='*60}")
         print(f"Processing {model} results...")
         print(f"{'='*60}")
@@ -85,6 +88,7 @@ def main():
 
         print(f"Downloaded {len(results)} image results for {model}")
 
+        os.makedirs(os.path.dirname(local_file), exist_ok=True)
         with open(local_file, "w") as f:
             json.dump(results, f, indent=2)
         print(f"Saved to {local_file}")

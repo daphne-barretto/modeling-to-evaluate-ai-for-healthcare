@@ -24,7 +24,7 @@ Steps to Run
  #    https://huggingface.co/meta-llama/Llama-3.2-11B-Vision-Instruct
  
  # 4. Create HF secret
- modal secret create huggingface-secret HUGGINGFACE_TOKEN=hf_YOUR_TOKEN
+ modal secret create huggingface-token HF_TOKEN=hf_YOUR_TOKEN
  
  # 5. Verify volume access
  modal run verify_volume.py
@@ -50,7 +50,7 @@ MODEL_ID = "meta-llama/Llama-3.2-11B-Vision-Instruct"
 VOLUME_NAME = "chexpert-vol-v2"
 DATASET_DIR = "CheXpert/chexpertchestxrays-u20210408/CheXpert-v1.0 batch 2 (train 1)"
 LABELS_CSV_PATH = "CheXpert/chexpertchestxrays-u20210408/train_visualCheXbert.csv"
-OUTPUT_PATH = "inference_outputs/llama_vision_outputs.json"
+OUTPUT_PATH = "inference_outputs/llama-3.2-vision-11b.json"
 CHECKPOINT_DIR = "inference_outputs/checkpoints"
 MAX_IMAGES = 10_000
 CHECKPOINT_EVERY = 500
@@ -218,7 +218,7 @@ def binarize_label(val) -> int:
     image=image,
     gpu="A100-80GB",
     volumes={"/data": volume},
-    secrets=[modal.Secret.from_name("huggingface-secret")],
+    secrets=[modal.Secret.from_name("huggingface-token")],
     timeout=86400,  # 24 hours max
 )
 def run_inference():
@@ -266,7 +266,7 @@ def run_inference():
 
     # Load model
     print(f"Loading model {MODEL_ID}...")
-    hf_token = os.environ.get("HUGGINGFACE_TOKEN", None)
+    hf_token = os.environ.get("HF_TOKEN") or os.environ.get("HUGGINGFACE_TOKEN")
 
     model = MllamaForConditionalGeneration.from_pretrained(
         MODEL_ID,
