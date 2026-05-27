@@ -1,0 +1,142 @@
+{
+  "tier": "low",
+  "corpus": {
+    "n_subjects": 15,
+    "n_items": 60796,
+    "n_observations": 643820,
+    "obs_per_subject": {
+      "GPT-5.4": 100768,
+      "gpt-4o": 6628,
+      "CheXagent-8B": 40000,
+      "CheXagent-2-3B": 40000,
+      "LLaVA-Med-7B": 40000,
+      "LLaVA-1.5-7B": 40000,
+      "MedGemma-4B": 40000,
+      "InternVL3-8B": 40000,
+      "Phi-3.5-Vision": 40000,
+      "Qwen2.5-VL-32B": 40000,
+      "BiomedCLIP": 40000,
+      "Pixtral-12B": 40000,
+      "Llama-3.2-Vision-11B": 40000,
+      "Qwen2.5-VL-3B": 48196,
+      "Qwen2.5-VL-7B": 48228
+    },
+    "obs_per_pathology": {
+      "Lung Lesion": 160955,
+      "Pneumothorax": 160955,
+      "Pleural Other": 160955,
+      "Fracture": 160955
+    },
+    "raw_accuracy_per_subject": {
+      "GPT-5.4": 0.8286162273737695,
+      "gpt-4o": 0.9161134580567291,
+      "CheXagent-8B": 0.809,
+      "CheXagent-2-3B": 0.84465,
+      "LLaVA-Med-7B": 0.819125,
+      "LLaVA-1.5-7B": 0.83355,
+      "MedGemma-4B": 0.728475,
+      "InternVL3-8B": 0.663675,
+      "Phi-3.5-Vision": 0.7357,
+      "Qwen2.5-VL-32B": 0.6353,
+      "BiomedCLIP": 0.712925,
+      "Pixtral-12B": 0.82905,
+      "Llama-3.2-Vision-11B": 0.829225,
+      "Qwen2.5-VL-3B": 0.8203585359780895,
+      "Qwen2.5-VL-7B": 0.8277349257692627
+    }
+  },
+  "subject_names": [
+    "GPT-5.4",
+    "gpt-4o",
+    "CheXagent-8B",
+    "CheXagent-2-3B",
+    "LLaVA-Med-7B",
+    "LLaVA-1.5-7B",
+    "MedGemma-4B",
+    "InternVL3-8B",
+    "Phi-3.5-Vision",
+    "Qwen2.5-VL-32B",
+    "BiomedCLIP",
+    "Pixtral-12B",
+    "Llama-3.2-Vision-11B",
+    "Qwen2.5-VL-3B",
+    "Qwen2.5-VL-7B"
+  ],
+  "fits": {
+    "rasch": {
+      "model": "rasch",
+      "n_params": 60811,
+      "n_obs": 579438,
+      "log_likelihood": -112636.0,
+      "AIC": 346894.0,
+      "BIC": 1032222.6559465118,
+      "test_log_likelihood": -21122.1328125,
+      "test_nll_per_obs": 0.3339414841267332,
+      "seconds": 78.22072958946228,
+      "final_loss": 0.19438937306404114
+    },
+    "twopl": {
+      "model": "twopl",
+      "n_params": 121607,
+      "n_obs": 579438,
+      "log_likelihood": -84228.8359375,
+      "AIC": 411671.671875,
+      "BIC": 1782159.9365588147,
+      "test_log_likelihood": -35222.7265625,
+      "test_nll_per_obs": 0.5568722480672242,
+      "seconds": 34.116442918777466,
+      "final_loss": 0.1454744040966034
+    },
+    "threepl": {
+      "model": "threepl",
+      "n_params": 182403,
+      "n_obs": 579438,
+      "log_likelihood": -72124.2109375,
+      "AIC": 509054.421875,
+      "BIC": 2564702.2952961177,
+      "test_log_likelihood": -39659.6796875,
+      "test_nll_per_obs": 0.6270205955241814,
+      "seconds": 37.90562725067139,
+      "final_loss": 0.12446334213018417
+    },
+    "fm1": {
+      "model": "fm1",
+      "n_params": 121607,
+      "n_obs": 579438,
+      "log_likelihood": -71404.78125,
+      "AIC": 386023.5625,
+      "BIC": 1756511.8271838147,
+      "test_log_likelihood": -27112.8046875,
+      "test_nll_per_obs": 0.42865416653491645,
+      "seconds": 135.8327181339264,
+      "final_loss": 0.12323489785194397
+    },
+    "fm2": {
+      "model": "fm2",
+      "n_params": 182418,
+      "n_obs": 579438,
+      "log_likelihood": -25348.35546875,
+      "AIC": 415532.7109375,
+      "BIC": 2471349.6315678265,
+      "test_log_likelihood": -54857.58984375,
+      "test_nll_per_obs": 0.8672999611666219,
+      "seconds": 187.56116580963135,
+      "final_loss": 0.04374939575791359
+    },
+    "fm3": {
+      "model": "fm3",
+      "n_params": 243229,
+      "n_obs": 579438,
+      "log_likelihood": -12443.19140625,
+      "AIC": 511344.3828125,
+      "BIC": 3252489.9593893383,
+      "test_log_likelihood": -63453.16015625,
+      "test_nll_per_obs": 1.0031961574718187,
+      "seconds": 206.33394360542297,
+      "final_loss": 0.021479550749063492
+    }
+  },
+  "methodology_notes": "analysis/stratified_irt_methodology.md",
+  "bifactor_skipped": true,
+  "bifactor_skipped_reason": "Bifactor partitions item variance by anatomical group; within a single prevalence tier we deliberately do not construct tier-local item_groups from ANATOMICAL_GROUP. See stratified_irt_methodology.md \u00a75."
+}

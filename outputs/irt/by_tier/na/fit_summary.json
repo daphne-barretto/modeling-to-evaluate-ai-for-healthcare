@@ -1,0 +1,139 @@
+{
+  "tier": "na",
+  "corpus": {
+    "n_subjects": 15,
+    "n_items": 15199,
+    "n_observations": 160955,
+    "obs_per_subject": {
+      "GPT-5.4": 25192,
+      "gpt-4o": 1657,
+      "CheXagent-8B": 10000,
+      "CheXagent-2-3B": 10000,
+      "LLaVA-Med-7B": 10000,
+      "LLaVA-1.5-7B": 10000,
+      "MedGemma-4B": 10000,
+      "InternVL3-8B": 10000,
+      "Phi-3.5-Vision": 10000,
+      "Qwen2.5-VL-32B": 10000,
+      "BiomedCLIP": 10000,
+      "Pixtral-12B": 10000,
+      "Llama-3.2-Vision-11B": 10000,
+      "Qwen2.5-VL-3B": 12049,
+      "Qwen2.5-VL-7B": 12057
+    },
+    "obs_per_pathology": {
+      "No Finding": 160955
+    },
+    "raw_accuracy_per_subject": {
+      "GPT-5.4": 0.8749206097173706,
+      "gpt-4o": 0.9541339770669885,
+      "CheXagent-8B": 0.721,
+      "CheXagent-2-3B": 0.7079,
+      "LLaVA-Med-7B": 0.8205,
+      "LLaVA-1.5-7B": 0.3823,
+      "MedGemma-4B": 0.3018,
+      "InternVL3-8B": 0.374,
+      "Phi-3.5-Vision": 0.1608,
+      "Qwen2.5-VL-32B": 0.3611,
+      "BiomedCLIP": 0.2396,
+      "Pixtral-12B": 0.8046,
+      "Llama-3.2-Vision-11B": 0.2371,
+      "Qwen2.5-VL-3B": 0.6349904556394722,
+      "Qwen2.5-VL-7B": 0.8032678112299909
+    }
+  },
+  "subject_names": [
+    "GPT-5.4",
+    "gpt-4o",
+    "CheXagent-8B",
+    "CheXagent-2-3B",
+    "LLaVA-Med-7B",
+    "LLaVA-1.5-7B",
+    "MedGemma-4B",
+    "InternVL3-8B",
+    "Phi-3.5-Vision",
+    "Qwen2.5-VL-32B",
+    "BiomedCLIP",
+    "Pixtral-12B",
+    "Llama-3.2-Vision-11B",
+    "Qwen2.5-VL-3B",
+    "Qwen2.5-VL-7B"
+  ],
+  "fits": {
+    "rasch": {
+      "model": "rasch",
+      "n_params": 15214,
+      "n_obs": 144859,
+      "log_likelihood": -65875.78125,
+      "AIC": 162179.5625,
+      "BIC": 312547.3769704137,
+      "test_log_likelihood": -9249.6826171875,
+      "test_nll_per_obs": 0.5862392329311383,
+      "seconds": 7.210800886154175,
+      "final_loss": 0.45475897192955017
+    },
+    "twopl": {
+      "model": "twopl",
+      "n_params": 30413,
+      "n_obs": 144859,
+      "log_likelihood": -40299.96875,
+      "AIC": 141425.9375,
+      "BIC": 442013.31369880977,
+      "test_log_likelihood": -16890.97265625,
+      "test_nll_per_obs": 1.0705395269520852,
+      "seconds": 9.647001266479492,
+      "final_loss": 0.27848541736602783
+    },
+    "threepl": {
+      "model": "threepl",
+      "n_params": 45612,
+      "n_obs": 144859,
+      "log_likelihood": -36666.7421875,
+      "AIC": 164557.484375,
+      "BIC": 615364.4223022058,
+      "test_log_likelihood": -13883.3515625,
+      "test_nll_per_obs": 0.8799183396184561,
+      "seconds": 5.602432489395142,
+      "final_loss": 0.25327569246292114
+    },
+    "fm1": {
+      "model": "fm1",
+      "n_params": 30413,
+      "n_obs": 144859,
+      "log_likelihood": -29337.125,
+      "AIC": 119500.25,
+      "BIC": 420087.62619880977,
+      "test_log_likelihood": -12931.896484375,
+      "test_nll_per_obs": 0.819615698084358,
+      "seconds": 23.395601987838745,
+      "final_loss": 0.20252686738967896
+    },
+    "fm2": {
+      "model": "fm2",
+      "n_params": 45627,
+      "n_obs": 144859,
+      "log_likelihood": -15356.8505859375,
+      "AIC": 121967.701171875,
+      "BIC": 572922.8918410984,
+      "test_log_likelihood": -20510.240234375,
+      "test_nll_per_obs": 1.299926494763278,
+      "seconds": 32.383934020996094,
+      "final_loss": 0.10601907223463058
+    },
+    "fm3": {
+      "model": "fm3",
+      "n_params": 60841,
+      "n_obs": 144859,
+      "log_likelihood": -7973.38671875,
+      "AIC": 137628.7734375,
+      "BIC": 738951.7785771372,
+      "test_log_likelihood": -29568.626953125,
+      "test_nll_per_obs": 1.874041510528901,
+      "seconds": 36.567302942276,
+      "final_loss": 0.055047791451215744
+    }
+  },
+  "methodology_notes": "analysis/stratified_irt_methodology.md",
+  "bifactor_skipped": true,
+  "bifactor_skipped_reason": "Bifactor partitions item variance by anatomical group; within a single prevalence tier we deliberately do not construct tier-local item_groups from ANATOMICAL_GROUP. See stratified_irt_methodology.md \u00a75."
+}

@@ -1,0 +1,141 @@
+{
+  "tier": "mid",
+  "corpus": {
+    "n_subjects": 15,
+    "n_items": 45597,
+    "n_observations": 482865,
+    "obs_per_subject": {
+      "GPT-5.4": 75576,
+      "gpt-4o": 4971,
+      "CheXagent-8B": 30000,
+      "CheXagent-2-3B": 30000,
+      "LLaVA-Med-7B": 30000,
+      "LLaVA-1.5-7B": 30000,
+      "MedGemma-4B": 30000,
+      "InternVL3-8B": 30000,
+      "Phi-3.5-Vision": 30000,
+      "Qwen2.5-VL-32B": 30000,
+      "BiomedCLIP": 30000,
+      "Pixtral-12B": 30000,
+      "Llama-3.2-Vision-11B": 30000,
+      "Qwen2.5-VL-3B": 36147,
+      "Qwen2.5-VL-7B": 36171
+    },
+    "obs_per_pathology": {
+      "Enlarged Cardiomediastinum": 160955,
+      "Consolidation": 160955,
+      "Pneumonia": 160955
+    },
+    "raw_accuracy_per_subject": {
+      "GPT-5.4": 0.7233910236053773,
+      "gpt-4o": 0.6863810098571715,
+      "CheXagent-8B": 0.5507666666666666,
+      "CheXagent-2-3B": 0.5677333333333333,
+      "LLaVA-Med-7B": 0.3923,
+      "LLaVA-1.5-7B": 0.5337333333333333,
+      "MedGemma-4B": 0.5596,
+      "InternVL3-8B": 0.4997,
+      "Phi-3.5-Vision": 0.5482666666666667,
+      "Qwen2.5-VL-32B": 0.5045,
+      "BiomedCLIP": 0.7133333333333334,
+      "Pixtral-12B": 0.5692333333333334,
+      "Llama-3.2-Vision-11B": 0.5822333333333334,
+      "Qwen2.5-VL-3B": 0.6103411071458212,
+      "Qwen2.5-VL-7B": 0.6325509385972188
+    }
+  },
+  "subject_names": [
+    "GPT-5.4",
+    "gpt-4o",
+    "CheXagent-8B",
+    "CheXagent-2-3B",
+    "LLaVA-Med-7B",
+    "LLaVA-1.5-7B",
+    "MedGemma-4B",
+    "InternVL3-8B",
+    "Phi-3.5-Vision",
+    "Qwen2.5-VL-32B",
+    "BiomedCLIP",
+    "Pixtral-12B",
+    "Llama-3.2-Vision-11B",
+    "Qwen2.5-VL-3B",
+    "Qwen2.5-VL-7B"
+  ],
+  "fits": {
+    "rasch": {
+      "model": "rasch",
+      "n_params": 45612,
+      "n_obs": 434579,
+      "log_likelihood": -154446.921875,
+      "AIC": 400117.84375,
+      "BIC": 901034.8953019212,
+      "test_log_likelihood": -24801.38671875,
+      "test_nll_per_obs": 0.5234458267818324,
+      "seconds": 47.29318451881409,
+      "final_loss": 0.35539543628692627
+    },
+    "twopl": {
+      "model": "twopl",
+      "n_params": 91209,
+      "n_obs": 434579,
+      "log_likelihood": -118200.8828125,
+      "AIC": 418819.765625,
+      "BIC": 1420489.136733462,
+      "test_log_likelihood": -43153.6640625,
+      "test_nll_per_obs": 0.9107799342035837,
+      "seconds": 41.309104919433594,
+      "final_loss": 0.2721323072910309
+    },
+    "threepl": {
+      "model": "threepl",
+      "n_params": 136806,
+      "n_obs": 434579,
+      "log_likelihood": -100575.8359375,
+      "AIC": 474763.671875,
+      "BIC": 1977185.3625400031,
+      "test_log_likelihood": -38097.5703125,
+      "test_nll_per_obs": 0.8040685150693316,
+      "seconds": 45.01645517349243,
+      "final_loss": 0.2313242405653
+    },
+    "fm1": {
+      "model": "fm1",
+      "n_params": 91209,
+      "n_obs": 434579,
+      "log_likelihood": -101435.765625,
+      "AIC": 385289.53125,
+      "BIC": 1386958.902358462,
+      "test_log_likelihood": -29286.08984375,
+      "test_nll_per_obs": 0.6180977574080327,
+      "seconds": 114.70490550994873,
+      "final_loss": 0.23341649770736694
+    },
+    "fm2": {
+      "model": "fm2",
+      "n_params": 136821,
+      "n_obs": 434579,
+      "log_likelihood": -42357.2421875,
+      "AIC": 358356.484375,
+      "BIC": 1860942.9070353834,
+      "test_log_likelihood": -43998.4921875,
+      "test_nll_per_obs": 0.9286104596251662,
+      "seconds": 143.800639629364,
+      "final_loss": 0.09746619313955307
+    },
+    "fm3": {
+      "model": "fm3",
+      "n_params": 182433,
+      "n_obs": 434579,
+      "log_likelihood": -19469.716796875,
+      "AIC": 403805.43359375,
+      "BIC": 2407308.9078060547,
+      "test_log_likelihood": -60121.96875,
+      "test_nll_per_obs": 1.268904597834575,
+      "seconds": 151.8116192817688,
+      "final_loss": 0.04480644688010216
+    }
+  },
+  "methodology_notes": "analysis/stratified_irt_methodology.md",
+  "bifactor_skipped": true,
+  "bifactor_skipped_reason": "Bifactor partitions item variance by anatomical group; within a single prevalence tier we deliberately do not construct tier-local item_groups from ANATOMICAL_GROUP. See stratified_irt_methodology.md \u00a75."
+}

@@ -1,0 +1,16 @@
+subject,ability
+GPT-5.4,0.892189
+gpt-4o,1.005240
+CheXagent-8B,-0.247409
+CheXagent-2-3B,1.008867
+LLaVA-Med-7B,0.026860
+LLaVA-1.5-7B,0.518016
+MedGemma-4B,-1.021999
+InternVL3-8B,-1.457362
+Phi-3.5-Vision,-0.908953
+Qwen2.5-VL-32B,-2.564724
+BiomedCLIP,-1.153469
+Pixtral-12B,0.670389
+Llama-3.2-Vision-11B,0.674021
+Qwen2.5-VL-3B,0.218117
+Qwen2.5-VL-7B,0.563659
