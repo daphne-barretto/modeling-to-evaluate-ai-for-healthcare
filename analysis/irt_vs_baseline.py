@@ -16,6 +16,11 @@ Produces:
     outputs/irt/dif_by_sex.csv            — item-difficulty shift across
                                             sex groups (DIF candidates)
     outputs/irt/dif_by_age_bin.csv        — same, across age bins
+    outputs/irt/subgroup_gaps_per_test_taker.csv
+                                          — per-test-taker aggregate-accuracy
+                                            gap across sex, age, AP-vs-PA
+                                            (test-taker-level fairness
+                                            companion to the per-item DIF)
     outputs/irt/headline_findings.json    — single dict of headline numbers
 """
 
@@ -30,18 +35,44 @@ from collections import defaultdict
 
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
-from analysis.data_loader import load_all, PATHOLOGIES  # noqa: E402
+from analysis.data_loader import load_all, PATHOLOGIES, _normalize_subject  # noqa: E402
 from analysis.item_metadata import (  # noqa: E402
     ANATOMICAL_GROUP, PREVALENCE_TIER, get_image_meta,
 )
 
 REPO_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 OUT_DIR = os.path.join(REPO_ROOT, "outputs", "irt")
+BASE_DIR = os.path.join(REPO_ROOT, "outputs", "baselines")
 
 
 def _load_csv(path):
     with open(path) as f:
         return list(csv.DictReader(f))
+
+
+def _load_macro_baseline(filename, group_col):
+    """Read a stratified-accuracy CSV and return a {test_taker: macro_acc}
+    dict where macro_acc is the mean accuracy across non-degenerate strata
+    of group_col. Returns {} if the CSV is missing.
+
+    Subject names are passed through ``_normalize_subject`` so historical
+    CSVs (written before aliases were added to ``data_loader``) align with
+    current observation-derived names.
+    """
+    path = os.path.join(BASE_DIR, filename)
+    if not os.path.exists(path):
+        return {}
+    by_subj = defaultdict(list)
+    for r in _load_csv(path):
+        g = r.get(group_col, "")
+        if g in ("", "unknown"):
+            continue
+        try:
+            s = _normalize_subject(r["subject"])
+            by_subj[s].append(float(r["accuracy"]))
+        except (KeyError, ValueError):
+            continue
+    return {s: sum(vs) / len(vs) for s, vs in by_subj.items() if vs}
 
 
 def spearman(x, y):
@@ -127,14 +158,15 @@ def ranking_comparison(obs):
         rows = _load_csv(path)
         s_to_theta = {}
         for r in rows:
+            s = _normalize_subject(r["subject"])
             # FM models have multi-D abilities; use the L2 norm as a single
             # composite ranking for comparison purposes.
             cols = [k for k in r if k.startswith("ability")]
             if len(cols) == 1:
-                s_to_theta[r["subject"]] = float(r[cols[0]])
+                s_to_theta[s] = float(r[cols[0]])
             else:
                 vec = [float(r[c]) for c in cols]
-                s_to_theta[r["subject"]] = math.sqrt(sum(v * v for v in vec))
+                s_to_theta[s] = math.sqrt(sum(v * v for v in vec))
         if all(s in s_to_theta for s in subjects):
             irt_rankings[model_name] = [s_to_theta[s] for s in subjects]
 
@@ -144,6 +176,20 @@ def ranking_comparison(obs):
         "macro_per_pathology_accuracy": macro_vec,
         "macro_prevalence_tier_accuracy": tier_vec,
     }
+
+    # CSV-based macro baselines (read from outputs/baselines/, written by
+    # analysis.baselines). Wired in here so the stratified accuracy tables
+    # actually inform the IRT-vs-stratification comparison rather than
+    # sitting unused on disk.
+    for nice_name, filename, group_col in [
+        ("macro_anatomical_group_accuracy", "per_anatomical_group_accuracy.csv", "anatomical_group"),
+        ("macro_per_sex_accuracy",          "per_sex_accuracy.csv",              "sex"),
+        ("macro_per_age_bin_accuracy",      "per_age_bin_accuracy.csv",          "age_bin"),
+        ("macro_per_ap_pa_accuracy",        "per_ap_pa_accuracy.csv",            "ap_pa"),
+    ]:
+        macro_map = _load_macro_baseline(filename, group_col)
+        if macro_map and all(s in macro_map for s in subjects):
+            baselines[nice_name] = [macro_map[s] for s in subjects]
 
     rows = []
     for irt_name, vec in irt_rankings.items():
@@ -267,7 +313,88 @@ def dif_by_metadata(axis_name, key_fn):
     return {"top_dif": dif_signals[:5]}
 
 
-def headline_findings(ranking_info, tier_info, dif_sex, dif_age):
+def subgroup_gaps():
+    """Per-test-taker aggregate-accuracy gap across demographic / acquisition
+    subgroups.
+
+    Complements the per-item DIF analysis: if a test-taker's *aggregate*
+    accuracy varies only mildly across sex / age / AP-vs-PA, then the
+    larger per-item DIF gaps reported elsewhere are item-specific rather
+    than uniform subgroup-ability shifts.
+
+    Reads from outputs/baselines/per_{sex,age_bin,ap_pa}_accuracy.csv and
+    writes outputs/irt/subgroup_gaps_per_test_taker.csv. Returns a summary
+    dict with the worst-case gap per attribute.
+    """
+    out_rows = []
+    summary = {}
+    for attr, filename, group_col in [
+        ("sex",    "per_sex_accuracy.csv",     "sex"),
+        ("age",    "per_age_bin_accuracy.csv", "age_bin"),
+        ("ap_pa",  "per_ap_pa_accuracy.csv",   "ap_pa"),
+    ]:
+        path = os.path.join(BASE_DIR, filename)
+        if not os.path.exists(path):
+            continue
+        by_subj = defaultdict(dict)
+        for r in _load_csv(path):
+            g = r.get(group_col, "")
+            if g in ("", "unknown"):
+                continue
+            try:
+                s = _normalize_subject(r["subject"])
+                by_subj[s][g] = float(r["accuracy"])
+            except (KeyError, ValueError):
+                continue
+        gaps = {}
+        for s, accs in by_subj.items():
+            if len(accs) < 2:
+                continue
+            gap = max(accs.values()) - min(accs.values())
+            gaps[s] = gap
+            out_rows.append({
+                "subject": s,
+                "attribute": attr,
+                "groups": "/".join(sorted(accs.keys())),
+                "max_acc": round(max(accs.values()), 5),
+                "min_acc": round(min(accs.values()), 5),
+                "gap": round(gap, 5),
+            })
+        if gaps:
+            sorted_gaps = sorted(gaps.values())
+            n = len(sorted_gaps)
+            median = (
+                sorted_gaps[n // 2]
+                if n % 2
+                else 0.5 * (sorted_gaps[n // 2 - 1] + sorted_gaps[n // 2])
+            )
+            worst_s = max(gaps, key=gaps.get)
+            summary[f"max_test_taker_{attr}_gap"] = {
+                "test_taker": worst_s,
+                "gap": round(gaps[worst_s], 5),
+                "median_gap": round(median, 5),
+                "n_compared": len(gaps),
+            }
+
+    out_path = os.path.join(OUT_DIR, "subgroup_gaps_per_test_taker.csv")
+    if out_rows:
+        with open(out_path, "w") as f:
+            w = csv.DictWriter(
+                f,
+                fieldnames=["subject", "attribute", "groups",
+                            "max_acc", "min_acc", "gap"],
+            )
+            w.writeheader()
+            for r in out_rows:
+                w.writerow(r)
+        print(f"✓ subgroup-gap rows: {len(out_rows)} → {out_path}")
+        for k, v in summary.items():
+            print(f"  {k}: {v['gap']:.4f} ({v['test_taker']})")
+    return summary
+
+
+def headline_findings(ranking_info, tier_info, dif_sex, dif_age,
+                      subgroup_info=None):
     headline = {}
 
     # Best held-out IRT model from fit_table.csv. We filter to the IRT/factor
@@ -295,22 +422,33 @@ def headline_findings(ranking_info, tier_info, dif_sex, dif_age):
                     best_b["test_nll_per_obs"]
                 )
             headline["model_fit_table"] = [
-                {k: r[k] for k in ("model", "test_nll_per_obs", "BIC", "n_params")}
+                {k: r[k] for k in (
+                    "model", "test_nll_per_obs", "BIC", "n_params",
+                    "test_f1_positive", "test_f1_macro", "test_f1_micro",
+                    "test_auc", "test_accuracy",
+                ) if k in r}
                 for r in rows
             ]
 
-    # Spearman of best IRT model vs aggregate accuracy
+    # Spearman of best IRT model vs aggregate accuracy + anatomical-group baseline
     if ranking_info:
         with open(os.path.join(OUT_DIR, "ranking_comparison.csv")) as f:
             rc_rows = list(csv.DictReader(f))
         best_model = headline.get("best_holdout_model", "rasch")
-        for r in rc_rows:
-            if r["a"] == best_model and r["b"] == "aggregate_accuracy":
-                headline["spearman_best_irt_vs_aggregate"] = float(r["spearman_rho"])
-                break
-            if r["b"] == best_model and r["a"] == "aggregate_accuracy":
-                headline["spearman_best_irt_vs_aggregate"] = float(r["spearman_rho"])
-                break
+
+        def _find_rho(baseline_name):
+            for r in rc_rows:
+                if (r["a"] == best_model and r["b"] == baseline_name) or \
+                   (r["b"] == best_model and r["a"] == baseline_name):
+                    return float(r["spearman_rho"])
+            return None
+
+        agg = _find_rho("aggregate_accuracy")
+        if agg is not None:
+            headline["spearman_best_irt_vs_aggregate"] = agg
+        anat = _find_rho("macro_anatomical_group_accuracy")
+        if anat is not None:
+            headline["spearman_best_irt_vs_anatomical_group"] = anat
 
     # Within-tier discrimination spread (the key "stratification can't see this" point)
     if tier_info:
@@ -320,6 +458,10 @@ def headline_findings(ranking_info, tier_info, dif_sex, dif_age):
 
     headline["top_dif_by_sex"] = dif_sex.get("top_dif") if dif_sex else None
     headline["top_dif_by_age"] = dif_age.get("top_dif") if dif_age else None
+
+    if subgroup_info:
+        for k, v in subgroup_info.items():
+            headline[k] = v
 
     out_path = os.path.join(OUT_DIR, "headline_findings.json")
     with open(out_path, "w") as f:
@@ -343,8 +485,12 @@ def main():
     print("\n──  DIF by age bin  ──")
     dif_age = dif_by_metadata("age_bin", lambda m: m.age_bin)
 
+    print("\n──  Per-test-taker subgroup-aggregate gaps  ──")
+    subgroup_info = subgroup_gaps()
+
     print("\n──  Headline findings  ──")
-    headline = headline_findings(ranking_info, tier_info, dif_sex, dif_age)
+    headline = headline_findings(ranking_info, tier_info, dif_sex, dif_age,
+                                 subgroup_info)
     print(json.dumps(headline, indent=2))
 
 

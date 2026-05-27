@@ -146,6 +146,28 @@ def main() -> None:
         ]
 
     lines.append(rf"\newcommand{{\SpearmanBestAgg}}{{{float(headline['spearman_best_irt_vs_aggregate']):.2f}}}")
+    if "spearman_best_irt_vs_anatomical_group" in headline:
+        lines.append(
+            rf"\newcommand{{\SpearmanAnatomicalGroup}}"
+            rf"{{{float(headline['spearman_best_irt_vs_anatomical_group']):.2f}}}"
+        )
+
+    # Per-test-taker subgroup-aggregate gaps (companion to per-item DIF).
+    for key, max_macro, median_macro in (
+        ("max_test_taker_sex_gap",   r"\MaxTesttakerSexGap",   r"\MedTesttakerSexGap"),
+        ("max_test_taker_age_gap",   r"\MaxTesttakerAgeGap",   r"\MedTesttakerAgeGap"),
+        ("max_test_taker_ap_pa_gap", r"\MaxTesttakerAPPAGap",  r"\MedTesttakerAPPAGap"),
+    ):
+        info = headline.get(key)
+        if info:
+            lines.append(rf"\newcommand{{{max_macro}}}{{{float(info['gap']):.3f}}}")
+            lines.append(
+                rf"\newcommand{{{max_macro}TestTaker}}{{{info['test_taker']}}}"
+            )
+            if "median_gap" in info:
+                lines.append(
+                    rf"\newcommand{{{median_macro}}}{{{float(info['median_gap']):.3f}}}"
+                )
 
     OUT_PATH.write_text("\n".join(lines) + "\n")
     print(f"✓ wrote {OUT_PATH.relative_to(REPO_ROOT)}")
