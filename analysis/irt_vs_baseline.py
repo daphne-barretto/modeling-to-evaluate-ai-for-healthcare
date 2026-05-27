@@ -270,15 +270,30 @@ def dif_by_metadata(axis_name, key_fn):
 def headline_findings(ranking_info, tier_info, dif_sex, dif_age):
     headline = {}
 
-    # Best held-out IRT model from fit_table.csv
+    # Best held-out IRT model from fit_table.csv. We filter to the IRT/factor
+    # family for the "best" headline so that trivial baselines (constant,
+    # subject-mean, item-mean, etc.) don't displace the psychometric model
+    # in the manuscript prose; baselines remain in model_fit_table for
+    # side-by-side reporting.
+    irt_models = {"rasch", "twopl", "threepl", "fm1", "fm2", "fm3", "bifactor"}
     fit_table_path = os.path.join(OUT_DIR, "fit_table.csv")
     if os.path.exists(fit_table_path):
         rows = _load_csv(fit_table_path)
         rows = [r for r in rows if r["test_nll_per_obs"]]
         if rows:
-            best = min(rows, key=lambda r: float(r["test_nll_per_obs"]))
+            irt_rows = [r for r in rows if r["model"] in irt_models] or rows
+            best = min(irt_rows, key=lambda r: float(r["test_nll_per_obs"]))
             headline["best_holdout_model"] = best["model"]
             headline["best_holdout_nll_per_obs"] = float(best["test_nll_per_obs"])
+            baseline_rows = [r for r in rows if r["model"] not in irt_models]
+            if baseline_rows:
+                best_b = min(
+                    baseline_rows, key=lambda r: float(r["test_nll_per_obs"])
+                )
+                headline["best_baseline_model"] = best_b["model"]
+                headline["best_baseline_nll_per_obs"] = float(
+                    best_b["test_nll_per_obs"]
+                )
             headline["model_fit_table"] = [
                 {k: r[k] for k in ("model", "test_nll_per_obs", "BIC", "n_params")}
                 for r in rows

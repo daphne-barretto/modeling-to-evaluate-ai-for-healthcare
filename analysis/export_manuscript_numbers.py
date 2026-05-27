@@ -99,6 +99,13 @@ def main() -> None:
         rf"\newcommand{{\BestModel}}{{{best}}}",
         rf"\newcommand{{\BestHoldoutNLL}}{{{float(headline['best_holdout_nll_per_obs']):.3f}}}",
     ]
+    if "best_baseline_model" in headline:
+        bb = headline["best_baseline_model"]
+        bb_pretty = bb.replace("_", "-")
+        lines += [
+            rf"\newcommand{{\BestBaselineModel}}{{{bb_pretty}}}",
+            rf"\newcommand{{\BestBaselineNLL}}{{{float(headline['best_baseline_nll_per_obs']):.3f}}}",
+        ]
 
     for fit_row in headline["model_fit_table"]:
         name = fit_row["model"]

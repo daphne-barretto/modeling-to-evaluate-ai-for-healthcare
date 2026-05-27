@@ -155,6 +155,66 @@
       "test_nll_per_obs": 1.0636643281668934,
       "seconds": 431.54994893074036,
       "final_loss": 0.11602748185396194
+    },
+    "constant": {
+      "n_params": 1,
+      "n_obs": 2028033,
+      "log_likelihood": -1318725.5067507098,
+      "AIC": 2637453.0135014197,
+      "BIC": 2637465.5360783353,
+      "test_log_likelihood": -144200.2935221229,
+      "test_nll_per_obs": 0.6519855384391394,
+      "seconds": 0.0,
+      "final_loss": 0.6502485446492783,
+      "kind": "baseline"
+    },
+    "subject_mean": {
+      "n_params": 15,
+      "n_obs": 2028033,
+      "log_likelihood": -1292853.6205248307,
+      "AIC": 2585737.2410496613,
+      "BIC": 2585925.0797033976,
+      "test_log_likelihood": -141419.97368934058,
+      "test_nll_per_obs": 0.639414632521174,
+      "seconds": 0.0,
+      "final_loss": 0.6374914118876915,
+      "kind": "baseline"
+    },
+    "pathology_mean": {
+      "n_params": 14,
+      "n_obs": 2028033,
+      "log_likelihood": -1261768.8515994789,
+      "AIC": 2523565.7031989577,
+      "BIC": 2523741.0192757784,
+      "test_log_likelihood": -137917.9398370546,
+      "test_nll_per_obs": 0.6235805771871294,
+      "seconds": 0.0,
+      "final_loss": 0.6221638659723382,
+      "kind": "baseline"
+    },
+    "subj_x_pathology": {
+      "n_params": 210,
+      "n_obs": 2028033,
+      "log_likelihood": -1184043.133149879,
+      "AIC": 2368506.266299758,
+      "BIC": 2371136.0074520656,
+      "test_log_likelihood": -129544.93428714425,
+      "test_nll_per_obs": 0.5857229667865328,
+      "seconds": 0.0,
+      "final_loss": 0.5838381984661389,
+      "kind": "baseline"
+    },
+    "item_mean_smoothed": {
+      "n_params": 208654,
+      "n_obs": 2028033,
+      "log_likelihood": -849709.1984357378,
+      "AIC": 2116726.3968714755,
+      "BIC": 4729612.160650412,
+      "test_log_likelihood": -106797.66256689205,
+      "test_nll_per_obs": 0.48287371566295784,
+      "seconds": 0.0,
+      "final_loss": 0.41898193887167406,
+      "kind": "baseline"
     }
   },
   "anatomical_groups": [

@@ -1,6 +1,8 @@
 {
   "best_holdout_model": "rasch",
   "best_holdout_nll_per_obs": 0.518935,
+  "best_baseline_model": "item_mean_smoothed",
+  "best_baseline_nll_per_obs": 0.482874,
   "model_fit_table": [
     {
       "model": "rasch",
@@ -43,6 +45,36 @@
       "test_nll_per_obs": "1.063664",
       "BIC": "9742281.6293",
       "n_params": "638433"
+    },
+    {
+      "model": "constant",
+      "test_nll_per_obs": "0.651986",
+      "BIC": "2637465.5361",
+      "n_params": "1"
+    },
+    {
+      "model": "subject_mean",
+      "test_nll_per_obs": "0.639415",
+      "BIC": "2585925.0797",
+      "n_params": "15"
+    },
+    {
+      "model": "pathology_mean",
+      "test_nll_per_obs": "0.623581",
+      "BIC": "2523741.0193",
+      "n_params": "14"
+    },
+    {
+      "model": "subj_x_pathology",
+      "test_nll_per_obs": "0.585723",
+      "BIC": "2371136.0075",
+      "n_params": "210"
+    },
+    {
+      "model": "item_mean_smoothed",
+      "test_nll_per_obs": "0.482874",
+      "BIC": "4729612.1607",
+      "n_params": "208654"
     }
   ],
   "spearman_best_irt_vs_aggregate": 0.9929,
