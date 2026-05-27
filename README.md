@@ -1,7 +1,9 @@
 # Probabilistic Modeling for Healthcare AI Evaluation
 
 **CS321M AI Measurement Science — Final Project**
+
 Daphne Barretto · Izhan Hamza · Shannon Komguem
+
 Stanford University
 
 ---
