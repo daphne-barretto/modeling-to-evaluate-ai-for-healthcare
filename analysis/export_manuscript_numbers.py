@@ -115,6 +115,18 @@ def main() -> None:
             rf"\newcommand{{\Bic{macro}}}{{{_sci(float(fit_row['BIC']))}}}",
             rf"\newcommand{{\Params{macro}}}{{{int(fit_row['n_params']):,}}}",
         ]
+        if fit_row.get("test_f1_positive"):
+            lines.append(
+                rf"\newcommand{{\Fone{macro}}}{{{float(fit_row['test_f1_positive']):.3f}}}"
+            )
+        if fit_row.get("test_auc"):
+            lines.append(
+                rf"\newcommand{{\Auc{macro}}}{{{float(fit_row['test_auc']):.3f}}}"
+            )
+        if fit_row.get("test_accuracy"):
+            lines.append(
+                rf"\newcommand{{\AccHO{macro}}}{{{float(fit_row['test_accuracy']):.3f}}}"
+            )
 
     disc = headline["discrimination_spread_within_tier"]
     for tier, val in disc.items():
