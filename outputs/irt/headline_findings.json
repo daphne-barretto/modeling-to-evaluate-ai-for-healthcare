@@ -1,85 +1,85 @@
 {
   "best_holdout_model": "rasch",
-  "best_holdout_nll_per_obs": 0.518496,
+  "best_holdout_nll_per_obs": 0.518935,
   "model_fit_table": [
     {
       "model": "rasch",
-      "test_nll_per_obs": "0.518496",
-      "BIC": "4525709.2109",
+      "test_nll_per_obs": "0.518935",
+      "BIC": "4616527.2652",
       "n_params": "212801"
     },
     {
       "model": "twopl",
-      "test_nll_per_obs": "0.832191",
-      "BIC": "7393427.4219",
+      "test_nll_per_obs": "0.723930",
+      "BIC": "7470197.4418",
       "n_params": "425587"
     },
     {
       "model": "threepl",
-      "test_nll_per_obs": "0.790382",
-      "BIC": "10413345.8830",
+      "test_nll_per_obs": "0.860637",
+      "BIC": "10498976.4934",
       "n_params": "638373"
     },
     {
       "model": "fm1",
-      "test_nll_per_obs": "0.857546",
-      "BIC": "7198724.4219",
+      "test_nll_per_obs": "0.824262",
+      "BIC": "7297132.4418",
       "n_params": "425587"
     },
     {
       "model": "fm2",
-      "test_nll_per_obs": "1.149822",
-      "BIC": "9863681.3203",
+      "test_nll_per_obs": "1.126495",
+      "BIC": "9956435.0196",
       "n_params": "638388"
     },
     {
       "model": "fm3",
-      "test_nll_per_obs": "1.534404",
-      "BIC": "12616431.0937",
+      "test_nll_per_obs": "1.539393",
+      "BIC": "12691977.4411",
       "n_params": "851189"
     },
     {
       "model": "bifactor",
-      "test_nll_per_obs": "1.051579",
-      "BIC": "9698908.6010",
+      "test_nll_per_obs": "1.063664",
+      "BIC": "9742281.6293",
       "n_params": "638433"
     }
   ],
   "spearman_best_irt_vs_aggregate": 0.9929,
   "discrimination_spread_within_tier": {
     "high": {
-      "p10_to_p90_range": "25.5948"
+      "p10_to_p90_range": "21.8857"
     },
     "low": {
-      "p10_to_p90_range": "6.9503"
+      "p10_to_p90_range": "5.2676"
     },
     "mid": {
-      "p10_to_p90_range": "20.5706"
+      "p10_to_p90_range": "16.7155"
     },
     "na": {
-      "p10_to_p90_range": "9.5988"
+      "p10_to_p90_range": "8.7806"
     }
   },
   "top_dif_by_sex": [
     [
       "Consolidation",
-      0.039172768313519124
+      0.03916668235267862
     ],
     [
       "Edema",
-      0.01921798488959625
+      0.019222610891080794
     ],
     [
       "Atelectasis",
-      0.019017309496120682
+      0.019023332061535947
     ],
     [
       "Pneumonia",
-      0.01812233198642621
+      0.01811376055199465
     ],
     [
       "Support Devices",
-      0.014640460985928638
+      0.014644980706847166
     ]
   ],
   "top_dif_by_age": [

@@ -125,20 +125,20 @@ MedGemma-4B,Pleural Effusion,sex,Male,Female,5980,4020,0.50602,0.54751,-0.04149,
 MedGemma-4B,Pleural Other,sex,Male,Female,5980,4020,0.88462,0.88209,0.00253,0.3862
 MedGemma-4B,Fracture,sex,Male,Female,5980,4020,0.72475,0.70149,0.02326,2.5271
 MedGemma-4B,Support Devices,sex,Male,Female,5980,4020,0.80686,0.81318,-0.00633,-0.7899
-Phi-3.5-Vision,No Finding,sex,Male,Female,5979,4020,0.1629,0.15771,0.00519,0.6929
-Phi-3.5-Vision,Enlarged Cardiomediastinum,sex,Male,Female,5979,4020,0.3616,0.34776,0.01384,1.4169
-Phi-3.5-Vision,Cardiomegaly,sex,Male,Female,5979,4020,0.45911,0.43557,0.02353,2.3195
-Phi-3.5-Vision,Lung Opacity,sex,Male,Female,5979,4020,0.33317,0.31468,0.01849,1.9343
-Phi-3.5-Vision,Lung Lesion,sex,Male,Female,5979,4020,0.72169,0.67637,0.04532,4.8655
-Phi-3.5-Vision,Edema,sex,Male,Female,5979,4020,0.58505,0.5393,0.04574,4.5259
-Phi-3.5-Vision,Consolidation,sex,Male,Female,5979,4020,0.54591,0.49577,0.05014,4.9231
-Phi-3.5-Vision,Pneumonia,sex,Male,Female,5979,4020,0.76886,0.75448,0.01438,1.6581
-Phi-3.5-Vision,Atelectasis,sex,Male,Female,5979,4020,0.45978,0.43458,0.0252,2.4835
-Phi-3.5-Vision,Pneumothorax,sex,Male,Female,5979,4020,0.63991,0.62562,0.01428,1.454
-Phi-3.5-Vision,Pleural Effusion,sex,Male,Female,5979,4020,0.56147,0.53284,0.02863,2.8214
-Phi-3.5-Vision,Pleural Other,sex,Male,Female,5979,4020,0.8851,0.88358,0.00152,0.2325
-Phi-3.5-Vision,Fracture,sex,Male,Female,5979,4020,0.72621,0.71294,0.01327,1.4507
-Phi-3.5-Vision,Support Devices,sex,Male,Female,5979,4020,0.40542,0.42985,-0.02443,-2.4309
+Phi-3.5-Vision,No Finding,sex,Male,Female,5980,4020,0.16288,0.15771,0.00516,0.6894
+Phi-3.5-Vision,Enlarged Cardiomediastinum,sex,Male,Female,5980,4020,0.36171,0.34776,0.01394,1.4278
+Phi-3.5-Vision,Cardiomegaly,sex,Male,Female,5980,4020,0.4592,0.43557,0.02363,2.3285
+Phi-3.5-Vision,Lung Opacity,sex,Male,Female,5980,4020,0.33311,0.31468,0.01843,1.9286
+Phi-3.5-Vision,Lung Lesion,sex,Male,Female,5980,4020,0.72157,0.67637,0.0452,4.8523
+Phi-3.5-Vision,Edema,sex,Male,Female,5980,4020,0.58512,0.5393,0.04581,4.533
+Phi-3.5-Vision,Consolidation,sex,Male,Female,5980,4020,0.54582,0.49577,0.05005,4.9142
+Phi-3.5-Vision,Pneumonia,sex,Male,Female,5980,4020,0.76873,0.75448,0.01425,1.6432
+Phi-3.5-Vision,Atelectasis,sex,Male,Female,5980,4020,0.45987,0.43458,0.02529,2.4925
+Phi-3.5-Vision,Pneumothorax,sex,Male,Female,5980,4020,0.6398,0.62562,0.01418,1.4431
+Phi-3.5-Vision,Pleural Effusion,sex,Male,Female,5980,4020,0.56154,0.53284,0.0287,2.8288
+Phi-3.5-Vision,Pleural Other,sex,Male,Female,5980,4020,0.88512,0.88358,0.00153,0.2355
+Phi-3.5-Vision,Fracture,sex,Male,Female,5980,4020,0.72609,0.71294,0.01315,1.4374
+Phi-3.5-Vision,Support Devices,sex,Male,Female,5980,4020,0.40535,0.42985,-0.0245,-2.4378
 Pixtral-12B,No Finding,sex,Male,Female,6089,3911,0.79701,0.81642,-0.0194,-2.3881
 Pixtral-12B,Enlarged Cardiomediastinum,sex,Male,Female,6089,3911,0.41468,0.38865,0.02603,2.5886
 Pixtral-12B,Cardiomegaly,sex,Male,Female,6089,3911,0.52751,0.50626,0.02124,2.075
@@ -335,20 +335,20 @@ MedGemma-4B,Pleural Effusion,ap_pa,AP,PA,7424,2576,0.56533,0.39984,0.16548,14.48
 MedGemma-4B,Pleural Other,ap_pa,AP,PA,7424,2576,0.93063,0.74806,0.18257,24.8955
 MedGemma-4B,Fracture,ap_pa,AP,PA,7424,2576,0.74852,0.61995,0.12856,12.4601
 MedGemma-4B,Support Devices,ap_pa,AP,PA,7424,2576,0.80374,0.8257,-0.02195,-2.4444
-Phi-3.5-Vision,No Finding,ap_pa,AP,PA,7423,2576,0.08541,0.37811,-0.2927,-34.8423
-Phi-3.5-Vision,Enlarged Cardiomediastinum,ap_pa,AP,PA,7423,2576,0.24896,0.6646,-0.41564,-37.9598
-Phi-3.5-Vision,Cardiomegaly,ap_pa,AP,PA,7423,2576,0.35444,0.72399,-0.36955,-32.4865
-Phi-3.5-Vision,Lung Opacity,ap_pa,AP,PA,7423,2576,0.22888,0.60481,-0.37593,-35.0788
-Phi-3.5-Vision,Lung Lesion,ap_pa,AP,PA,7423,2576,0.65055,0.85598,-0.20543,-19.6697
-Phi-3.5-Vision,Edema,ap_pa,AP,PA,7423,2576,0.46491,0.85986,-0.39495,-34.8542
-Phi-3.5-Vision,Consolidation,ap_pa,AP,PA,7423,2576,0.45117,0.74068,-0.28952,-25.3552
-Phi-3.5-Vision,Pneumonia,ap_pa,AP,PA,7423,2576,0.76088,0.76941,-0.00853,-0.8775
-Phi-3.5-Vision,Atelectasis,ap_pa,AP,PA,7423,2576,0.37357,0.66887,-0.2953,-25.959
-Phi-3.5-Vision,Pneumothorax,ap_pa,AP,PA,7423,2576,0.58373,0.7795,-0.19578,-17.7747
-Phi-3.5-Vision,Pleural Effusion,ap_pa,AP,PA,7423,2576,0.52432,0.62384,-0.09952,-8.7478
-Phi-3.5-Vision,Pleural Other,ap_pa,AP,PA,7423,2576,0.93237,0.74651,0.18587,25.4288
-Phi-3.5-Vision,Fracture,ap_pa,AP,PA,7423,2576,0.75657,0.61801,0.13856,13.5075
-Phi-3.5-Vision,Support Devices,ap_pa,AP,PA,7423,2576,0.3186,0.69371,-0.37511,-33.289
+Phi-3.5-Vision,No Finding,ap_pa,AP,PA,7424,2576,0.0854,0.37811,-0.29271,-34.8457
+Phi-3.5-Vision,Enlarged Cardiomediastinum,ap_pa,AP,PA,7424,2576,0.24906,0.6646,-0.41554,-37.9497
+Phi-3.5-Vision,Cardiomegaly,ap_pa,AP,PA,7424,2576,0.35453,0.72399,-0.36946,-32.4791
+Phi-3.5-Vision,Lung Opacity,ap_pa,AP,PA,7424,2576,0.22885,0.60481,-0.37596,-35.0832
+Phi-3.5-Vision,Lung Lesion,ap_pa,AP,PA,7424,2576,0.65046,0.85598,-0.20552,-19.677
+Phi-3.5-Vision,Edema,ap_pa,AP,PA,7424,2576,0.46498,0.85986,-0.39488,-34.8488
+Phi-3.5-Vision,Consolidation,ap_pa,AP,PA,7424,2576,0.4511,0.74068,-0.28958,-25.3608
+Phi-3.5-Vision,Pneumonia,ap_pa,AP,PA,7424,2576,0.76078,0.76941,-0.00863,-0.8879
+Phi-3.5-Vision,Atelectasis,ap_pa,AP,PA,7424,2576,0.37365,0.66887,-0.29521,-25.9518
+Phi-3.5-Vision,Pneumothorax,ap_pa,AP,PA,7424,2576,0.58365,0.7795,-0.19586,-17.7815
+Phi-3.5-Vision,Pleural Effusion,ap_pa,AP,PA,7424,2576,0.52438,0.62384,-0.09946,-8.7424
+Phi-3.5-Vision,Pleural Other,ap_pa,AP,PA,7424,2576,0.93238,0.74651,0.18588,25.4316
+Phi-3.5-Vision,Fracture,ap_pa,AP,PA,7424,2576,0.75647,0.61801,0.13845,13.4968
+Phi-3.5-Vision,Support Devices,ap_pa,AP,PA,7424,2576,0.31856,0.69371,-0.37515,-33.2939
 Pixtral-12B,No Finding,ap_pa,AP,PA,5929,2014,0.91179,0.65045,0.26134,28.0379
 Pixtral-12B,Enlarged Cardiomediastinum,ap_pa,AP,PA,5929,2014,0.24186,0.65541,-0.41355,-33.6912
 Pixtral-12B,Cardiomegaly,ap_pa,AP,PA,5929,2014,0.39062,0.72393,-0.33331,-25.8788
@@ -545,20 +545,20 @@ MedGemma-4B,Pleural Effusion,age,60-79,<40,3732,1504,0.54528,0.46343,0.08185,5.3
 MedGemma-4B,Pleural Other,age,60-79,<40,3732,1504,0.87326,0.91223,-0.03898,-3.9918
 MedGemma-4B,Fracture,age,60-79,<40,3732,1504,0.70016,0.73138,-0.03122,-2.2508
 MedGemma-4B,Support Devices,age,60-79,<40,3732,1504,0.79823,0.84774,-0.04951,-4.1525
-Phi-3.5-Vision,No Finding,age,60-79,<40,3732,1504,0.1321,0.23737,-0.10527,-9.3463
-Phi-3.5-Vision,Enlarged Cardiomediastinum,age,60-79,<40,3732,1504,0.32208,0.48604,-0.16396,-11.1239
-Phi-3.5-Vision,Cardiomegaly,age,60-79,<40,3732,1504,0.4105,0.58112,-0.17061,-11.209
-Phi-3.5-Vision,Lung Opacity,age,60-79,<40,3732,1504,0.27974,0.43883,-0.15909,-11.1169
-Phi-3.5-Vision,Lung Lesion,age,60-79,<40,3732,1504,0.72669,0.66888,0.05781,4.1713
-Phi-3.5-Vision,Edema,age,60-79,<40,3732,1504,0.54957,0.68218,-0.13261,-8.8202
-Phi-3.5-Vision,Consolidation,age,60-79,<40,3732,1504,0.4933,0.59973,-0.10643,-6.9774
-Phi-3.5-Vision,Pneumonia,age,60-79,<40,3732,1504,0.74759,0.77327,-0.02568,-1.9551
-Phi-3.5-Vision,Atelectasis,age,60-79,<40,3732,1504,0.40059,0.55253,-0.15194,-10.0117
-Phi-3.5-Vision,Pneumothorax,age,60-79,<40,3732,1504,0.63371,0.64761,-0.0139,-0.9467
-Phi-3.5-Vision,Pleural Effusion,age,60-79,<40,3732,1504,0.54314,0.54255,0.00059,0.0386
-Phi-3.5-Vision,Pleural Other,age,60-79,<40,3732,1504,0.8746,0.9129,-0.0383,-3.9398
-Phi-3.5-Vision,Fracture,age,60-79,<40,3732,1504,0.70713,0.7367,-0.02957,-2.1465
-Phi-3.5-Vision,Support Devices,age,60-79,<40,3732,1504,0.39175,0.40359,-0.01184,-0.7932
+Phi-3.5-Vision,No Finding,age,60-79,<40,3733,1504,0.13207,0.23737,-0.1053,-9.3505
+Phi-3.5-Vision,Enlarged Cardiomediastinum,age,60-79,<40,3733,1504,0.32226,0.48604,-0.16378,-11.1112
+Phi-3.5-Vision,Cardiomegaly,age,60-79,<40,3733,1504,0.41066,0.58112,-0.17046,-11.1989
+Phi-3.5-Vision,Lung Opacity,age,60-79,<40,3733,1504,0.27967,0.43883,-0.15916,-11.1231
+Phi-3.5-Vision,Lung Lesion,age,60-79,<40,3733,1504,0.72649,0.66888,0.05761,4.1568
+Phi-3.5-Vision,Edema,age,60-79,<40,3733,1504,0.54969,0.68218,-0.13249,-8.8128
+Phi-3.5-Vision,Consolidation,age,60-79,<40,3733,1504,0.49317,0.59973,-0.10657,-6.9863
+Phi-3.5-Vision,Pneumonia,age,60-79,<40,3733,1504,0.74739,0.77327,-0.02588,-1.97
+Phi-3.5-Vision,Atelectasis,age,60-79,<40,3733,1504,0.40075,0.55253,-0.15178,-10.0012
+Phi-3.5-Vision,Pneumothorax,age,60-79,<40,3733,1504,0.63354,0.64761,-0.01407,-0.9582
+Phi-3.5-Vision,Pleural Effusion,age,60-79,<40,3733,1504,0.54326,0.54255,0.00071,0.0466
+Phi-3.5-Vision,Pleural Other,age,60-79,<40,3733,1504,0.87463,0.9129,-0.03827,-3.9368
+Phi-3.5-Vision,Fracture,age,60-79,<40,3733,1504,0.70694,0.7367,-0.02976,-2.16
+Phi-3.5-Vision,Support Devices,age,60-79,<40,3733,1504,0.39164,0.40359,-0.01195,-0.8003
 Pixtral-12B,No Finding,age,60-79,<40,3778,1461,0.82848,0.72964,0.09884,8.0347
 Pixtral-12B,Enlarged Cardiomediastinum,age,60-79,<40,3778,1461,0.36395,0.52225,-0.1583,-10.4543
 Pixtral-12B,Cardiomegaly,age,60-79,<40,3778,1461,0.47141,0.63039,-0.15898,-10.3255

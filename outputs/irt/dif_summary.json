@@ -127,15 +127,15 @@
   },
   "Phi-3.5-Vision": {
     "n_comparisons": 56,
-    "n_significant": 41,
+    "n_significant": 42,
     "worst_disparity": {
       "pathology": "Enlarged Cardiomediastinum",
       "attribute": "ap_pa",
       "group_A": "AP",
       "group_B": "PA",
-      "delta_acc": -0.41564,
-      "z": -37.9598,
-      "n_A": 7423,
+      "delta_acc": -0.41554,
+      "z": -37.9497,
+      "n_A": 7424,
       "n_B": 2576
     }
   },
