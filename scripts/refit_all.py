@@ -40,6 +40,9 @@ def main():
     from analysis import fit_irt
     step("fit_irt", fit_irt.main)
 
+    from analysis import fit_irt_by_tier
+    step("fit_irt_by_tier", fit_irt_by_tier.main)
+
     from analysis import bifactor_mirt
     step("bifactor_mirt", bifactor_mirt.main)
 
@@ -66,6 +69,9 @@ def main():
 
     from analysis import figures
     step("figures", figures.main)
+
+    from analysis import figures_by_tier
+    step("figures_by_tier", figures_by_tier.main)
 
     from analysis import export_manuscript_numbers
     step("export_manuscript_numbers", export_manuscript_numbers.main)
