@@ -19,12 +19,15 @@ Stanford University
 │   ├── dif_analysis.py       # subgroup gaps (sex, age, view, AP/PA, …)
 │   ├── export_manuscript_numbers.py
 │   ├── figures.py
-│   ├── fit_irt.py            # Rasch / 2PL / 3PL + factor (1F, 2F, 3F)
+│   ├── figures_by_tier.py    # stratified IRT figures (per-tier + cross-tier)
+│   ├── fit_irt.py            # Rasch / 2PL / 3PL + factor (1F, 2F, 3F) — pooled
+│   ├── fit_irt_by_tier.py    # stratified IRT fits by prevalence tier
 │   ├── irt_vs_baseline.py
 │   ├── item_metadata.py
 │   ├── model_fit_metrics.py
 │   ├── reliability.py        # bootstrap CI on θ̂
 │   ├── scaling_law.py        # within-family θ̂ ≈ α·log10(params) + β
+│   ├── stratified_irt_methodology.md  # design decisions for stratified IRT
 │   └── tinybenchmark.py
 │
 ├── data/
@@ -70,9 +73,15 @@ Stanford University
 │
 ├── outputs/                  # all derived artifacts (committed)
 │   ├── baselines/            # CSVs: aggregate / per-pathology / per-subgroup acc
-│   ├── irt/                  # fit_table.csv, item_params_*.csv, abilities_*.csv,
-│   │                         #   predictions_*.npz, dif_*.csv, headline_findings.json
-│   ├── figures/              # PDF + PNG for every manuscript figure
+│   ├── irt/                  # pooled IRT fits (fit_table.csv, item_params_*.csv,
+│   │   │                     #   abilities_*.csv, predictions_*.npz, dif_*.csv,
+│   │   │                     #   headline_findings.json, figures/)
+│   │   └── by_tier/          # stratified IRT fits by prevalence tier
+│   │       ├── {high,mid,low,na}/    # per-tier fit outputs (fit_table.csv,
+│   │       │                         #   item_params_*.csv, abilities_*.csv, etc.)
+│   │       │   └── figures/          # per-tier figures
+│   │       └── figures/              # cross-tier comparative figures
+│   ├── figures/              # PDF + PNG for every manuscript figure (pooled analysis)
 │   ├── response_matrix.csv
 │   ├── results_numbers.tex   # \newcommand{...} macros for the manuscript
 │   └── tinybenchmark.csv
@@ -244,12 +253,13 @@ python scripts/refit_all.py
 `torch` + `torch_measure` import cost once, then runs every analysis
 module in order: `fit_irt`, `bifactor_mirt`, `baselines`, `reliability`,
 `dif_analysis`, `scaling_law`, `tinybenchmark`, `irt_vs_baseline`,
-`amortized_irt`, `figures`, `export_manuscript_numbers`. Each step is
-isolated in its own `try`/`except` so a late failure doesn’t lose earlier
-work.
+`amortized_irt`, `figures`, `fit_irt_by_tier`, `figures_by_tier`,
+`export_manuscript_numbers`. Each step is isolated in its own `try`/`except`
+so a late failure doesn't lose earlier work.
 
 To re-run a single stage, invoke it directly — e.g.
-`python -m analysis.dif_analysis` or `python -m analysis.figures`.
+`python -m analysis.dif_analysis`, `python -m analysis.figures`, or
+`python -m analysis.figures_by_tier`.
 
 ---
 
@@ -261,17 +271,64 @@ To re-run a single stage, invoke it directly — e.g.
 | `outputs/results_numbers.tex`        | Auto-generated `\newcommand{...}` macros (counts, accuracies, fit stats) for the manuscript.       |
 | `outputs/tinybenchmark.csv`          | tinyBenchmarks-style sub-sampled accuracy estimates.                                               |
 | `outputs/baselines/`                 | Non-IRT references: aggregate / per-pathology / per-view / per-subgroup accuracy + P/R/F1.         |
-| `outputs/irt/fit_table.csv`          | Headline fit comparison (logLik, AIC, BIC, df, RMSEA, M2, held-out NLL/F1/AUC) across models.      |
-| `outputs/irt/item_params_*.csv`      | Per-item parameters (difficulty β, discrimination a, factor loadings) for each fitted model.       |
-| `outputs/irt/abilities_*.csv`        | Per-test-taker abilities θ̂ for each fitted model.                                                  |
-| `outputs/irt/predictions_*.npz`      | Posterior predictive cell probabilities (gitignored; regenerated on each fit).                     |
-| `outputs/irt/dif_*.csv`              | Differential Item Functioning by sex / age / view / AP-PA / anatomical group.                      |
+| `outputs/irt/fit_table.csv`          | Pooled headline fit comparison (logLik, AIC, BIC, df, RMSEA, M2, held-out NLL/F1/AUC).             |
+| `outputs/irt/item_params_*.csv`      | Pooled per-item parameters (difficulty β, discrimination a, factor loadings) for each model.       |
+| `outputs/irt/abilities_*.csv`        | Pooled per-test-taker abilities θ̂ for each fitted model.                                           |
+| `outputs/irt/predictions_*.npz`      | Pooled posterior predictive cell probabilities (gitignored; regenerated on each fit).               |
+| `outputs/irt/dif_*.csv`              | Pooled Differential Item Functioning by sex / age / view / AP-PA / anatomical group.               |
 | `outputs/irt/headline_findings.json` | Single-file summary of the headline numbers cited in the report.                                   |
-| `outputs/figures/fig_*.{pdf,png}`    | All manuscript figures (caterpillar, ICC examples, item information, factor heatmap, scaling, …).  |
+| `outputs/irt/figures/fig_*.{pdf,png}`| Pooled manuscript figures (caterpillar, ICC examples, item information, factor heatmap, scaling, …). |
+| `outputs/irt/by_tier/{tier}/`        | Per-tier IRT fits (`high`, `mid`, `low`, `na`) — fit_table.csv, item_params_*.csv, abilities_*.csv. |
+| `outputs/irt/by_tier/{tier}/figures/`| Per-tier figures (response heatmaps, caterpillars, ICC, information curves, difficulty, etc.).     |
+| `outputs/irt/by_tier/figures/`       | Cross-tier comparative figures (ability heatmap, model comparison, discrimination, panels, etc.).  |
 
 ---
 
-## Data access
+## Stratified IRT Analysis by Pathology Prevalence Tier
+
+Beyond the pooled IRT analysis (which conflates items across all pathologies),
+we conduct stratified IRT fits partitioned by pathology prevalence tier to
+distinguish **fine-grained discrimination** (high-prevalence) from **recall/coverage**
+(low-prevalence) challenges:
+
+- **`high`** — 6 pathologies (Support Devices, Pleural Effusion, Lung Opacity, Atelectasis, Cardiomegaly, Edema)
+- **`mid`** — 3 pathologies (Enlarged Cardiomediastinum, Consolidation, Pneumonia)
+- **`low`** — 4 pathologies (Pneumothorax, Fracture, Lung Lesion, Pleural Other)
+- **`na`** — 1 pathology (No Finding)
+
+### Key modules for stratified analysis
+
+| Module | Purpose |
+| ------ | ------- |
+| `analysis/fit_irt_by_tier.py` | Fit Rasch/2PL/3PL + factor models for each tier independently. Outputs per-tier fit tables, item parameters, and abilities. |
+| `analysis/figures_by_tier.py` | Generate ~100 per-tier and cross-tier figures: ability heatmaps, caterpillars, item-information curves, difficulty distributions, factor loadings, and pairwise tier comparisons. |
+| `analysis/stratified_irt_methodology.md` | Detailed design rationale for tier assignment, item-set consistency, subject sharing, and rejected alternatives. |
+
+### Stratified outputs in `outputs/irt/by_tier/`
+
+```
+outputs/irt/by_tier/
+├── high/              # High-prevalence tier
+│   ├── fit_table.csv
+│   ├── item_params_*.csv
+│   ├── abilities_*.csv
+│   └── figures/       # per-tier figures (response heatmap, caterpillar, etc.)
+├── mid/               # Mid-prevalence tier (analogous)
+├── low/               # Low-prevalence tier (analogous)
+├── na/                # No-Finding items (analogous)
+└── figures/           # Cross-tier composite figures
+    ├── fig_ability_across_tiers.{pdf,png}
+    ├── fig_model_comparison_by_tier.{pdf,png}
+    ├── fig_panel_caterpillar_by_tier.{pdf,png}
+    ├── fig_panel_difficulty_by_tier.{pdf,png}
+    └── ... [~20 more cross-tier figures]
+```
+
+For full methodology details, see `analysis/stratified_irt_methodology.md`.
+
+---
+
+
 
 Raw imaging data is **not** committed to this repo. Source source datasets
 require an external research agreement:
