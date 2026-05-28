@@ -30,6 +30,41 @@ where and how AI can fail.
 
 ---
 
+## Quickstart
+
+All 15 AI test-takers' raw per-(image, pathology) predictions are
+committed under `data/inference/*.json`, and the CheXpert ground-truth
+labels for the items we score are committed under
+`data/chexpert_testset/`. The IRT, factor, baseline, metadata-stratified,
+DIF, reliability, tinyBenchmarks, and scaling-law analyses consume these
+committed files directly — they do not need CheXpert images, Modal,
+Azure OpenAI, or a HuggingFace token.
+
+To reproduce every modeling result, table, and figure in the paper:
+
+```bash
+git clone https://github.com/daphne-barretto/modeling-to-evaluate-ai-for-healthcare.git
+cd modeling-to-evaluate-ai-for-healthcare
+python3.12 -m venv .venv && source .venv/bin/activate
+pip install -r requirements.txt
+python scripts/refit_all.py
+```
+
+This regenerates every IRT fit (`outputs/irt/`), every baseline
+(`outputs/baselines/`), every figure used in the manuscript
+(`outputs/figures/`), and the `\newcommand{...}` macro file the LaTeX
+source consumes (`outputs/results_numbers.tex`). End-to-end wall-clock
+is ~30–60 min on a modern laptop CPU; no GPU is required. See
+[Expected runtime and hardware requirements](#expected-runtime-and-hardware-requirements)
+for per-stage costs.
+
+Steps 1–3 of the full
+[Reproduce the results](#reproduce-the-results) section cover re-running
+inference from scratch for anyone who wants to add or replace a
+test-taker; they are not needed to reproduce any number in the paper.
+
+---
+
 ## Repository structure
 
 ```
@@ -198,10 +233,12 @@ AZURE_OPENAI_API_KEY=<your-azure-openai-key>
 
 ## Reproduce the results
 
-`data/inference/*.json` is already committed in this repo. If you only want
-to reproduce the modeling and analyses (Steps 4 and 5 below), you can skip
-straight to those steps and use the committed inference outputs. Steps 1–3
-re-run all 15 inferences from scratch.
+`data/inference/*.json` and `data/chexpert_testset/` are committed in this
+repo, so the modeling and analyses (Steps 4–5 below) run from the
+checked-in data without needing CheXpert images, Modal, or any
+inference-time credentials. See [Quickstart](#quickstart) for a
+one-command version. Steps 1–3 only need to be re-run to add a new
+test-taker or replace an existing one.
 
 ### Step 1 — download and unzip CheXpert (one-time, on the Modal volume)
 
