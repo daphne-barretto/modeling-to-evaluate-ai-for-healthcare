@@ -319,13 +319,13 @@ in isolation without re-running the full pipeline.
 | Figure: caterpillar of θ̂ across models (`fig:caterpillar`)           | `analysis/figures.py`                                         | `outputs/figures/fig_caterpillar.pdf`                    |
 | Figure: θ vs aggregate accuracy (`fig:rho-vs-acc`)                   | `analysis/figures.py`                                         | `outputs/figures/fig_rho_vs_accuracy.pdf`                |
 | Figure: per-tier difficulty / ability / precision (`fig:per-tier-*`) | `analysis/figures_by_tier.py`                                 | `outputs/figures/by_tier/`                               |
-| Figure: reliability diagram (`fig:reliability`)                      | `analysis/reliability.py`                                     | `outputs/figures/fig_reliability_diagram.pdf`            |
+| Figure: bifactor 2D loadings (`fig:bifactor2d`)                      | `analysis/bifactor_mirt.py`                                   | `outputs/figures/fig_bifactor2d.pdf`                     |
 | Figure: ICC examples (`fig:icc-examples`)                            | `analysis/figures.py`                                         | `outputs/figures/fig_icc_examples.pdf`                   |
 | Figure: bifactor loading heatmap (`fig:factor-loadings`)             | `analysis/figures.py`                                         | `outputs/figures/fig_factor_loading_heatmap.pdf`         |
 | Figure: 2PL discrimination by tier (`fig:disc-tier`)                 | `analysis/figures.py`                                         | `outputs/figures/fig_discrim_by_tier.pdf`                |
 | Figure: test-information functions (`fig:item-info`)                 | `analysis/figures.py`                                         | `outputs/figures/fig_item_information.pdf`               |
 | Figure: DIF subgroup gaps (`fig:dif`)                                | `analysis/dif_analysis.py`                                    | `outputs/figures/fig_dif.pdf`                            |
-| Figure: caterpillar with bootstrap CIs                               | `analysis/reliability.py`                                     | `outputs/figures/fig_caterpillar_ci.pdf`                 |
+| Figure: caterpillar with bootstrap CIs (`fig:reliability`)           | `analysis/reliability.py`                                     | `outputs/figures/fig_caterpillar_ci.pdf`                 |
 | Figure: tinyBenchmarks-style accuracy                                | `analysis/tinybenchmark.py`                                   | `outputs/figures/fig_tinybenchmark.pdf`                  |
 | Figure: scaling law (θ vs log10 params)                              | `analysis/scaling_law.py`                                     | `outputs/figures/fig_scaling.pdf`                        |
 | Table: model fit comparison (`tab:model-fit`)                        | `analysis/fit_irt.py` + `analysis/baseline_nll.py`            | `outputs/irt/fit_table.csv`                              |
