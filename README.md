@@ -32,13 +32,11 @@ where and how AI can fail.
 
 ## Quickstart
 
-All 15 AI test-takers' raw per-(image, pathology) predictions are
-committed under `data/inference/*.json`, and the CheXpert ground-truth
-labels for the items we score are committed under
-`data/chexpert_testset/`. The IRT, factor, baseline, metadata-stratified,
-DIF, reliability, tinyBenchmarks, and scaling-law analyses consume these
-committed files directly — they do not need CheXpert images, Modal,
-Azure OpenAI, or a HuggingFace token.
+To start modeling using existing inference outputs, all 15 AI test-takers' 
+raw per-(image, pathology) predictions are committed under `data/inference/*.json`, 
+and the CheXpert ground-truth labels for the items we score are committed under
+`data/chexpert_testset/`. The analyses consume these committed files directly, without
+direct access to CheXpert images, Modal, Azure OpenAI, or a HuggingFace token for inferencing
 
 To reproduce every modeling result, table, and figure in the paper:
 
