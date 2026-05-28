@@ -32,8 +32,8 @@ where and how AI can fail.
 
 ## Quickstart
 
-To start modeling using existing inference outputs, all 15 AI test-takers' 
-raw per-(image, pathology) predictions are committed under `data/inference/*.json`, 
+To start modeling using existing inference outputs, all 15 AI test-takers'
+raw per-(image, pathology) predictions are committed under `data/inference/*.json`,
 and the CheXpert ground-truth labels for the items we score are committed under
 `data/chexpert_testset/`. The analyses consume these committed files directly, without
 direct access to CheXpert images, Modal, Azure OpenAI, or a HuggingFace token for inferencing
@@ -256,21 +256,21 @@ filename under `data/inference/`. All launchers default to the first
 10,000 frontal train1 images selected by the deterministic rule in
 `modal_runs/_helpers.py`.
 
-| Test-taker (canonical filename)                    | Run command                                                                                          |
-| -------------------------------------------------- | ---------------------------------------------------------------------------------------------------- |
-| `gpt-5.4.json` (Azure)                             | `modal run modal_runs/run_gpt5_modal.py --n-images 10000` *or* `python inference/gpt5_local.py`      |
-| `gpt-4o.json` (Azure)                              | `modal run modal_runs/run_gpt4o_modal.py --n-images 10000` *or* `python inference/gpt4o_local.py`    |
-| `biomedclip.json`                                  | `modal run --detach modal_runs/run_biomedclip_modal.py::run_biomedclip`                              |
-| `chexagent-8b.json`                                | `modal run --detach modal_runs/run_chexagent_modal.py`                                               |
-| `chexagent-2-3b.json`                              | `modal run --detach modal_runs/run_chexagent3b_modal.py`                                             |
-| `internvl3-8b.json`                                | `modal run --detach modal_runs/run_internvl3_modal.py`                                               |
-| `llava-1.5-7b.json`                                | `modal run --detach modal_runs/run_llava15_modal.py::run_llava15`                                    |
-| `llava-med-7b.json`                                | `modal run --detach modal_runs/run_llava_med_modal.py`                                               |
-| `medgemma-4b.json`                                 | `modal run --detach modal_runs/run_medgemma_modal.py::run_medgemma`                                  |
-| `phi-3.5-vision.json`                              | `modal run --detach modal_runs/run_phi35_vision_modal.py`                                            |
-| `qwen2.5-vl-32b.json`                              | `modal run --detach modal_runs/run_qwen25vl_32b_modal.py::run_qwen25vl_32b`                          |
-| `pixtral-12b.json` (HF, requires `HF_TOKEN`)       | `modal run inference/inference_pixtral.py`                                                           |
-| `llama-3.2-vision-11b.json` (HF, gated repo)       | `modal run inference/inference_llama_vision.py`                                                      |
+| Test-taker (canonical filename)              | Run command                                                                                       |
+| -------------------------------------------- | ------------------------------------------------------------------------------------------------- |
+| `gpt-5.4.json` (Azure)                       | `modal run modal_runs/run_gpt5_modal.py --n-images 10000` _or_ `python inference/gpt5_local.py`   |
+| `gpt-4o.json` (Azure)                        | `modal run modal_runs/run_gpt4o_modal.py --n-images 10000` _or_ `python inference/gpt4o_local.py` |
+| `biomedclip.json`                            | `modal run --detach modal_runs/run_biomedclip_modal.py::run_biomedclip`                           |
+| `chexagent-8b.json`                          | `modal run --detach modal_runs/run_chexagent_modal.py`                                            |
+| `chexagent-2-3b.json`                        | `modal run --detach modal_runs/run_chexagent3b_modal.py`                                          |
+| `internvl3-8b.json`                          | `modal run --detach modal_runs/run_internvl3_modal.py`                                            |
+| `llava-1.5-7b.json`                          | `modal run --detach modal_runs/run_llava15_modal.py::run_llava15`                                 |
+| `llava-med-7b.json`                          | `modal run --detach modal_runs/run_llava_med_modal.py`                                            |
+| `medgemma-4b.json`                           | `modal run --detach modal_runs/run_medgemma_modal.py::run_medgemma`                               |
+| `phi-3.5-vision.json`                        | `modal run --detach modal_runs/run_phi35_vision_modal.py`                                         |
+| `qwen2.5-vl-32b.json`                        | `modal run --detach modal_runs/run_qwen25vl_32b_modal.py::run_qwen25vl_32b`                       |
+| `pixtral-12b.json` (HF, requires `HF_TOKEN`) | `modal run inference/inference_pixtral.py`                                                        |
+| `llama-3.2-vision-11b.json` (HF, gated repo) | `modal run inference/inference_llama_vision.py`                                                   |
 
 For long-running detached jobs, monitor via `modal app logs <app-id>`.
 
@@ -324,14 +324,14 @@ To re-run a single stage, invoke it directly — e.g.
 
 ## Expected runtime and hardware requirements
 
-| Stage                                                       | Hardware                                | Wall-clock time   |
-| ----------------------------------------------------------- | --------------------------------------- | ----------------- |
-| Step 1 — download + unzip CheXpert (one-time)               | Modal volume (no local resources)       | 2–6 h             |
-| Step 2 — open-weights inference (per test-taker, 10K imgs)  | Modal A100 / H100 (1× GPU, 40–80 GB)    | 30 min – 4 h      |
-| Step 2 — Azure GPT-5.4 / GPT-4o inference (10K imgs)        | Local CPU (Azure-side rate-limited)     | 2–6 h each        |
-| Step 3 — pull inference JSONs to `data/inference/`          | Local CPU + network                     | 5–15 min total    |
-| Step 4 — `matrix.construct_matrix`                          | Local CPU, ~4 GB RAM                    | 1–2 min           |
-| Step 5 — `scripts/refit_all.py` (full analysis + figures)   | Local CPU, ~6 GB RAM                    | 30–60 min cold    |
+| Stage                                                      | Hardware                             | Wall-clock time |
+| ---------------------------------------------------------- | ------------------------------------ | --------------- |
+| Step 1 — download + unzip CheXpert (one-time)              | Modal volume (no local resources)    | 2–6 h           |
+| Step 2 — open-weights inference (per test-taker, 10K imgs) | Modal A100 / H100 (1× GPU, 40–80 GB) | 30 min – 4 h    |
+| Step 2 — Azure GPT-5.4 / GPT-4o inference (10K imgs)       | Local CPU (Azure-side rate-limited)  | 2–6 h each      |
+| Step 3 — pull inference JSONs to `data/inference/`         | Local CPU + network                  | 5–15 min total  |
+| Step 4 — `matrix.construct_matrix`                         | Local CPU, ~4 GB RAM                 | 1–2 min         |
+| Step 5 — `scripts/refit_all.py` (full analysis + figures)  | Local CPU, ~6 GB RAM                 | 30–60 min cold  |
 
 Step 5 is the only stage that matters for reproducing the manuscript
 numbers and figures from the committed `data/inference/*.json`; it runs
@@ -347,26 +347,26 @@ Every figure and table referenced in the manuscript is regenerated by
 writes each artifact, so individual figures or tables can be regenerated
 in isolation without re-running the full pipeline.
 
-| Manuscript artifact (label)                                          | Source module                                                 | Output path                                              |
-| -------------------------------------------------------------------- | ------------------------------------------------------------- | -------------------------------------------------------- |
-| Figure: response-matrix heatmap (`fig:response-heatmap`)             | `analysis/figures.py`                                         | `outputs/figures/fig_response_heatmap.pdf`               |
-| Figure: Rasch difficulty by pathology (`fig:difficulty-pathology`)   | `analysis/figures.py`                                         | `outputs/figures/fig_difficulty_by_pathology.pdf`        |
-| Figure: caterpillar of θ̂ across models (`fig:caterpillar`)           | `analysis/figures.py`                                         | `outputs/figures/fig_caterpillar.pdf`                    |
-| Figure: θ vs aggregate accuracy (`fig:rho-vs-acc`)                   | `analysis/figures.py`                                         | `outputs/figures/fig_rho_vs_accuracy.pdf`                |
-| Figure: per-tier difficulty / ability / precision (`fig:per-tier-*`) | `analysis/figures_by_tier.py`                                 | `outputs/figures/by_tier/`                               |
-| Figure: bifactor 2D loadings (`fig:bifactor2d`)                      | `analysis/bifactor_mirt.py`                                   | `outputs/figures/fig_bifactor2d.pdf`                     |
-| Figure: ICC examples (`fig:icc-examples`)                            | `analysis/figures.py`                                         | `outputs/figures/fig_icc_examples.pdf`                   |
-| Figure: bifactor loading heatmap (`fig:factor-loadings`)             | `analysis/figures.py`                                         | `outputs/figures/fig_factor_loading_heatmap.pdf`         |
-| Figure: 2PL discrimination by tier (`fig:disc-tier`)                 | `analysis/figures.py`                                         | `outputs/figures/fig_discrim_by_tier.pdf`                |
-| Figure: test-information functions (`fig:item-info`)                 | `analysis/figures.py`                                         | `outputs/figures/fig_item_information.pdf`               |
-| Figure: DIF subgroup gaps (`fig:dif`)                                | `analysis/dif_analysis.py`                                    | `outputs/figures/fig_dif.pdf`                            |
-| Figure: caterpillar with bootstrap CIs (`fig:reliability`)           | `analysis/reliability.py`                                     | `outputs/figures/fig_caterpillar_ci.pdf`                 |
-| Figure: tinyBenchmarks-style accuracy                                | `analysis/tinybenchmark.py`                                   | `outputs/figures/fig_tinybenchmark.pdf`                  |
-| Figure: scaling law (θ vs log10 params)                              | `analysis/scaling_law.py`                                     | `outputs/figures/fig_scaling.pdf`                        |
-| Table: model fit comparison (`tab:model-fit`)                        | `analysis/fit_irt.py` + `analysis/baseline_nll.py`            | `outputs/irt/fit_table.csv`                              |
-| Table: per-test-taker observation counts (`tab:obs-counts`)          | `analysis/data_loader.py` via `export_manuscript_numbers.py`  | `outputs/irt/headline_findings.json` (`obs_per_subject`) |
-| Table: full per-model rankings (`tab:full-rankings`)                 | `analysis/export_manuscript_numbers.py`                       | `outputs/results_numbers.tex`                            |
-| All inline `\newcommand{...}` macros (counts, ρ, F1, AUC, …)         | `analysis/export_manuscript_numbers.py`                       | `outputs/results_numbers.tex`                            |
+| Manuscript artifact (label)                                          | Source module                                                | Output path                                              |
+| -------------------------------------------------------------------- | ------------------------------------------------------------ | -------------------------------------------------------- |
+| Figure: response-matrix heatmap (`fig:response-heatmap`)             | `analysis/figures.py`                                        | `outputs/figures/fig_response_heatmap.pdf`               |
+| Figure: Rasch difficulty by pathology (`fig:difficulty-pathology`)   | `analysis/figures.py`                                        | `outputs/figures/fig_difficulty_by_pathology.pdf`        |
+| Figure: caterpillar of θ̂ across models (`fig:caterpillar`)           | `analysis/figures.py`                                        | `outputs/figures/fig_caterpillar.pdf`                    |
+| Figure: θ vs aggregate accuracy (`fig:rho-vs-acc`)                   | `analysis/figures.py`                                        | `outputs/figures/fig_rho_vs_accuracy.pdf`                |
+| Figure: per-tier difficulty / ability / precision (`fig:per-tier-*`) | `analysis/figures_by_tier.py`                                | `outputs/figures/by_tier/`                               |
+| Figure: bifactor 2D loadings (`fig:bifactor2d`)                      | `analysis/bifactor_mirt.py`                                  | `outputs/figures/fig_bifactor2d.pdf`                     |
+| Figure: ICC examples (`fig:icc-examples`)                            | `analysis/figures.py`                                        | `outputs/figures/fig_icc_examples.pdf`                   |
+| Figure: bifactor loading heatmap (`fig:factor-loadings`)             | `analysis/figures.py`                                        | `outputs/figures/fig_factor_loading_heatmap.pdf`         |
+| Figure: 2PL discrimination by tier (`fig:disc-tier`)                 | `analysis/figures.py`                                        | `outputs/figures/fig_discrim_by_tier.pdf`                |
+| Figure: test-information functions (`fig:item-info`)                 | `analysis/figures.py`                                        | `outputs/figures/fig_item_information.pdf`               |
+| Figure: DIF subgroup gaps (`fig:dif`)                                | `analysis/dif_analysis.py`                                   | `outputs/figures/fig_dif.pdf`                            |
+| Figure: caterpillar with bootstrap CIs (`fig:reliability`)           | `analysis/reliability.py`                                    | `outputs/figures/fig_caterpillar_ci.pdf`                 |
+| Figure: tinyBenchmarks-style accuracy                                | `analysis/tinybenchmark.py`                                  | `outputs/figures/fig_tinybenchmark.pdf`                  |
+| Figure: scaling law (θ vs log10 params)                              | `analysis/scaling_law.py`                                    | `outputs/figures/fig_scaling.pdf`                        |
+| Table: model fit comparison (`tab:model-fit`)                        | `analysis/fit_irt.py` + `analysis/baseline_nll.py`           | `outputs/irt/fit_table.csv`                              |
+| Table: per-test-taker observation counts (`tab:obs-counts`)          | `analysis/data_loader.py` via `export_manuscript_numbers.py` | `outputs/irt/headline_findings.json` (`obs_per_subject`) |
+| Table: full per-model rankings (`tab:full-rankings`)                 | `analysis/export_manuscript_numbers.py`                      | `outputs/results_numbers.tex`                            |
+| All inline `\newcommand{...}` macros (counts, ρ, F1, AUC, …)         | `analysis/export_manuscript_numbers.py`                      | `outputs/results_numbers.tex`                            |
 
 ---
 
@@ -375,21 +375,21 @@ in isolation without re-running the full pipeline.
 All stochastic steps are seeded so that every fit, baseline, and bootstrap
 in the analysis pipeline is bitwise reproducible:
 
-* The 90% / 10% train / test split used by every probabilistic model fit
+- The 90% / 10% train / test split used by every probabilistic model fit
   (`analysis/fit_irt.py`, `analysis/baseline_nll.py`,
   `analysis/bifactor_mirt.py`, `analysis/model_fit_metrics.py`,
   `analysis/fit_irt_by_tier.py`) is generated with `seed=0`.
-* Optimiser initialisation in IRT and bifactor MIRT fits is done under
+- Optimiser initialisation in IRT and bifactor MIRT fits is done under
   `torch.manual_seed(0)` immediately before the SVI / L-BFGS loop.
-* Bootstrap reliability CIs (`analysis/reliability.py`) and the
+- Bootstrap reliability CIs (`analysis/reliability.py`) and the
   tinyBenchmarks sub-sampler (`analysis/tinybenchmark.py`) use
   `np.random.default_rng(SEED=0)`.
-* The amortised image-IRT pilot (`analysis/amortized_irt.py`) sets both
+- The amortised image-IRT pilot (`analysis/amortized_irt.py`) sets both
   `torch.manual_seed(0)` and `np.random.default_rng(0)` before training.
 
 Re-running `scripts/refit_all.py` on a fresh checkout therefore reproduces
 the published numbers exactly. The Modal inference jobs in Steps 1–2 are
-*not* deterministic across runs (open-weights VLMs use sampling-based
+_not_ deterministic across runs (open-weights VLMs use sampling-based
 decoding, and the GPT-5.4 / GPT-4o Azure endpoints carry their own
 non-determinism); the committed `data/inference/*.json` snapshots are the
 exact inference outputs we used.
@@ -398,22 +398,22 @@ exact inference outputs we used.
 
 ## Outputs map
 
-| Path                                 | What it contains                                                                                   |
-| ------------------------------------ | -------------------------------------------------------------------------------------------------- |
-| `outputs/response_matrix.csv`        | J × I binary response matrix (rows = items, columns = test-takers) used by the IRT fits.           |
-| `outputs/results_numbers.tex`        | Auto-generated `\newcommand{...}` macros (counts, accuracies, fit stats) for the manuscript.       |
-| `outputs/tinybenchmark.csv`          | tinyBenchmarks-style sub-sampled accuracy estimates.                                               |
-| `outputs/baselines/`                 | Non-IRT references: aggregate / per-pathology / per-view / per-subgroup accuracy + P/R/F1.         |
-| `outputs/irt/fit_table.csv`          | Pooled headline fit comparison (logLik, AIC, BIC, df, RMSEA, M2, held-out NLL/F1/AUC).             |
-| `outputs/irt/item_params_*.csv`      | Pooled per-item parameters (difficulty β, discrimination a, factor loadings) for each model.       |
-| `outputs/irt/abilities_*.csv`        | Pooled per-test-taker abilities θ̂ for each fitted model.                                           |
-| `outputs/irt/predictions_*.npz`      | Pooled posterior predictive cell probabilities (gitignored; regenerated on each fit).               |
-| `outputs/irt/dif_*.csv`              | Pooled Differential Item Functioning by sex / age / view / AP-PA / anatomical group.               |
-| `outputs/irt/headline_findings.json` | Single-file summary of the headline numbers cited in the report.                                   |
-| `outputs/irt/figures/fig_*.{pdf,png}`| Pooled manuscript figures (caterpillar, ICC examples, item information, factor heatmap, scaling, …). |
-| `outputs/irt/by_tier/{tier}/`        | Per-tier IRT fits (`high`, `mid`, `low`, `na`) — fit_table.csv, item_params_*.csv, abilities_*.csv. |
-| `outputs/irt/by_tier/{tier}/figures/`| Per-tier figures (response heatmaps, caterpillars, ICC, information curves, difficulty, etc.).     |
-| `outputs/irt/by_tier/figures/`       | Cross-tier comparative figures (ability heatmap, model comparison, discrimination, panels, etc.).  |
+| Path                                  | What it contains                                                                                     |
+| ------------------------------------- | ---------------------------------------------------------------------------------------------------- |
+| `outputs/response_matrix.csv`         | J × I binary response matrix (rows = items, columns = test-takers) used by the IRT fits.             |
+| `outputs/results_numbers.tex`         | Auto-generated `\newcommand{...}` macros (counts, accuracies, fit stats) for the manuscript.         |
+| `outputs/tinybenchmark.csv`           | tinyBenchmarks-style sub-sampled accuracy estimates.                                                 |
+| `outputs/baselines/`                  | Non-IRT references: aggregate / per-pathology / per-view / per-subgroup accuracy + P/R/F1.           |
+| `outputs/irt/fit_table.csv`           | Pooled headline fit comparison (logLik, AIC, BIC, df, RMSEA, M2, held-out NLL/F1/AUC).               |
+| `outputs/irt/item_params_*.csv`       | Pooled per-item parameters (difficulty β, discrimination a, factor loadings) for each model.         |
+| `outputs/irt/abilities_*.csv`         | Pooled per-test-taker abilities θ̂ for each fitted model.                                             |
+| `outputs/irt/predictions_*.npz`       | Pooled posterior predictive cell probabilities (gitignored; regenerated on each fit).                |
+| `outputs/irt/dif_*.csv`               | Pooled Differential Item Functioning by sex / age / view / AP-PA / anatomical group.                 |
+| `outputs/irt/headline_findings.json`  | Single-file summary of the headline numbers cited in the report.                                     |
+| `outputs/irt/figures/fig_*.{pdf,png}` | Pooled manuscript figures (caterpillar, ICC examples, item information, factor heatmap, scaling, …). |
+| `outputs/irt/by_tier/{tier}/`         | Per-tier IRT fits (`high`, `mid`, `low`, `na`) — fit*table.csv, item_params*_.csv, abilities\__.csv. |
+| `outputs/irt/by_tier/{tier}/figures/` | Per-tier figures (response heatmaps, caterpillars, ICC, information curves, difficulty, etc.).       |
+| `outputs/irt/by_tier/figures/`        | Cross-tier comparative figures (ability heatmap, model comparison, discrimination, panels, etc.).    |
 
 ---
 
@@ -431,11 +431,10 @@ distinguish **fine-grained discrimination** (high-prevalence) from **recall/cove
 
 ### Key modules for stratified analysis
 
-| Module | Purpose |
-| ------ | ------- |
-| `analysis/fit_irt_by_tier.py` | Fit Rasch/2PL/3PL + factor models for each tier independently. Outputs per-tier fit tables, item parameters, and abilities. |
+| Module                        | Purpose                                                                                                                                                                           |
+| ----------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `analysis/fit_irt_by_tier.py` | Fit Rasch/2PL/3PL + factor models for each tier independently. Outputs per-tier fit tables, item parameters, and abilities.                                                       |
 | `analysis/figures_by_tier.py` | Generate ~100 per-tier and cross-tier figures: ability heatmaps, caterpillars, item-information curves, difficulty distributions, factor loadings, and pairwise tier comparisons. |
-| `analysis/stratified_irt_methodology.md` | Detailed design rationale for tier assignment, item-set consistency, subject sharing, and rejected alternatives. |
 
 ### Stratified outputs in `outputs/irt/by_tier/`
 
@@ -457,18 +456,14 @@ outputs/irt/by_tier/
     └── ... [~20 more cross-tier figures]
 ```
 
-For full methodology details, see `analysis/stratified_irt_methodology.md`.
-
 ---
-
-
 
 Raw imaging data is **not** committed to this repo. Source source datasets
 require an external research agreement:
 
 | Dataset             | Size        | Conditions | Access                                                                         |
-| ------------------- | ----------- | ---------- | ------------------------------------------------------------------------------ |
-| CheXpert (Stanford) | 224K images | 14         | [Research agreement](https://stanfordmlgroup.github.io/competitions/chexpert/) |        |
+| ------------------- | ----------- | ---------- | ------------------------------------------------------------------------------ | --- |
+| CheXpert (Stanford) | 224K images | 14         | [Research agreement](https://stanfordmlgroup.github.io/competitions/chexpert/) |     |
 
 After agreeing to the CheXpert terms, you receive a SAS URL — that is the
 value you paste into `modal secret create chexpert-secret CHEXPERT_SAS_URL="..."`
