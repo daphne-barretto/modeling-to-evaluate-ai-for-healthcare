@@ -6,6 +6,30 @@ Stanford University
 
 ---
 
+## Abstract
+
+As AI diagnostic systems move toward clinical deployment, the metrics used
+to evaluate them must match the stakes of the decisions they inform.
+Aggregate accuracy is insufficient for evaluating AI diagnostic systems in
+healthcare, particularly when identifying uncommon but high-risk conditions
+is essential. In this work, we apply probabilistic measurement models from
+psychometrics to demonstrate that richer evaluation frameworks reveal
+systematic structure in AI performance that scalar metrics obscure.
+Specifically, we fit Rasch/1PL, 2PL, and Factor models to a binary response
+matrix constructed from a diverse set of multimodal AI models, spanning
+proprietary frontier and open-source domain-specific AIs, and evaluated on
+the [CheXpert](https://stanfordmlgroup.github.io/competitions/chexpert/)
+chest radiograph dataset. We hypothesize that these models will uncover
+meaningful variation in item difficulty, item discrimination, and
+multidimensionality that aggregate accuracy fails to capture, and we
+compare model fit to determine which probabilistic framework best
+characterizes the latent structure of AI diagnostic capability for our
+healthcare imaging application. Our findings aim to inform governance and
+deployment decisions by providing actionable, item-level insight into
+where and how AI can fail.
+
+---
+
 ## Repository structure
 
 ```
